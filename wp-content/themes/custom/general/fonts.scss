@@ -1,0 +1,297 @@
+@font-face {
+    font-family: 'Shallota-Extralight';
+    src: url('fonts/Shallota/Shallota-ExtraLight.otf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shallota-Regular';
+    src: url('fonts/Shallota/Shallota-Regular.otf');
+    // src: url('fonts/Shallota/Shallota-ExtraLight.woff');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Urbanist';
+    src: url('fonts/Urbanist/Urbanist-VariableFont_wght.ttf') format("truetype-variations");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Urbanist-canvas';
+    src: url('fonts/Urbanist/static/Urbanist-Medium.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Shallota-canvas';
+    src: url('fonts/Shallota/Shallota-Regular.otf');
+    font-display: swap;
+}
+
+@mixin body_16_480{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 420;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;    
+    color: #000000;
+
+    @include windowMax1440p {
+        // font-size: 14px;
+        // line-height: 26px;
+
+        //probably not needed - footer, testimonials job, clients text, team text
+    }
+}
+
+@mixin body_16_500{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 500;
+    font-size: 16px;
+    line-height: 24px;   
+    letter-spacing: 0.1em; 
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 14px;
+        line-height: 26px;
+    }
+}
+
+@mixin body_16_580{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 480;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 14px;
+        line-height: 26px;
+    }
+}
+
+@mixin btn_text_16_580{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 580;
+    // font-weight: 580;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.04em;    
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    @include mobileMax952p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+@mixin body_16_600{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 600;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 0.08em;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 14px;
+        line-height: 26px;
+    }
+}
+
+@mixin body_20_500{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.06em;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    @include mobileMax952p(){
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.06em;
+    }
+}
+
+@mixin body_20_580{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 580;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.06em;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    @include mobileMax952p(){
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.06em;
+    }
+}
+
+@mixin body_24_480{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 480;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    @include mobileMax952p {
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;
+    }
+}
+
+
+
+@mixin body_48_480{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 420;
+    font-size: 48px;
+    line-height: 68px;
+    // letter-spacing: 0.02em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 36px;
+        line-height: 56px;
+    }
+
+    @include mobileMax952p {
+        font-size: 24px;
+        line-height: 40px;
+    }
+}
+
+@mixin headline_40{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 500;
+    font-size: 40px;
+    line-height: 56px;
+    letter-spacing: 0.06em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 32px;
+        line-height: 42px;
+    }
+
+    @include mobileMax952p {
+        font-variation-settings: 'wght' 480;
+        font-size: 24px;
+        line-height: 36px;
+    }
+}
+
+@mixin headline_64{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 400;
+    font-size: 64px;
+    line-height: 84px;
+    letter-spacing: 0.02em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 52px;
+        line-height: 72px;
+    }
+
+    @include mobileMax952p {
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: 0.06em;
+    }
+}
+
+@mixin headline_96{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 500;
+    font-size: 96px;
+    line-height: 104px;
+    letter-spacing: 0.04em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 80px;
+        line-height: 88px;
+    }
+}
+
+@mixin headline_104{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 490;
+    font-size: 104px;
+    line-height: 128px;
+    letter-spacing: 0.04em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+}
+
+@mixin headline_136{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 480;
+    font-size: 136px;
+    line-height: 164px;
+    letter-spacing: 0.02em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+}
+
+@mixin headline_156{
+    font-family: 'Urbanist';
+    font-style: normal;
+    font-variation-settings: 'wght' 480;
+    font-size: 156px;
+    line-height: 184px;
+    // letter-spacing: 0.01em;
+    // font-feature-settings: 'liga' off;
+    color: #000000;
+
+    @include windowMax1440p {
+        font-size: 120px;
+        line-height: 150px;
+    }
+}

@@ -1,0 +1,124 @@
+.open-positions {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    .position {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        height: 160px;
+
+        box-sizing: border-box;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+        color: unset;
+        text-decoration: none;
+
+        background-color: rgba(255, 255, 255, 0);;
+        padding: 0;
+
+        @include windowMax1440p {
+            height: 128px;
+        }
+
+        &::before {
+            content: " ";
+            position: absolute;
+            top: -200%;
+            width: 100%;
+            height: 200%;
+            border-radius: 0 0 50% 50%;
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+
+        @media (hover: hover) {
+            transition-timing-function: ease-in-out;
+
+            &::before {
+                transition: top 0.8s;
+            }
+
+            h2, h3 {
+                position: relative;
+                left: 0;
+                transition: left 0.4s;
+            }
+
+            svg {
+                position: relative;
+                right: 0;
+                transition: right 0.4s;
+            }
+
+            &:hover {
+                &::before {
+                    top: 0;
+                }
+                h2, h3 {
+                    left: 56px;
+                }
+
+                svg {
+                    right: 56px;
+                }
+            }
+        }
+
+        h2, h3 {
+            @include body_24_480();
+            color: #FFFFFF;
+            width: 256px;
+            overflow: visible;
+
+            @include windowMax1440p {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 28px;
+            }
+        }
+
+        p {
+            @include body_16_580();
+            color: #FFFFFF;
+            
+
+            @include windowMax1440p {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+
+        .working-time {
+            width: 80px;
+            overflow: visible;
+        }
+        .office {
+            width: 170px;
+            overflow: visible;
+        }
+    }
+
+    @include mobileMax952p(){
+        .position {
+            position: relative;
+            height: 80px;
+
+            h2, h3 {
+                @include body_24_480();
+                color: #FFFFFF;
+            }
+
+            p {
+                display: none;
+            }
+        }
+    }
+}

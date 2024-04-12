@@ -1,0 +1,387 @@
+.team{
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+    // background: #19171E;
+    background: #0E0E13;
+    overflow: visible;
+    padding-bottom: 400px;
+    margin-top: -2px;
+
+    @include windowMax1440p {
+        padding-bottom: 360px;
+    }
+
+    @include windowMax1280p {
+        padding-bottom: 360px;
+    }
+    
+    .container:nth-of-type(1) {
+        position: relative;
+        overflow: visible;
+        height: 1800px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .headline-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .headline-wrapper {
+        position: relative;
+        width: 100%;
+        // margin: auto 0;
+        // top: 50%;
+        // transform: translateY(-50%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .ripples-wrapper {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        // background-color: rgba(255, 0, 0, 0.3);
+        z-index: 100;
+
+        #canvas {
+            z-index: 1000;
+        }
+    }
+
+    .h2-wrap {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: baseline;
+        // max-height: 136px;
+        @include windowMax1440p {
+            // max-height: 148px;
+        }
+    }
+
+    h2 {
+        @include headline_136();
+        position: relative;
+        display: inline;
+        color: #FFFFFF;
+        z-index: -10000;
+        opacity: 0;
+
+        span, &.h2-shallota {
+            font-family: 'Shallota-Regular';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 164px;
+            line-height: 164px;
+            letter-spacing: 0.03em;
+            // font-feature-settings: 'liga' off;
+            color: #FFFFFF;
+        }
+        @include windowMax1440p {
+            font-size: 120px;
+            line-height: 148px;
+            span, &.h2-shallota {
+                font-size: 144px;
+                line-height: 144px;
+            }
+        }
+    }
+
+    &.--no-ripples {
+        h2 {
+            z-index: -10000;
+            opacity: 1;
+        }
+    }
+
+    .instagram-btn {
+        @include btn_text_16_580();        
+
+        position: relative;
+        z-index: 100000;
+        // margin-top: 48px;
+
+        color: #FFFFFF;
+        text-decoration: none;
+
+        box-sizing: border-box;
+        padding: 22px 40px;
+        cursor: none;
+        // border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 100px;
+        margin-top: 16px;
+
+        @include windowMax1440p {
+            margin-top: 0px;
+            padding: 18px 32px;
+        }
+    }
+
+    .photos-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .team-photo {
+        position: absolute;
+        z-index: 0;
+        @include windowMax1440p {
+            transform: scale(0.8);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &__first {
+            width: 528px;
+            height: 758px;
+            top: 483px;
+            left: 0;
+            opacity: 0.5;
+            @include windowMax1440p {
+                width: calc(528px*0.9);
+                height: calc(758px*0.9);
+            }
+        }
+        &__second {
+            width: 416px;
+            height: 416px;
+            top: 220px;
+            right: 175px;
+            opacity: 0.7;
+            @include windowMax1440p {
+                top: 240px;
+            }
+        }
+        &__third {
+            width: 440px;
+            height: 296px;
+            top: 1329px;
+            left: 312px;
+            opacity: 0.5;
+            @include windowMax1440p {
+                top: 1160px;
+                left: 240px;
+            }
+        }
+        &__fourth {
+            width: 423px;
+            height: 660px;
+            top: 1146px;
+            right: 0;
+            opacity: 0.5;
+            @include windowMax1440p {
+                top: 1029px;
+            }
+        }
+    }
+
+    .numbers-container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1222px;
+        margin-top: 580px;
+
+        @include windowMax1440p {
+            margin-top: 300px;
+            max-width: 1020px;
+        }
+
+        .line {
+            position: absolute;
+            top: 168px;
+            left: 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        
+            @include windowMax1440p {
+                top: 120px;
+                width: 90%;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+
+        }
+    }
+
+    .stat {
+        // height: 292px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: 132px;
+
+        @include windowMax1440p {
+            // height: 220px;
+            row-gap: 80px;
+        }
+
+        &__number {
+            @include headline_96();
+            color: #FFFFFF;
+        }
+
+        &__text {
+            @include body_16_480();
+            color: #FFFFFF;
+            text-align: center;
+            opacity: 0.6;
+            max-width: 283px;
+
+            @include windowMax1440p {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+    }
+
+    @include mobileMax952p {
+        padding-bottom: 208px;
+        margin-top: -2px;
+        // overflow: hidden;
+
+        .container:nth-of-type(1) {
+            overflow: visible;
+            height: 794px;
+        }
+
+        .ripples-wrapper {
+            display: none;
+        }
+
+        .h2-wrap {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            display: block;
+            font-size: 13vw;
+            line-height: 0.95em;
+            text-align: center;
+            opacity: 1;
+            span, &.h2-shallota {
+                margin-top: 8px;
+                font-size: 16vw;
+                line-height: 16vw;
+            }
+
+            @include mobileMax768p {
+                font-size: 18vw;
+                span, &.h2-shallota {
+                    font-size: 22vw;
+                    line-height: 22vw;
+                }
+            }
+        }
+
+        .numbers-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            row-gap: 88px;
+    
+            margin-top: 500px;
+    
+            .line {
+                display: none;
+            }
+        }
+    
+        .stat {
+            height: auto;
+            row-gap: 32px;
+    
+            &__number {
+                font-size: 64px;
+                line-height: 72px;
+            }
+            &__text {
+                max-width: 283px;
+            }
+        }
+        .instagram-btn {
+            font-size: 14px;
+            line-height: 24px;
+            padding: 16px 32px;
+            margin-top: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .photos-container {
+            position: absolute;
+            height: 794px;
+            width: 581px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .team-photo {
+            position: absolute;
+            z-index: 0;
+
+            &__first {
+                width: calc(528px*0.45);
+                height: calc(758px*0.45);
+                top: 91px;
+                left: 0;
+                opacity: 0.5;
+            }
+            &__second {
+                width: calc(416px*0.45);
+                height: calc(416px*0.45);
+                top: 0;
+                right: 60px;
+                opacity: 0.7;
+            }
+            &__third {
+                width: calc(440px*0.45);
+                height: calc(296px*0.45);
+                top: unset;
+                bottom: 100px;
+                left: 80px;
+                opacity: 0.5;
+            }
+            &__fourth {
+                width: calc(423px*0.45);
+                height: calc(660px*0.45);
+                top: unset;
+                bottom: 0;
+                right: 0;
+                opacity: 0.5;
+            }
+        }
+    }
+
+}

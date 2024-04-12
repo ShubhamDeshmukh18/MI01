@@ -1,0 +1,65 @@
+html {
+    background-color: #0E0E13;
+}
+
+body {
+    background-color: #FFFFFF;
+}
+
+.loader{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+    background-color: #0E0E13;
+    // background-color: #000000;
+    // background-color: red;
+
+    top: 0;
+    left: 0;
+    z-index: 10000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader-gif {
+        width: 360px;
+    }
+    
+    .loader-wave {
+        position: absolute;
+        bottom: 1px;
+        left: 50%;
+        width: 100%;
+        height: auto;
+        transform: translate(-50%, 100%);
+        transform-origin: top center;
+        overflow: visible;
+
+        svg {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: auto;
+            object-fit: fill;
+            transform-origin: top center;
+            // transform: scaleY(0);
+        }
+    }
+
+    &.--fast {
+        .loader-gif {
+            display: none;
+        }
+    }
+
+    @include mobileMax952p {
+        width: 100%;
+        max-width: 100vw;
+        .loader-gif {
+            padding-bottom: 80px;
+            width: 200px;
+        }
+    }
+}

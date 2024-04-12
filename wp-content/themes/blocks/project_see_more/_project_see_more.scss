@@ -1,0 +1,153 @@
+.project-see-more {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0E0E13;
+
+    overflow: visible;
+    box-sizing: border-box;
+
+    padding: 360px 0 480px 0;
+
+    @include windowMax1440p {
+        padding: 260px 0 380px 0;
+    }
+
+    @include windowMax1280p {
+        padding-bottom: 280px;
+    }
+
+    h2 {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 520;
+        font-size: 136px;
+        line-height: 164px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+
+        @include windowMax1440p {
+            font-size: 120px;
+            line-height: 148px;
+        }
+
+        span {
+            font-family: 'Shallota-Extralight';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 164px;
+            line-height: 164px;
+            color: #FFFFFF;
+            // font-feature-settings: 'liga' off;
+
+            @include windowMax1440p {
+                font-size: 144px;
+                line-height: 144px;  
+            }
+        }
+
+    }
+
+    .container {
+        margin-top: 120px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        column-gap: 48px;
+    }
+
+    .project {
+        position: relative;
+        height: auto;
+
+        text-decoration: none;
+        cursor: none;
+
+        @include imgScaleHover();
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        &__name {
+            @include body_20_580();
+            color: #FFFFFF;
+
+            margin-top: 40px;
+
+            @include windowMax1440p {
+                margin-top: 24px;
+            }
+        }
+
+        &__description {
+            @include body_20_500();
+            color: #FFFFFF;
+            opacity: 0.5;
+
+            margin-top: 8px;
+            span {
+                font-weight: 1000;
+            }
+
+            @include windowMax1440p {
+                margin-top: 4px;
+            }
+        }
+    }
+
+    @include mobileMax952p {
+
+        padding: 200px 0 220px 0;
+
+        h2 {
+            font-size: 13vw;
+            line-height: 0.92em;
+            span {
+                font-size: 15.15vw;
+                line-height: 1em;
+            }
+        }
+
+        .container {
+            position: relative;
+            // max-width: 600px;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            row-gap: 64px;
+            
+            margin-top: 64px;
+        }
+
+        .project {
+            position: relative;
+            height: auto;
+
+            width: 100%;
+            margin: 0;
+            transform: none;
+    
+            &__img {
+                width: 100%;
+            }
+    
+            &__name {
+                margin-top: 24px;
+            }
+    
+            &__description {
+                margin-top: 4px;
+            }
+        }
+    }
+
+
+}

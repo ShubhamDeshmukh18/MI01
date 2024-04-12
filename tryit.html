@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0E0E13">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="facebook-domain-verification" content="py11uqn04pr5rql7tqfhu7r49whs9v" />
+
+    <script data-cfasync="false" data-no-defer="1">
+        var ewww_webp_supported = !1;
+
+        function check_webp_feature(A, e) {
+            var w;
+            e = void 0 !== e ? e : function() {}, ewww_webp_supported ? e(ewww_webp_supported) : ((w = new Image).onload = function() {
+                ewww_webp_supported = 0 < w.width && 0 < w.height, e && e(ewww_webp_supported)
+            }, w.onerror = function() {
+                e && e(!1)
+            }, w.src = "data:image/webp;base64," + {
+                alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="
+            }[A])
+        }
+        check_webp_feature("alpha");
+    </script>
+    <script data-cfasync="false" data-no-defer="1">
+        var Arrive = function(c, w) {
+                "use strict";
+                if (c.MutationObserver && "undefined" != typeof HTMLElement) {
+                    var r, a = 0,
+                        u = (r = HTMLElement.prototype.matches || HTMLElement.prototype.webkitMatchesSelector || HTMLElement.prototype.mozMatchesSelector || HTMLElement.prototype.msMatchesSelector, {
+                            matchesSelector: function(e, t) {
+                                return e instanceof HTMLElement && r.call(e, t)
+                            },
+                            addMethod: function(e, t, r) {
+                                var a = e[t];
+                                e[t] = function() {
+                                    return r.length == arguments.length ? r.apply(this, arguments) : "function" == typeof a ? a.apply(this, arguments) : void 0
+                                }
+                            },
+                            callCallbacks: function(e, t) {
+                                t && t.options.onceOnly && 1 == t.firedElems.length && (e = [e[0]]);
+                                for (var r, a = 0; r = e[a]; a++) r && r.callback && r.callback.call(r.elem, r.elem);
+                                t && t.options.onceOnly && 1 == t.firedElems.length && t.me.unbindEventWithSelectorAndCallback.call(t.target, t.selector, t.callback)
+                            },
+                            checkChildNodesRecursively: function(e, t, r, a) {
+                                for (var i, n = 0; i = e[n]; n++) r(i, t, a) && a.push({
+                                    callback: t.callback,
+                                    elem: i
+                                }), 0 < i.childNodes.length && u.checkChildNodesRecursively(i.childNodes, t, r, a)
+                            },
+                            mergeArrays: function(e, t) {
+                                var r, a = {};
+                                for (r in e) e.hasOwnProperty(r) && (a[r] = e[r]);
+                                for (r in t) t.hasOwnProperty(r) && (a[r] = t[r]);
+                                return a
+                            },
+                            toElementsArray: function(e) {
+                                return e = void 0 !== e && ("number" != typeof e.length || e === c) ? [e] : e
+                            }
+                        }),
+                        e = (l.prototype.addEvent = function(e, t, r, a) {
+                            a = {
+                                target: e,
+                                selector: t,
+                                options: r,
+                                callback: a,
+                                firedElems: []
+                            };
+                            return this._beforeAdding && this._beforeAdding(a), this._eventsBucket.push(a), a
+                        }, l.prototype.removeEvent = function(e) {
+                            for (var t, r = this._eventsBucket.length - 1; t = this._eventsBucket[r]; r--) e(t) && (this._beforeRemoving && this._beforeRemoving(t), (t = this._eventsBucket.splice(r, 1)) && t.length && (t[0].callback = null))
+                        }, l.prototype.beforeAdding = function(e) {
+                            this._beforeAdding = e
+                        }, l.prototype.beforeRemoving = function(e) {
+                            this._beforeRemoving = e
+                        }, l),
+                        t = function(i, n) {
+                            var o = new e,
+                                l = this,
+                                s = {
+                                    fireOnAttributesModification: !1
+                                };
+                            return o.beforeAdding(function(t) {
+                                var e = t.target;
+                                e !== c.document && e !== c || (e = document.getElementsByTagName("html")[0]);
+                                var r = new MutationObserver(function(e) {
+                                        n.call(this, e, t)
+                                    }),
+                                    a = i(t.options);
+                                r.observe(e, a), t.observer = r, t.me = l
+                            }), o.beforeRemoving(function(e) {
+                                e.observer.disconnect()
+                            }), this.bindEvent = function(e, t, r) {
+                                t = u.mergeArrays(s, t);
+                                for (var a = u.toElementsArray(this), i = 0; i < a.length; i++) o.addEvent(a[i], e, t, r)
+                            }, this.unbindEvent = function() {
+                                var r = u.toElementsArray(this);
+                                o.removeEvent(function(e) {
+                                    for (var t = 0; t < r.length; t++)
+                                        if (this === w || e.target === r[t]) return !0;
+                                    return !1
+                                })
+                            }, this.unbindEventWithSelectorOrCallback = function(r) {
+                                var a = u.toElementsArray(this),
+                                    i = r,
+                                    e = "function" == typeof r ? function(e) {
+                                        for (var t = 0; t < a.length; t++)
+                                            if ((this === w || e.target === a[t]) && e.callback === i) return !0;
+                                        return !1
+                                    } : function(e) {
+                                        for (var t = 0; t < a.length; t++)
+                                            if ((this === w || e.target === a[t]) && e.selector === r) return !0;
+                                        return !1
+                                    };
+                                o.removeEvent(e)
+                            }, this.unbindEventWithSelectorAndCallback = function(r, a) {
+                                var i = u.toElementsArray(this);
+                                o.removeEvent(function(e) {
+                                    for (var t = 0; t < i.length; t++)
+                                        if ((this === w || e.target === i[t]) && e.selector === r && e.callback === a) return !0;
+                                    return !1
+                                })
+                            }, this
+                        },
+                        i = new function() {
+                            var s = {
+                                fireOnAttributesModification: !1,
+                                onceOnly: !1,
+                                existing: !1
+                            };
+
+                            function n(e, t, r) {
+                                return !(!u.matchesSelector(e, t.selector) || (e._id === w && (e._id = a++), -1 != t.firedElems.indexOf(e._id))) && (t.firedElems.push(e._id), !0)
+                            }
+                            var c = (i = new t(function(e) {
+                                var t = {
+                                    attributes: !1,
+                                    childList: !0,
+                                    subtree: !0
+                                };
+                                return e.fireOnAttributesModification && (t.attributes = !0), t
+                            }, function(e, i) {
+                                e.forEach(function(e) {
+                                    var t = e.addedNodes,
+                                        r = e.target,
+                                        a = [];
+                                    null !== t && 0 < t.length ? u.checkChildNodesRecursively(t, i, n, a) : "attributes" === e.type && n(r, i) && a.push({
+                                        callback: i.callback,
+                                        elem: r
+                                    }), u.callCallbacks(a, i)
+                                })
+                            })).bindEvent;
+                            return i.bindEvent = function(e, t, r) {
+                                t = void 0 === r ? (r = t, s) : u.mergeArrays(s, t);
+                                var a = u.toElementsArray(this);
+                                if (t.existing) {
+                                    for (var i = [], n = 0; n < a.length; n++)
+                                        for (var o = a[n].querySelectorAll(e), l = 0; l < o.length; l++) i.push({
+                                            callback: r,
+                                            elem: o[l]
+                                        });
+                                    if (t.onceOnly && i.length) return r.call(i[0].elem, i[0].elem);
+                                    setTimeout(u.callCallbacks, 1, i)
+                                }
+                                c.call(this, e, t, r)
+                            }, i
+                        },
+                        o = new function() {
+                            var a = {};
+
+                            function i(e, t) {
+                                return u.matchesSelector(e, t.selector)
+                            }
+                            var n = (o = new t(function() {
+                                return {
+                                    childList: !0,
+                                    subtree: !0
+                                }
+                            }, function(e, r) {
+                                e.forEach(function(e) {
+                                    var t = e.removedNodes,
+                                        e = [];
+                                    null !== t && 0 < t.length && u.checkChildNodesRecursively(t, r, i, e), u.callCallbacks(e, r)
+                                })
+                            })).bindEvent;
+                            return o.bindEvent = function(e, t, r) {
+                                t = void 0 === r ? (r = t, a) : u.mergeArrays(a, t), n.call(this, e, t, r)
+                            }, o
+                        };
+                    d(HTMLElement.prototype), d(NodeList.prototype), d(HTMLCollection.prototype), d(HTMLDocument.prototype), d(Window.prototype);
+                    var n = {};
+                    return s(i, n, "unbindAllArrive"), s(o, n, "unbindAllLeave"), n
+                }
+
+                function l() {
+                    this._eventsBucket = [], this._beforeAdding = null, this._beforeRemoving = null
+                }
+
+                function s(e, t, r) {
+                    u.addMethod(t, r, e.unbindEvent), u.addMethod(t, r, e.unbindEventWithSelectorOrCallback), u.addMethod(t, r, e.unbindEventWithSelectorAndCallback)
+                }
+
+                function d(e) {
+                    e.arrive = i.bindEvent, s(i, e, "unbindArrive"), e.leave = o.bindEvent, s(o, e, "unbindLeave")
+                }
+            }(window, void 0),
+            ewww_webp_supported = !1;
+
+        function check_webp_feature(e, t) {
+            var r;
+            ewww_webp_supported ? t(ewww_webp_supported) : ((r = new Image).onload = function() {
+                ewww_webp_supported = 0 < r.width && 0 < r.height, t(ewww_webp_supported)
+            }, r.onerror = function() {
+                t(!1)
+            }, r.src = "data:image/webp;base64," + {
+                alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+                animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+            }[e])
+        }
+
+        function ewwwLoadImages(e) {
+            if (e) {
+                for (var t = document.querySelectorAll(".batch-image img, .image-wrapper a, .ngg-pro-masonry-item a, .ngg-galleria-offscreen-seo-wrapper a"), r = 0, a = t.length; r < a; r++) ewwwAttr(t[r], "data-src", t[r].getAttribute("data-webp")), ewwwAttr(t[r], "data-thumbnail", t[r].getAttribute("data-webp-thumbnail"));
+                for (var i = document.querySelectorAll(".rev_slider ul li"), r = 0, a = i.length; r < a; r++) {
+                    ewwwAttr(i[r], "data-thumb", i[r].getAttribute("data-webp-thumb"));
+                    for (var n = 1; n < 11;) ewwwAttr(i[r], "data-param" + n, i[r].getAttribute("data-webp-param" + n)), n++
+                }
+                for (r = 0, a = (i = document.querySelectorAll(".rev_slider img")).length; r < a; r++) ewwwAttr(i[r], "data-lazyload", i[r].getAttribute("data-webp-lazyload"));
+                for (var o = document.querySelectorAll("div.woocommerce-product-gallery__image"), r = 0, a = o.length; r < a; r++) ewwwAttr(o[r], "data-thumb", o[r].getAttribute("data-webp-thumb"))
+            }
+            for (var l = document.querySelectorAll("video"), r = 0, a = l.length; r < a; r++) ewwwAttr(l[r], "poster", e ? l[r].getAttribute("data-poster-webp") : l[r].getAttribute("data-poster-image"));
+            for (var s, c = document.querySelectorAll("img.ewww_webp_lazy_load"), r = 0, a = c.length; r < a; r++) e && (ewwwAttr(c[r], "data-lazy-srcset", c[r].getAttribute("data-lazy-srcset-webp")), ewwwAttr(c[r], "data-srcset", c[r].getAttribute("data-srcset-webp")), ewwwAttr(c[r], "data-lazy-src", c[r].getAttribute("data-lazy-src-webp")), ewwwAttr(c[r], "data-src", c[r].getAttribute("data-src-webp")), ewwwAttr(c[r], "data-orig-file", c[r].getAttribute("data-webp-orig-file")), ewwwAttr(c[r], "data-medium-file", c[r].getAttribute("data-webp-medium-file")), ewwwAttr(c[r], "data-large-file", c[r].getAttribute("data-webp-large-file")), null != (s = c[r].getAttribute("srcset")) && !1 !== s && s.includes("R0lGOD") && ewwwAttr(c[r], "src", c[r].getAttribute("data-lazy-src-webp"))), c[r].className = c[r].className.replace(/\bewww_webp_lazy_load\b/, "");
+            for (var w = document.querySelectorAll(".ewww_webp"), r = 0, a = w.length; r < a; r++) e ? (ewwwAttr(w[r], "srcset", w[r].getAttribute("data-srcset-webp")), ewwwAttr(w[r], "src", w[r].getAttribute("data-src-webp")), ewwwAttr(w[r], "data-orig-file", w[r].getAttribute("data-webp-orig-file")), ewwwAttr(w[r], "data-medium-file", w[r].getAttribute("data-webp-medium-file")), ewwwAttr(w[r], "data-large-file", w[r].getAttribute("data-webp-large-file")), ewwwAttr(w[r], "data-large_image", w[r].getAttribute("data-webp-large_image")), ewwwAttr(w[r], "data-src", w[r].getAttribute("data-webp-src"))) : (ewwwAttr(w[r], "srcset", w[r].getAttribute("data-srcset-img")), ewwwAttr(w[r], "src", w[r].getAttribute("data-src-img"))), w[r].className = w[r].className.replace(/\bewww_webp\b/, "ewww_webp_loaded");
+            window.jQuery && jQuery.fn.isotope && jQuery.fn.imagesLoaded && (jQuery(".fusion-posts-container-infinite").imagesLoaded(function() {
+                jQuery(".fusion-posts-container-infinite").hasClass("isotope") && jQuery(".fusion-posts-container-infinite").isotope()
+            }), jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").imagesLoaded(function() {
+                jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").isotope()
+            }))
+        }
+
+        function ewwwWebPInit(e) {
+            ewwwLoadImages(e), ewwwNggLoadGalleries(e), document.arrive(".ewww_webp", function() {
+                ewwwLoadImages(e)
+            }), document.arrive(".ewww_webp_lazy_load", function() {
+                ewwwLoadImages(e)
+            }), document.arrive("videos", function() {
+                ewwwLoadImages(e)
+            }), "loading" == document.readyState ? document.addEventListener("DOMContentLoaded", ewwwJSONParserInit) : ("undefined" != typeof galleries && ewwwNggParseGalleries(e), ewwwWooParseVariations(e))
+        }
+
+        function ewwwAttr(e, t, r) {
+            null != r && !1 !== r && e.setAttribute(t, r)
+        }
+
+        function ewwwJSONParserInit() {
+            "undefined" != typeof galleries && check_webp_feature("alpha", ewwwNggParseGalleries), check_webp_feature("alpha", ewwwWooParseVariations)
+        }
+
+        function ewwwWooParseVariations(e) {
+            if (e)
+                for (var t = document.querySelectorAll("form.variations_form"), r = 0, a = t.length; r < a; r++) {
+                    var i = t[r].getAttribute("data-product_variations"),
+                        n = !1;
+                    try {
+                        for (var o in i = JSON.parse(i)) void 0 !== i[o] && void 0 !== i[o].image && (void 0 !== i[o].image.src_webp && (i[o].image.src = i[o].image.src_webp, n = !0), void 0 !== i[o].image.srcset_webp && (i[o].image.srcset = i[o].image.srcset_webp, n = !0), void 0 !== i[o].image.full_src_webp && (i[o].image.full_src = i[o].image.full_src_webp, n = !0), void 0 !== i[o].image.gallery_thumbnail_src_webp && (i[o].image.gallery_thumbnail_src = i[o].image.gallery_thumbnail_src_webp, n = !0), void 0 !== i[o].image.thumb_src_webp && (i[o].image.thumb_src = i[o].image.thumb_src_webp, n = !0));
+                        n && ewwwAttr(t[r], "data-product_variations", JSON.stringify(i))
+                    } catch (e) {}
+                }
+        }
+
+        function ewwwNggParseGalleries(e) {
+            if (e)
+                for (var t in galleries) {
+                    var r = galleries[t];
+                    galleries[t].images_list = ewwwNggParseImageList(r.images_list)
+                }
+        }
+
+        function ewwwNggLoadGalleries(e) {
+            e && document.addEventListener("ngg.galleria.themeadded", function(e, t) {
+                window.ngg_galleria._create_backup = window.ngg_galleria.create, window.ngg_galleria.create = function(e, t) {
+                    var r = $(e).data("id");
+                    return galleries["gallery_" + r].images_list = ewwwNggParseImageList(galleries["gallery_" + r].images_list), window.ngg_galleria._create_backup(e, t)
+                }
+            })
+        }
+
+        function ewwwNggParseImageList(e) {
+            for (var t in e) {
+                var r = e[t];
+                if (void 0 !== r["image-webp"] && (e[t].image = r["image-webp"], delete e[t]["image-webp"]), void 0 !== r["thumb-webp"] && (e[t].thumb = r["thumb-webp"], delete e[t]["thumb-webp"]), void 0 !== r.full_image_webp && (e[t].full_image = r.full_image_webp, delete e[t].full_image_webp), void 0 !== r.srcsets)
+                    for (var a in r.srcsets) nggSrcset = r.srcsets[a], void 0 !== r.srcsets[a + "-webp"] && (e[t].srcsets[a] = r.srcsets[a + "-webp"], delete e[t].srcsets[a + "-webp"]);
+                if (void 0 !== r.full_srcsets)
+                    for (var i in r.full_srcsets) nggFSrcset = r.full_srcsets[i], void 0 !== r.full_srcsets[i + "-webp"] && (e[t].full_srcsets[i] = r.full_srcsets[i + "-webp"], delete e[t].full_srcsets[i + "-webp"])
+            }
+            return e
+        }
+        check_webp_feature("alpha", ewwwWebPInit);
+    </script>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <!-- Google Tag Manager for WordPress by gtm4wp.com -->
+    <script data-cfasync="false" data-pagespeed-no-defer>
+        var gtm4wp_datalayer_name = "dataLayer";
+        var dataLayer = dataLayer || [];
+
+        const gtm4wp_scrollerscript_debugmode = false;
+        const gtm4wp_scrollerscript_callbacktime = 100;
+        const gtm4wp_scrollerscript_readerlocation = 150;
+        const gtm4wp_scrollerscript_contentelementid = "content";
+        const gtm4wp_scrollerscript_scannertime = 60;
+    </script>
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <!-- This site is optimized with the Yoast SEO plugin v19.8 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>Blog Archive - Blackfish</title>
+    <link rel="canonical" href="https://blackfish.co/blog/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog Archive - Blackfish" />
+    <meta property="og:url" content="https://blackfish.co/blog/" />
+    <meta property="og:site_name" content="Blackfish" />
+    <meta property="og:image" content="https://blackfish.co/wp-content/uploads/2023/01/shareImage.jpg" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="945" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@blackfishdotco" />
+    <script type="application/ld+json" class="yoast-schema-graph">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "CollectionPage",
+                "@id": "https://blackfish.co/blog/",
+                "url": "https://blackfish.co/blog/",
+                "name": "Blog Archive - Blackfish",
+                "isPartOf": {
+                    "@id": "https://blackfish.co/#website"
+                },
+                "breadcrumb": {
+                    "@id": "https://blackfish.co/blog/#breadcrumb"
+                },
+                "inLanguage": "en-US"
+            }, {
+                "@type": "BreadcrumbList",
+                "@id": "https://blackfish.co/blog/#breadcrumb",
+                "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://blackfish.co/"
+                }, {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Blog"
+                }]
+            }, {
+                "@type": "WebSite",
+                "@id": "https://blackfish.co/#website",
+                "url": "https://blackfish.co/",
+                "name": "Blackfish",
+                "description": "Dive headfirst into the decade of digital",
+                "publisher": {
+                    "@id": "https://blackfish.co/#organization"
+                },
+                "potentialAction": [{
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://blackfish.co/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }],
+                "inLanguage": "en-US"
+            }, {
+                "@type": "Organization",
+                "@id": "https://blackfish.co/#organization",
+                "name": "Blackfish",
+                "url": "https://blackfish.co/",
+                "sameAs": ["https://www.instagram.com/blackfish.co", "https://www.facebook.com/blackfishdotco", "https://twitter.com/blackfishdotco"],
+                "logo": {
+                    "@type": "ImageObject",
+                    "inLanguage": "en-US",
+                    "@id": "https://blackfish.co/#/schema/logo/image/",
+                    "url": "https://blackfish.co/wp-content/uploads/2022/10/Mask-group.png",
+                    "contentUrl": "https://blackfish.co/wp-content/uploads/2022/10/Mask-group.png",
+                    "width": 512,
+                    "height": 512,
+                    "caption": "Blackfish"
+                },
+                "image": {
+                    "@id": "https://blackfish.co/#/schema/logo/image/"
+                }
+            }]
+        }
+    </script>
+    <!-- / Yoast SEO plugin. -->
+
+
+    <style id='classic-theme-styles-inline-css' type='text/css'>
+        /*! This file is auto-generated */
+
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id='global-styles-inline-css' type='text/css'>
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flow>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-flow>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-flow>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-constrained>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-constrained>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: var(--wp--style--global--content-size);
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignwide {
+            max-width: var(--wp--style--global--wide-size);
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        body .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        body .is-layout-flex>* {
+            margin: 0;
+        }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+        body .is-layout-grid>* {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        .wp-block-navigation a:where(:not(.wp-element-button)) {
+            color: inherit;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        .wp-block-pullquote {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <link rel='stylesheet' id='contact-form-7-css' href='https://blackfish.co/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-video-popup-css' href='https://blackfish.co/wp-content/plugins/wp-video-popup-pro/inc/css/wp-video-popup.css?ver=2.9' type='text/css' media='all' />
+    <style id='wp-video-popup-inline-css' type='text/css'>
+        .wp-video-popup-video.is-landscape {
+            max-width: 85% !important;
+        }
+    </style>
+    <link rel='stylesheet' id='style-css' href='https://blackfish.co/wp-content/themes/custom/style.css?ver=1680811016' type='text/css' media='all' />
+
+    <!-- Google Tag Manager for WordPress by gtm4wp.com -->
+    <!-- GTM Container placement set to automatic -->
+    <script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+        var dataLayer_content = {
+            "pagePostType": "blog"
+        };
+        dataLayer.push(dataLayer_content);
+    </script>
+    <script data-cfasync="false">
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.' + 'js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5Q2BHTR');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <link rel="icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-270x270.png" />
+
+    <link rel="stylesheet" href="https://blackfish.co/wp-content/themes/custom/cookieconsent.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://blackfish.co/wp-content/themes/custom/fonts/Shallota/Shallota-ExtraLight.otf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" as="image" href="https://blackfish.co/wp-content/themes/custom/images/bg/loaderLogoWhite.gif">
+</head>
+
+<body>
+    <script data-cfasync="false" data-no-defer="1">
+        if (typeof ewww_webp_supported === "undefined") {
+            var ewww_webp_supported = !1
+        }
+        if (ewww_webp_supported) {
+            document.body.classList.add("webp-support")
+        }
+    </script>
+    <section class="loader --fast">
+        <div class="logo-wrapper">
+            <img class="loader-gif loader-gif__white" src="https://blackfish.co/wp-content/themes/custom/images/bg/loaderLogoWhite.gif" alt="blackfish logo">
+        </div>
+        <div class="loader-wave">
+            <svg width="1920" height="225" viewBox="0 0 1920 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0C601.096 300 1322.41 300 1920 0H0Z" fill="#0E0E13" />
+        </svg>
+        </div>
+    </section>
+    <div id="smooth-wrapper">
+        <div id="smooth-content" class="--cursor-dark">
+            <nav class="nav --cursor-light">
+                <div class="nav-container">
+                    <a class="--cursor-focus-light --link-out" href="/">
+            <svg class="nav__logo" alt="blackfish logo" width="116" height="21" viewBox="0 0 116 21" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2478_4476)" fill="#fff"><path d="M82.61 20.05h3.578c-.487-.593-.695-2.128-.695-3.767v-4.254c.068-2.894.172-4.325.416-6.277-.591 1.115-1.877 1.988-3.3 2.372.627.767.695 2.477.695 3.628v4.533c0 1.535-.175 3.14-.695 3.768v-.003zM94.707 20.355c2.537 0 5.28-1.194 5.28-3.72 0-4.529-8.686-4.809-8.686-8.74 0-1.124.835-1.931 1.981-1.931 1.945 0 2.676 2.142 4.656 2.142 1.111 0 1.877-.88 2.05-2.318-.348.316-.764.387-1.286.387-1.355 0-3.127-.563-5.108-.563-2.224 0-4.481.879-4.481 3.23 0 4.283 8.686 4.456 8.686 8.495 0 1.827-1.53 2.703-2.988 2.703-2.188 0-3.682-1.58-3.682-3.581 0-.772.175-1.51.52-2.106-1.841 0-2.712 1.227-2.712 2.457 0 2.002 2.12 3.545 5.768 3.545h.002zM102.594 20.052h3.578c-.52-.629-.695-2.233-.695-3.768v-1.848c.556-4.918 4.342-7.463 7.401-7.463 1.562 0 2.328.766 2.328 2.197 0 2.51-2.085 4.986-2.085 7.952 0 1.535.939 2.894 2.815 2.93-.486-.662-.763-1.813-.763-3.07 0-2.128.52-3.732.52-6.835 0-3.103-1.494-4.57-3.822-4.57-3.335 0-5.595 2.65-6.394 6.976V6.17c0-2.686.173-4.116.416-5.997-.591 1.115-1.877 1.988-3.299 2.372.626.766.695 2.477.695 3.628v10.113c0 1.535-.173 3.139-.695 3.768v-.003zM7.754 5.712c1.994 0 3.66.703 4.996 2.106 1.335 1.403 2.002 3.147 2.002 5.228 0 2.082-.667 3.826-2.002 5.229-1.335 1.403-3.002 2.106-4.996 2.106-1.14 0-2.178-.25-3.113-.75a6.414 6.414 0 01-2.298-2.106v2.52h-2.35V.27h2.35v8.298A6.304 6.304 0 014.64 6.475c.935-.51 1.972-.763 3.113-.763zm-.44 12.39c1.433 0 2.626-.483 3.58-1.447.953-.967 1.429-2.167 1.429-3.606s-.476-2.641-1.428-3.605c-.952-.967-2.148-1.447-3.581-1.447-1.434 0-2.61.483-3.554 1.447-.944.966-1.417 2.166-1.417 3.605 0 1.44.473 2.642 1.417 3.606.944.966 2.128 1.447 3.554 1.447zM17.89 20.046V.27h2.35v19.776h-2.35zM35.766 6.046h2.35v13.999h-2.35v-2.521a6.39 6.39 0 01-2.312 2.106c-.935.5-1.972.75-3.113.75-1.31 0-2.498-.319-3.568-.953a6.79 6.79 0 01-2.511-2.642c-.597-1.126-.895-2.372-.895-3.74 0-1.367.298-2.611.895-3.726a6.68 6.68 0 012.511-2.641c1.07-.643 2.257-.967 3.568-.967 1.14 0 2.178.255 3.113.763a6.257 6.257 0 012.312 2.093V6.046zM30.784 18.1c1.425 0 2.61-.484 3.554-1.447.952-.967 1.428-2.167 1.428-3.606s-.476-2.642-1.428-3.605c-.944-.967-2.129-1.447-3.554-1.447-1.433 0-2.626.483-3.581 1.447-.952.966-1.428 2.166-1.428 3.605s.476 2.642 1.428 3.606c.952.966 2.148 1.447 3.581 1.447zM48.663 20.38c-1.39 0-2.654-.319-3.795-.953a7.065 7.065 0 01-2.686-2.642c-.64-1.126-.963-2.372-.963-3.74 0-1.367.32-2.611.96-3.726a6.962 6.962 0 012.684-2.641c1.14-.643 2.405-.967 3.794-.967 1.371 0 2.619.318 3.74.953 1.122.626 2 1.48 2.632 2.562l-2.043 1.233a4.655 4.655 0 00-1.79-1.796 4.937 4.937 0 00-2.538-.67c-1.434 0-2.627.483-3.582 1.447-.952.966-1.428 2.167-1.428 3.605 0 1.44.476 2.642 1.428 3.606.952.966 2.148 1.447 3.581 1.447.928 0 1.773-.223 2.54-.67a4.765 4.765 0 001.789-1.81l2.043 1.233a6.879 6.879 0 01-2.645 2.587c-1.122.626-2.364.94-3.727.94l.006.002zM67.053 20.046l-5.01-5.632-1.802 1.93v3.702h-2.35V.266h2.35v12.885l6.667-7.107h3.072l-6.265 6.61 6.451 7.386h-3.113v.006zM72.844 20.045h3.578c-.52-.629-.695-2.232-.695-3.767v-1.752c0-4.814 1.417-5.753 3.1-6.61-2.104-1.727-3.204-3.158-3.204-4.668 0-1.672.695-2.908 2.085-2.908 1.98 0 3.261 2.233 5.174 2.233 1.042 0 1.84-.978 2.016-2.406-.348.313-.834.385-1.39.385-1.354 0-3.017-.558-5.625-.558-2.432 0-4.618 1.002-4.618 3.306 0 3.208 3.595 4.089 4.722 4.542-1.507.492-4.448 2.178-4.448 6.684v1.752c0 1.535-.175 3.138-.695 3.767z"/></g><defs><clipPath id="clip0_2478_4476"><path fill="#fff" d="M0 0h116v21H0z"/></clipPath></defs></svg>
+        </a>
+                    <div class="nav__buttons-wrapper">
+                        <a class="nav__button --cursor-focus-light" href="about.html" data-scroll="">About</a>
+                        <a class="nav__button --cursor-focus-light" href="working.html" data-scroll="">Working</a>
+                        <a class="nav__button --cursor-focus-light" href="Projects.html" data-scroll="">Features</a>
+                        <a class="nav__button --cursor-focus-light" href="casestudy.html" data-scroll="">Case Study</a>                     
+                        <a class="nav__button --cursor-focus-light" href="Careers.html" data-scroll="">Careers</a>
+                        <a class="nav__button --cursor-focus-light" href="tryit.html" data-scroll="">Try It</a>
+                        <!-- <div class="language-select --cursor-focus-light">
+                <a class="language-en --sellected">En</a>
+                <a class="language-cz">Cz</a>
+            </div> -->
+                        <a class="contact-btn footer-scroll --cursor-focus-light --btn-svg-hover" href="" role="button">
+                <svg class="btn-background-svg" width="129" height="66" viewBox="0 0 129 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="btn-start-1" d="M2 33C2 16.4315 15.4315 3 32 3H97C113.569 3 127 16.4315 127 33C127 49.5685 113.569 63 97 63H32C15.4315 63 2 49.5685 2 33Z" fill="white" fill-opacity="0.1" />
+                    <path id="btn-mid-1" d="M0 31C0 14.4315 13.4315 1 30 1H37.1655C39.7052 1 42.2283 1.40945 44.6378 2.21259L45.2218 2.40728C50.2384 4.07948 55.6898 3.887 60.5759 1.86514V1.86514C65.0651 0.00754328 70.0433 -0.310302 74.7322 0.961286L76.5725 1.46033C80.3154 2.47535 84.2303 2.68937 88.0615 2.08839L91.5881 1.5352C93.8593 1.17894 96.1638 0.934628 98.4478 1.19597C113.392 2.90601 125 15.5975 125 31C125 47.5685 111.569 61 95 61H93.5203C90.5141 61 87.5153 60.7031 84.5674 60.1135L81.1336 59.4267C76.4423 58.4885 71.5971 58.6553 66.9815 59.9141V59.9141C64.339 60.6348 61.6121 61 58.8731 61H30C13.4315 61 0 47.5685 0 31Z" fill="white" fill-opacity="0.1" />
+                    <path id="btn-end-1" d="M2 33C2 16.4315 15.4315 3 32 3H97C113.569 3 127 16.4315 127 33C127 49.5685 113.569 63 97 63H32C15.4315 63 2 49.5685 2 33Z" fill="white" fill-opacity="0.1" />
+                </svg>
+                <p>Contact</p>
+            </a>
+                        <div class="nav__socials-wrapper">
+                            <a class="nav__socials-link" href="https://www.instagram.com/blackfish.co/" alt="instagram link">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.356 11c0-2.01 1.63-3.64 3.643-3.64A3.642 3.642 0 0114.642 11a3.642 3.642 0 01-7.286 0zm-1.969 0a5.61 5.61 0 005.612 5.608A5.61 5.61 0 0016.608 11 5.61 5.61 0 0011 5.392 5.61 5.61 0 005.386 11zm10.134-5.83a1.31 1.31 0 101.312-1.31 1.313 1.313 0 00-1.312 1.31zM6.583 19.89c-1.065-.048-1.644-.226-2.029-.376a3.396 3.396 0 01-1.257-.816 3.37 3.37 0 01-.817-1.256c-.15-.384-.328-.963-.376-2.028C2.05 14.263 2.04 13.917 2.04 11c0-2.916.012-3.261.064-4.413.048-1.065.227-1.643.376-2.029.198-.51.435-.873.817-1.256.382-.382.746-.62 1.257-.817.385-.15.964-.327 2.03-.375 1.151-.053 1.497-.064 4.415-.064 2.916 0 3.263.012 4.416.064 1.065.048 1.643.227 2.03.375.51.198.873.435 1.256.817.383.382.619.747.818 1.256.15.385.327.964.376 2.029.053 1.152.063 1.497.063 4.413 0 2.917-.01 3.262-.063 4.414-.049 1.065-.227 1.644-.376 2.028-.2.51-.436.874-.818 1.256a3.397 3.397 0 01-1.257.816c-.384.15-.964.328-2.03.376-1.151.053-1.497.064-4.415.064-2.919 0-3.264-.01-4.416-.064zM6.493.145C5.33.198 4.535.382 3.84.652a5.36 5.36 0 00-1.935 1.26 5.336 5.336 0 00-1.26 1.934C.373 4.541.188 5.335.135 6.497.083 7.662.07 8.034.07 11s.013 3.338.066 4.503c.053 1.163.238 1.957.508 2.65a5.338 5.338 0 001.26 1.936c.609.606 1.217.98 1.936 1.26.696.27 1.49.454 2.653.507 1.166.053 1.538.066 4.505.066 2.968 0 3.34-.012 4.506-.066 1.163-.053 1.958-.238 2.653-.508a5.375 5.375 0 001.935-1.26 5.35 5.35 0 001.26-1.934c.271-.694.456-1.488.508-2.651.053-1.165.066-1.537.066-4.503s-.013-3.338-.066-4.503c-.053-1.162-.237-1.957-.507-2.65a5.37 5.37 0 00-1.26-1.935 5.347 5.347 0 00-1.936-1.26c-.695-.27-1.49-.455-2.652-.507C14.34.092 13.967.079 10.999.079c-2.967 0-3.34.012-4.506.066z" fill="#fff"/><path d="M7.356 11c0-2.01 1.63-3.64 3.643-3.64A3.642 3.642 0 0114.642 11a3.642 3.642 0 01-7.286 0zm-1.969 0a5.61 5.61 0 005.612 5.608A5.61 5.61 0 0016.608 11 5.61 5.61 0 0011 5.392 5.61 5.61 0 005.386 11zm10.134-5.83a1.31 1.31 0 101.312-1.31 1.313 1.313 0 00-1.312 1.31zM6.583 19.89c-1.065-.048-1.644-.226-2.029-.376a3.396 3.396 0 01-1.257-.816 3.37 3.37 0 01-.817-1.256c-.15-.384-.328-.963-.376-2.028C2.05 14.263 2.04 13.917 2.04 11c0-2.916.012-3.261.064-4.413.048-1.065.227-1.643.376-2.029.198-.51.435-.873.817-1.256.382-.382.746-.62 1.257-.817.385-.15.964-.327 2.03-.375 1.151-.053 1.497-.064 4.415-.064 2.916 0 3.263.012 4.416.064 1.065.048 1.643.227 2.03.375.51.198.873.435 1.256.817.383.382.619.747.818 1.256.15.385.327.964.376 2.029.053 1.152.063 1.497.063 4.413 0 2.917-.01 3.262-.063 4.414-.049 1.065-.227 1.644-.376 2.028-.2.51-.436.874-.818 1.256a3.397 3.397 0 01-1.257.816c-.384.15-.964.328-2.03.376-1.151.053-1.497.064-4.415.064-2.919 0-3.264-.01-4.416-.064zM6.493.145C5.33.198 4.535.382 3.84.652a5.36 5.36 0 00-1.935 1.26 5.336 5.336 0 00-1.26 1.934C.373 4.541.188 5.335.135 6.497.083 7.662.07 8.034.07 11s.013 3.338.066 4.503c.053 1.163.238 1.957.508 2.65a5.338 5.338 0 001.26 1.936c.609.606 1.217.98 1.936 1.26.696.27 1.49.454 2.653.507 1.166.053 1.538.066 4.505.066 2.968 0 3.34-.012 4.506-.066 1.163-.053 1.958-.238 2.653-.508a5.375 5.375 0 001.935-1.26 5.35 5.35 0 001.26-1.934c.271-.694.456-1.488.508-2.651.053-1.165.066-1.537.066-4.503s-.013-3.338-.066-4.503c-.053-1.162-.237-1.957-.507-2.65a5.37 5.37 0 00-1.26-1.935 5.347 5.347 0 00-1.936-1.26c-.695-.27-1.49-.455-2.652-.507C14.34.092 13.967.079 10.999.079c-2.967 0-3.34.012-4.506.066z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://www.linkedin.com/company/blackfishdotco/" alt="linkedin link">
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.791.174C.9.174.176.875.176 1.739v18.726c0 .864.723 1.565 1.615 1.565h18.626c.892 0 1.615-.7 1.615-1.565V1.739c0-.864-.723-1.565-1.615-1.565H1.79zm5.026 8.45v9.84h-3.27v-9.84h3.27zm.215-3.042c0 .944-.71 1.7-1.85 1.7H5.16c-1.098 0-1.808-.756-1.808-1.7 0-.966.731-1.7 1.85-1.7 1.12 0 1.808.734 1.83 1.7zm4.865 12.883h-3.27s.043-8.917 0-9.84h3.27v1.393c.435-.67 1.213-1.624 2.948-1.624 2.152 0 3.765 1.407 3.765 4.429v5.642h-3.27V13.2c0-1.323-.474-2.225-1.657-2.225-.903 0-1.442.609-1.678 1.196-.086.21-.108.505-.108.798v5.495z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://www.facebook.com/blackfishdotco" alt="facebook link">
+                    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.68 11.25l.57-3.619H7.737V5.28c0-.99.49-1.956 2.058-1.956h1.618V.244A19.634 19.634 0 008.564 0C5.676 0 3.79 1.735 3.79 4.873V7.63H.586v3.618h3.203V20h3.95v-8.75h2.94z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://dribbble.com/blackfishdotco" alt="dribble link"> 
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.847 21.87C5.095 21.87.418 16.997.418 11.003.418 5.002 5.095.13 10.847.13c5.752 0 10.429 4.872 10.429 10.866 0 5.993-4.677 10.873-10.43 10.873zm8.791-9.387c-.301-.101-2.754-.858-5.548-.4 1.165 3.334 1.637 6.054 1.727 6.615 2.004-1.402 3.43-3.63 3.821-6.215zm-5.312 7.074c-.13-.816-.652-3.656-1.899-7.04a.147.147 0 01-.056.018c-5.028 1.827-6.828 5.458-6.991 5.798a8.64 8.64 0 005.467 1.955 8.391 8.391 0 003.479-.731zM4.23 17.219c.204-.357 2.648-4.574 7.243-6.13.114-.042.236-.076.35-.11a24.632 24.632 0 00-.725-1.573c-4.448 1.386-8.766 1.326-9.157 1.318 0 .093-.009.187-.009.28.009 2.39.872 4.566 2.298 6.215zm-2.102-8.11c.4.008 4.066.025 8.237-1.131-1.475-2.738-3.071-5.034-3.3-5.365-2.5 1.224-4.359 3.622-4.937 6.495zm6.632-7.125c.245.34 1.866 2.635 3.324 5.432 3.17-1.24 4.506-3.111 4.669-3.35-1.573-1.453-3.642-2.337-5.907-2.337-.717 0-1.418.093-2.086.255zm8.979 3.154c-.188.263-1.679 2.261-4.97 3.664.203.442.407.893.595 1.344.065.161.13.323.195.476 2.966-.392 5.907.238 6.2.297a9.49 9.49 0 00-2.02-5.781z" fill="#fff"/>
+                    </svg>
+                </a>
+                        </div>
+                    </div>
+                    <div class="nav__burger"></div>
+                </div>
+            </nav>
+            <section class="blog-hero --cursor-light">
+                <div class="container">
+                    <h1 class="--loader-headline">Our <span>newsfeed</span></h1>
+                    <a class="post --cursor-focus-light --link-out --loader-appear-up" href="https://blackfish.co/blog/exchanging-shaker-for-keyboard/">
+																<img class="post__img --desktop ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Our developer Patrik FIala" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_2.jpg" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_2.jpg.webp" data-eio="j" /><noscript><img class="post__img --desktop" src="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_2.jpg" alt="Our developer Patrik FIala" /></noscript>
+					                    											<img class="post__img --mobile ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Photo of our developer Patrik Fiala" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_mobil.jpg" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_mobil.jpg.webp" data-eio="j" /><noscript><img class="post__img --mobile" src="https://blackfish.co/wp-content/uploads/2023/02/BF_Patrik_mobil.jpg" alt="Photo of our developer Patrik Fiala" /></noscript>
+					
+					<div class="post__content">
+						<h3>Exchanging shaker for keyboard</h3>
+						<p class="description">Interview with our Patrik Fiala about how he exchanged bartending for a career as an developer.</p>
+						<div class="post__info">
+							<div class="author">
+																<p class="author">
+									<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/BF_Adel.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/BF_Adel.png.webp" data-eio="j" class="ewww_webp"><noscript><img src="https://blackfish.co/wp-content/uploads/2023/02/BF_Adel.png" alt=""></noscript>
+									 Adela Koranova								</p>
+							</div>
+							<div class="dot"></div>
+							<p class="date">February 16, 2023</p>
+							<div class="dot"></div>
+							<p class="read-time">4 min read</p>
+						</div>
+					</div>
+				</a>
+                </div>
+            </section>
+
+            <section class="blog-feed --cursor-light">
+                <div class="container">
+                    <a class="post --cursor-focus-light --link-out" href="https://blackfish.co/blog/2021-the-year-in-review/">
+																<img class="post__img ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src-img="https://blackfish.co/wp-content/uploads/2021/02/BF_team_small.jpg" data-src-webp="https://blackfish.co/wp-content/uploads/2021/02/BF_team_small.jpg.webp" data-eio="j" /><noscript><img class="post__img" src="https://blackfish.co/wp-content/uploads/2021/02/BF_team_small.jpg" alt="" /></noscript>
+					
+					<div class="post__content">
+						<h3>2021: The year in review</h3>
+						<p class="description">2021 was a successful year for us despite the ongoing COVID pandemic. We gained new clients, added new colleagues, and moved to a new and bigger office.</p>
+						<div class="post__info">
+							<div class="author">
+																<p class="author">
+									<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Profile photo of our project manager Aneta Smrzova" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png.webp" data-eio="j" class="ewww_webp"><noscript><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Profile photo of our project manager Aneta Smrzova" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png.webp" data-eio="j" class="ewww_webp"><noscript><img src="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" alt="Profile photo of our project manager Aneta Smrzova"></noscript></noscript>
+									Aneta Smrzova								</p>
+							</div>
+							<div class="dot"></div>
+							<p class="date">February 1, 2022</p>
+							<div class="dot"></div>
+							<p class="read-time">7 min read</p>
+						</div>
+						<svg class="post__arrow" width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16.4779 5.47788C16.7418 5.21395 16.7418 4.78605 16.4779 4.52213L12.177 0.221242C11.9131 -0.0426821 11.4852 -0.0426821 11.2212 0.221242C10.9573 0.485165 10.9573 0.91307 11.2212 1.17699L15.0442 5L11.2212 8.82301C10.9573 9.08693 10.9573 9.51484 11.2212 9.77876C11.4852 10.0427 11.9131 10.0427 12.177 9.77876L16.4779 5.47788ZM-5.9082e-08 5.67582L16 5.67582L16 4.32418L5.9082e-08 4.32418L-5.9082e-08 5.67582Z" fill="white"/>
+						</svg>
+					</div>
+				</a>
+                    <a class="post --cursor-focus-light --link-out" href="https://blackfish.co/blog/blog-post-1/">
+																<img class="post__img ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Blackfish team" data-src-img="https://blackfish.co/wp-content/uploads/2021/02/Blackfish_team_photo_small-1.jpg" data-src-webp="https://blackfish.co/wp-content/uploads/2021/02/Blackfish_team_photo_small-1.jpg.webp" data-eio="j" /><noscript><img class="post__img" src="https://blackfish.co/wp-content/uploads/2021/02/Blackfish_team_photo_small-1.jpg" alt="Blackfish team" /></noscript>
+					
+					<div class="post__content">
+						<h3>2020: The year in review</h3>
+						<p class="description">What a year! 2020 was a difficult and challenging year for many of us. Despite the global changes, Blackfish managed to grow exponentially.</p>
+						<div class="post__info">
+							<div class="author">
+																<p class="author">
+									<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Profile photo of our project manager Aneta Smrzova" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png.webp" data-eio="j" class="ewww_webp"><noscript><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Profile photo of our project manager Aneta Smrzova" data-src-img="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png.webp" data-eio="j" class="ewww_webp"><noscript><img src="https://blackfish.co/wp-content/uploads/2023/02/Anet_BF-1.png" alt="Profile photo of our project manager Aneta Smrzova"></noscript></noscript>
+									Aneta Smrzova								</p>
+							</div>
+							<div class="dot"></div>
+							<p class="date">February 12, 2021</p>
+							<div class="dot"></div>
+							<p class="read-time">7 min read</p>
+						</div>
+						<svg class="post__arrow" width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M16.4779 5.47788C16.7418 5.21395 16.7418 4.78605 16.4779 4.52213L12.177 0.221242C11.9131 -0.0426821 11.4852 -0.0426821 11.2212 0.221242C10.9573 0.485165 10.9573 0.91307 11.2212 1.17699L15.0442 5L11.2212 8.82301C10.9573 9.08693 10.9573 9.51484 11.2212 9.77876C11.4852 10.0427 11.9131 10.0427 12.177 9.77876L16.4779 5.47788ZM-5.9082e-08 5.67582L16 5.67582L16 4.32418L5.9082e-08 4.32418L-5.9082e-08 5.67582Z" fill="white"/>
+						</svg>
+					</div>
+				</a>
+                </div>
+
+                <div class="scroll-wave">
+                    <svg width="1920" height="225" viewBox="0 0 1920 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 0C601.096 300 1322.41 300 1920 0H0Z" fill="#0E0E13" />
+			</svg>
+                </div>
+            </section>
+
+
+            <section class="footer --cursor-dark">
+                <div class="container">
+                    <h2>Ready to <span>dive in?</span></h2>
+                    <h5>corporate@greentinsolutions.com</h5>
+                    <div class="line"></div>
+                    <div class="info-wrapper">
+                        <div class="info-column">
+                            <h3>Latest projects</h3>
+
+
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Kaizen</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">24/7 Support</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">Data Analysis</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">ChatBot</a>
+
+                        </div>
+                        <div class="info-column">
+                            <h3>Address</h3>
+                            <p>
+                                Pune - WeWork Futura, Hadapsar, Pune 411 013
+                                <br/>
+                                Pandharpur - Kandre's Residency, Pandharpur 413304
+                            </p>
+                            <a class="info-column__btn directions-btn --cursor-focus-dark --btn-svg-hover" href="https://g.page/blackfishdotco?share">
+								Get directions
+								<svg class="btn-background-svg" width="176" height="74" viewBox="0 0 176 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path id="btn-start-1" d="M142 5H34" stroke="#19171E" />
+									<path id="btn-mid-1" d="M142 5H130.5H113.5H103L86.1129 6.53519C82.7493 6.84097 79.3605 6.36944 76.2083 5.15702V5.15702C70.9382 3.13008 65.0911 3.20366 59.8738 5.36257L59.4713 5.52913C55.5652 7.14542 51.2909 7.66014 47.1129 7.01736L34 5" stroke="#19171E" />
+									<path id="btn-end-1" d="M142 5H34" stroke="#19171E" />
+
+									<path id="btn-start-2" d="M34 69H142" stroke="#19171E" />
+									<path id="btn-mid-2" d="M34 69h37H62H76H87.2229C89.4023 69 91.5764 69.2153 93.7135 69.6427L99.1993 70.7399C103.27 71.5539 107.497 70.9109 111.141 68.9231V68.9231C114.613 67.0292 118.62 66.3533 122.521 67.0036L131.018 68.4196C133.335 68.8059 135.681 69 138.03 69H142" stroke="#19171E" />
+									<path id="btn-end-2" d="M34 69H142" stroke="#19171E" />
+
+									<path d="M34 69C16.3269 69 2 54.6731 2 37C2 19.3269 16.3269 5 34 5M142 69C159.673 69 174 54.6731 174 37C174 19.3269 159.673 5 142 5" stroke="#19171E" />
+								</svg>
+							</a>
+                        </div>
+                        <div class="info-column">
+                            <h3>Contact Us</h3>
+                            <p>
+                                +91 77 2003 5299 <br>corporate@greentinsolutions.com 
+                                <br>  hr@greentinsolutions.com 
+                            </p>
+                            <a class="info-column__btn details-btn --cursor-focus-dark --btn-svg-hover" >
+								
+								
+							</a>
+                        </div>
+                        <div class="info-column">
+                            <h3>Stay in the loop</h3>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Instagram</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Linkedin</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Youtube</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Facebook</a>
+                           
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2024, Greentin Solutions</p>
+                        <p>All rights reserved</p>
+                        <a class="back-to-top --cursor-focus-dark" role="button">
+							Back to top
+							<svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5.47788 0.522123C5.21395 0.2582 4.78605 0.2582 4.52212 0.522123L0.22124 4.82301C-0.0426836 5.08693 -0.0426836 5.51484 0.22124 5.77876C0.485164 6.04268 0.913068 6.04268 1.17699 5.77876L5 1.95575L8.82301 5.77876C9.08693 6.04268 9.51484 6.04268 9.77876 5.77876C10.0427 5.51484 10.0427 5.08693 9.77876 4.82301L5.47788 0.522123ZM5.67582 17L5.67582 1L4.32418 1L4.32418 17L5.67582 17Z" fill="#0E0E13"/>
+							</svg>
+						</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- smooth-content -->
+    </div>
+    <!-- smooth-wrapper -->
+
+    <div class="cursor cursor-main">
+        <div class="dot">
+            <p class="reel">PLAY REEL</p>
+            <p class="soon">COMING<br>SOON</p>
+            <p class="more">SEE MORE</p>
+        </div>
+
+        <div class="arrow-cursor">
+            <img class="circle" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleTextFooter.svg" alt="">
+            <img class="arrow" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleTextArrowFooter.svg" alt="">
+        </div>
+
+    </div>
+
+    <div class="cursor cursor-follower"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://www.curtainsjs.com/build/curtains.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script> -->
+    <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+
+    <script id="__bs_script__">
+        //<![CDATA[
+        // document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.10'><\/script>".replace("HOST", location.hostname));
+        //]]>
+    </script>
+
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.2" id="swv-js"></script>
+    <script type="text/javascript" id="contact-form-7-js-extra">
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "api": {
+                "root": "https:\/\/blackfish.co\/wp-json\/",
+                "namespace": "contact-form-7\/v1"
+            }
+        };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.7.2" id="contact-form-7-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+    <script type="text/javascript" id="wp-video-popup-js-extra">
+        /* <![CDATA[ */
+        var wpVideoPopupOpts = {
+            "pluginUrl": "https:\/\/blackfish.co\/wp-content\/plugins\/wp-video-popup-pro\/"
+        };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/wp-video-popup-pro/inc/js/wp-video-popup.js?ver=2.9" id="wp-video-popup-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/duracelltomi-google-tag-manager/js/analytics-talk-content-tracking.js?ver=1.16.1" id="gtm4wp-scroll-tracking-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/themes/custom/js/scripts.js?ver=1680811016" id="functions-js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!-- plugin=object-cache-pro client=phpredis metric#hits=1541 metric#misses=18 metric#hit-ratio=98.9 metric#bytes=844861 metric#prefetches=93 metric#store-reads=27 metric#store-writes=12 metric#store-hits=104 metric#store-misses=14 metric#sql-queries=4 metric#ms-total=920.05 metric#ms-cache=14.74 metric#ms-cache-avg=0.3878 metric#ms-cache-ratio=1.6 sample#redis-hits=24180372 sample#redis-misses=8454916 sample#redis-hit-ratio=74.1 sample#redis-ops-per-sec=16 sample#redis-evicted-keys=0 sample#redis-used-memory=10611128 sample#redis-used-memory-rss=15224832 sample#redis-memory-fragmentation-ratio=1.4 sample#redis-connected-clients=1 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=5348 -->

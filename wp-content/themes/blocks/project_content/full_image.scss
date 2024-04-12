@@ -1,0 +1,68 @@
+.full-image {
+    position: relative;
+    width: 100%;
+    height: min-content;
+    background: #FFFFFF;
+
+    overflow: hidden;
+    // box-sizing: border-box;
+
+    margin: 40px 0 -1px 0;
+
+    --video-aspect-ratio: 1;
+    --container-width: 100vw;
+    --container-height: calc(var(--container-width)/var(--video-aspect-ratio));
+
+    &.--video-variant {
+        height: var(--container-height);
+    }
+
+    img, video {
+        display: block;
+        width: 100%;
+        // height: auto;
+        object-fit: cover;
+    }
+
+    .embeded-video {
+        display: block;
+
+        width: var(--container-width);
+        height: var(--container-height); /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+        // min-height: 100%;
+        // min-width: var(--container-width); /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        // @media (hover: hover) {
+            pointer-events: none;
+        // }
+    }
+
+    .--mobile-version {
+        display: none;
+    }
+
+    @include mobileMax952p {
+        margin: 24px 0 -1px 0;
+
+        img, video {
+            width: 100%;
+            height: calc(100vw/375*720);
+            max-height: 100vh;
+            object-fit: cover;
+        }
+
+        @include mobileMax768p {
+            .--mobile-version {
+                display: block;
+            }
+            .--desktop-version {
+                display: none;
+            }
+        }
+    }
+
+}

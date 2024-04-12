@@ -1,0 +1,35 @@
+
+.container {
+    max-width: 1368px;
+    // @include windowMax2048p(){
+    //     max-width: 1224px;
+    // }
+    // @include windowMax1920p(){
+    //     max-width: 1224px;
+    // }
+    @include windowMax1440p(){
+        max-width: 1100px;
+        padding: 0 48px 0 48px;
+    }
+    @media (min-width: 648px) and (max-width: 953px) {
+        max-width: 600px;
+        padding: 0;
+    }
+    @media (max-width: 648px) {
+        max-width: calc(100VW - 48px);
+        padding: 0;
+    }
+
+
+    
+    margin: 0 auto 0 auto;
+    // background-color: yellowgreen;
+    overflow: hidden;
+}
+
+#smooth-wrapper{
+    // height: 120% !important;
+    @media (hover: none) { // touch device
+      height: calc(var(--app-height)*1.2) !important;
+    }
+}

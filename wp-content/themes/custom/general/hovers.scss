@@ -1,0 +1,96 @@
+@mixin navHover{
+    &:hover{
+        transition: background-color 0.25s, color 0.25s;
+        background: #D99A27;
+        color: white; 
+        // cursor: pointer;
+    }
+}
+
+@mixin purpleHover{
+    &:hover{
+        transition: 0.25s;
+        background-color: #190F43;
+        // cursor: pointer;
+    }
+}
+
+@mixin yellowHover{
+    &:hover{
+        transition: background-color 0.25s;
+        background-color: #BA7C0A;    
+        // cursor: pointer;
+    }
+}
+
+
+
+@mixin whiteHover {
+    @media (hover: hover) {
+        transition: background-color 0.25s, color 0.25s;
+        // cursor: pointer;
+        &:hover {
+            background-color: #FFFFFF;    
+            color: #19171E;
+        }
+    }
+}
+
+@mixin imgScaleHover {
+    @media (hover: hover) {
+        -webkit-backface-visibility: hidden;
+        
+        &__img-wrap {
+            overflow: hidden;
+        }
+
+        img {
+            -webkit-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -ms-transition: all 0.4s;
+            transition: all 0.4s;
+            -webkit-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
+        }
+
+        &:hover {
+            img {
+                scale: 1.1;
+            }
+        }
+    }
+}
+
+
+.btn-background-svg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    // padding-left: 5px;
+    box-sizing: border-box;
+    #btn-end-1, #btn-end-2 {
+        position: relative;
+        visibility: hidden;
+        // top: -5px;
+    }
+    #btn-mid-1, #btn-mid-2 {
+        position: relative;
+        visibility: hidden;
+        // top: -5px;
+    }
+    @include windowMax1440p {
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    @include mobileMax952p {
+        display: none;
+    }
+    // @media (hover: hover) {
+    //     display: none;
+    // }
+}

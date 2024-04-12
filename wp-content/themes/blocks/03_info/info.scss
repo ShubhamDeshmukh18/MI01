@@ -1,0 +1,228 @@
+.info {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // background: #19171E;
+    background: #0E0E13;
+    overflow: hidden;
+    padding: 300px 0 340px 0;
+    overflow: visible;
+    // margin-bottom: -2px;
+    
+    @include windowMax1440p {
+        padding: 200px 0 340px 0;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: visible;
+    }
+
+    .pre-text {
+        @include body_16_500();
+        color: #FFFFFF;
+    }
+
+    h2 {
+        @include headline_64();
+        color: #FFFFFF;
+        max-width: 1020px;
+
+        margin-top: 40px;
+
+        @include windowMax1440p {
+            max-width: 800px;
+        }
+    }
+
+    .detailed-text {
+        display: none;
+
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-size: 18px;
+        line-height: 32px;
+        font-variation-settings: 'wght' 430;
+        letter-spacing: 0.04em;
+        color: #FFFFFF;
+        opacity: 0.6;
+        max-width: 680px;
+
+        margin-top: 48px;
+
+        @include windowMax1440p {
+            margin-top: 40px;
+            font-size: 16px;
+            line-height: 28px;
+        }
+    }
+
+    .line {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        margin: 166px 0 180px 0;
+
+        @include windowMax1440p {
+            margin: 128px 0 140px 0;
+        }
+    }
+
+    .work-fields-wrapper {
+        display: flex;
+        justify-content: space-between;
+        
+        height: 192px;
+        width: 100%;
+
+        .group {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            row-gap: 48px;
+        }
+
+        .field {
+            @include body_24_480();
+            color: #FFFFFF;
+            height: 32px;
+        
+            @include windowMax1440p {
+                height: 30px;
+            }
+        
+            @include mobileMax952p {
+                height: 28px;
+            }
+            
+            &.--mobile {
+                display: none;
+            }
+        }
+    }
+
+    .more-info-circle {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        transform: rotate(90deg);
+
+        @include windowMax1440p {
+            width: 140px;
+            height: 140px;
+            top: 84px;
+            right: 48px;
+            .arrow {
+                transform: scale(0.9);
+            }
+        }
+    }
+
+
+
+    @include mobileMax952p(){
+        padding: 144px 0 196px 0;
+
+        @include mobileMax768p {
+            padding: 120px 0 180px 0;
+        }
+
+        h2 {
+            margin-top: 24px;
+
+            br {
+                display: none;
+            }
+        }
+        .detailed-text {
+            display: inline;
+            margin-top: 24px;
+        }
+        .line {
+            margin: 72px 0 72px 0;
+        }
+        .work-fields-wrapper {
+            display: flex;
+            justify-content: space-between;
+            justify-items: baseline;
+            align-items: baseline;
+            flex-wrap: wrap;
+            height : auto;
+            max-width: 470px;
+            row-gap: 48px;
+            column-gap: 48px;
+
+            box-sizing: border-box;
+            padding-right: 24px;
+
+            @include mobileMax768p {
+                column-gap: unset;
+            }
+
+            .group {
+                height: auto;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: space-between;
+                // row-gap: 48px;
+                width: 45%;
+                max-width: 180px;
+
+                text-overflow: none;
+
+                @include mobileMax768p {
+                    width: 50%;
+                    max-width: 140px;
+                }
+            }
+    
+            .field {
+                @include body_24_480();
+                color: #FFFFFF;
+                &.--desktop {
+                    display: none;
+                }
+                &.--mobile {
+                    display: block;
+                }
+            }
+        }
+        .more-info-circle {
+            display: none;
+            position: relative;
+            // top: 70px;
+            // right: 0;
+            margin: 48px auto 0 auto;
+        }
+    }
+}
+
+.more-info-circle {
+    position: relative;
+    width: 172px;
+    height: 172px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: rotate 10s linear infinite; 
+    }
+
+    @keyframes rotate{
+        to{ transform: rotate(360deg); }
+    }
+}
+
+
+

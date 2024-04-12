@@ -1,0 +1,451 @@
+.job-form-section{
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+    // background: #19171E;
+    background: #0E0E13;
+    overflow: visible;
+    margin-top: -30px;
+    padding-bottom: 270px;
+
+    @include windowMax1440p {
+        padding-bottom: 240px;
+        margin-top: -20px;
+    }
+
+    @include windowMax1280p {
+        padding-bottom: 230px;
+        margin-top: -15px;
+    }
+    
+    .container {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        overflow: visible;
+    }
+
+    h2 {
+        @include headline_156();
+        position: relative;
+        display: inline;
+        color: #FFFFFF;
+
+        // margin-top: -20px;
+
+        @include windowMax1440p {
+            font-size: 120px;
+            line-height: 148px;
+        }
+        @include windowMax1280p {
+            font-size: 92px;
+            line-height: 120px;
+        }
+
+        span {
+            font-family: 'Shallota-Regular';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 164px;
+            line-height: 164px;
+            color: #FFFFFF;
+
+            @include windowMax1440p {
+                font-weight: 400;
+                font-size: 132px;
+                line-height: 132px;
+            }
+            @include windowMax1280p {
+                font-weight: 400;
+                font-size: 112px;
+                line-height: 112px;
+            }
+        }
+    }
+
+    .small-text {
+        @include body_16_480();
+        color: #FFFFFF;
+        max-width: 546px;
+        margin-top: 32px;
+        text-align: center;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        @include body_16_480();
+        color: #CE204A;
+
+        position: absolute;
+        top: 40px;
+        right: 0;
+        // transform: translateY(-50%);
+    }
+
+    .wpcf7 {
+        position: relative;
+        overflow: visible;
+        margin-top: 88px;
+        width: 100%;
+        max-width: 856px;
+    }
+
+    .wpcf7-form {
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // row-gap: 24px;
+        cursor: none;
+
+        label {
+            position: relative;
+            overflow: visible;
+            @include body_20_500();
+            color: #FFFFFF;
+            // background-color: red;
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 40px 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            cursor: none;
+
+            &:first-of-type {
+                border-top: 1px solid rgba(255, 255, 255, 0.16);
+            }
+
+            .wpcf7-text, .wpcf7-textarea { //input
+                @include body_16_480();
+                color: #FFFFFF;
+                background: none;
+
+                width: 100%;
+                height: auto;
+                border: none;
+                box-sizing: border-box;
+                // padding: 0 32px;
+                margin-top: 8px;
+                padding: 0;
+                &:focus {
+                    outline: none;
+
+                    &::placeholder {
+                        color: transparent;
+                    }
+                }
+
+                @include windowMax1440p {
+                    margin-top: 4px;
+                }
+            }
+
+            .wpcf7-textarea {
+                resize: none;
+                height: 112px;
+                overflow: hidden;
+            }
+
+            .check {
+                position: absolute;
+                transform: translateY(50%);
+                top: 40px;
+                right: 0;
+                display: none;
+            }
+        }
+
+        .wpcf7-form-control-wrap{
+            position: static;   
+            width: 100%;     
+        }
+
+        .wpcf7-file {
+            cursor: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .file-name-wrap {
+            width: 100%;
+            display: none;
+            justify-content: flex-start;
+            align-items: center;
+
+            margin-top: 40px;
+
+            .file-name {
+                @include body_16_500();
+                color: #FFFFFF;
+            }
+            svg {
+                margin-right: 8px;
+            }
+        }
+
+
+
+        label:last-of-type {
+            // background-color: red;
+            @include body_16_500();
+            color: #FFFFFF;
+            text-decoration: underline;
+            // position: relative;
+
+            margin-top: 48px;
+            padding: 0;
+            height: 120px;
+
+            border: 1px dashed rgba(255, 255, 255, 0.16);
+            border-radius: 12px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                text-decoration: none;
+                position: absolute;
+                top: -50px;
+                display: none;
+            }
+
+            .wpcf7-not-valid-tip {
+                top: -40px;
+                transform: translateY(-100%);
+            }
+        }
+
+        .submit-wrap {
+            position: relative;
+            margin-top: 64px;
+            @include windowMax1440p {
+                margin-top: 48px;
+            }
+        }
+
+        .wpcf7-submit{ //input
+            @include btn_text_16_580();
+            // @include whiteHover();
+            position: relative;
+            z-index: 1000;
+    
+            padding: 20px 40px;
+            box-sizing: border-box;
+    
+            // border-radius: 100px;
+            border: none;        
+            color: #FFFFFF;
+            background: none;
+            cursor: none;
+    
+            @include windowMax1440p {
+                padding: 16px 32px;
+            }
+        }
+
+        .wpcf7-spinner{
+            position: absolute;
+            transform: translateY(100%);
+            bottom: -10px;
+        }
+
+        .wpcf7-response-output {
+            @include body_16_480();
+            color: #CE204A;
+            box-sizing: border-box;
+
+            position: absolute;
+            transform: translate(-50%, 100%);
+            left: 50%;
+            bottom: -48px;
+
+            border: none !important;
+
+            width: 100%;
+            text-align: center;
+            overflow: visible;
+        }
+    }
+    
+
+    @include mobileMax952p {
+        padding-top: 20px;
+        padding-bottom: 160px;
+        margin-top: -2px;
+        // overflow: hidden;
+        
+        .container {
+            height: auto;
+            box-sizing: border-box;
+        }
+
+        .headline-container {
+            margin-top: 316px;
+        }
+
+        h2 {
+            display: block;
+            font-size: 11vw;
+            line-height: 0.95em;
+            text-align: center;
+            opacity: 1;
+            span, &.h2-shallota {
+                margin-top: 8px;
+                font-size: 12.8vw;
+                line-height: 0.686em;
+            }
+
+            @include mobileMax768p {
+                font-size: 18vw;
+                span, &.h2-shallota {
+                    font-size: 22vw;
+                    line-height: 22vw;
+                }
+            }
+        }
+
+        .wpcf7-not-valid-tip {
+            // @include body_16_480();
+            // color: #CE204A;
+    
+            // position: absolute;
+            top: unset;
+            bottom: 10px;
+            right: unset;
+            left: 0;
+            // transform: translateY(-50%);
+        }
+    
+        .wpcf7 {
+            // position: relative;
+            margin-top: 72px;
+            // width: 100%;
+            // max-width: 856px;
+        }
+    
+        .wpcf7-form {
+            position: relative;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            label {
+                position: relative;
+                font-weight: 580;
+                font-size: 16px;
+                line-height: 28px;
+    
+                &:last-of-type {
+                    // border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+                }
+    
+                .wpcf7-text, .wpcf7-textarea { //input
+                    font-weight: 580;
+                    font-size: 14px;
+                    line-height: 26px;
+                    margin-top: 4px;
+                }
+    
+                .wpcf7-textarea {
+                    resize: none;
+                    height: 58px;
+                }
+            }
+    
+            .wpcf7-form-control-wrap{
+                position: static;   
+                width: 100%;     
+            }
+    
+            .wpcf7-file {
+                cursor: none;
+            }
+
+            label:last-of-type {
+                .wpcf7-not-valid-tip {
+                    top: -16px;
+                }
+            }
+
+            .submit-wrap {
+                position: relative;
+                margin-top: 40px;
+                @include mobileMax768p {
+                    width: 100%;
+                }
+            }
+    
+            .wpcf7-submit{
+                position: relative;
+                margin-top: 36px;
+                padding: 18px 32px;
+
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 100px;
+                @include mobileMax768p {
+                    width: 100%;
+                }
+            }
+    
+            .wpcf7-spinner{
+                position: absolute;
+                transform: translate(-50%, 100%);
+                bottom: 0;
+                left: 50%;
+            }
+
+            label:last-of-type {
+                // position: static;
+                .wpcf7-not-valid-tip {
+                    // @include body_16_480();
+                    // color: #CE204A;
+            
+                    position: absolute;
+                    transform: translate(0, 100%);
+                    top: unset;
+                    bottom: -24px;
+                }
+            }
+    
+            .wpcf7-response-output {
+                // @include spline16basic();
+                color: #FF0000;
+                box-sizing: border-box;
+    
+                position: absolute;
+                transform: translateY(100%);
+                left: 0;
+                bottom: -32px;
+    
+                border: none !important;
+    
+                width: 100%;
+                text-align: left;
+                padding: 0;
+            }
+        }
+    }
+
+}

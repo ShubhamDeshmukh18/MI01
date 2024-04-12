@@ -1,0 +1,297 @@
+.blog-hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0e0e13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: -2px;
+
+    padding: 250px 0 180px 0;
+
+    @include windowMax1440p {
+        padding: 200px 0 164px 0;
+    }
+    @include windowMax1280p {
+        padding: 170px 0 164px 0;
+    }
+
+    .container {
+    }
+    
+    h1 {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 520;
+        font-size: 150px;
+        line-height: 180px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        font-feature-settings: 'liga' off;
+        color: #FFFFFF;
+
+        span {
+            font-family: 'Shallota-Extralight';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 184px;
+            line-height: 168px;
+            color: #FFFFFF;
+            font-feature-settings: 'liga' off;
+        }
+
+        @include windowMax1440p {
+            font-weight: 500;
+            font-size: 136px;
+            line-height: 164px;
+            span {
+                font-size: 160px;
+                line-height: 164px;
+            }
+        }
+        @include windowMax1280p {
+            font-weight: 500;
+            font-size: 112px;
+            line-height: 140px;
+            span {
+                font-size: 136px;
+                line-height: 140px;
+            }
+        }
+    }
+
+    .post {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+        margin-top: 112px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 64px;
+
+        @include windowMax1440p {
+            margin-top: 96px;
+            gap: 48px;
+        }
+        @include windowMax1280p {
+            margin-top: 88px;
+            gap: 48px;
+        }
+        
+        &__img {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &__content {
+            position: relative;
+            width: 100%;
+            height: min-content;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            box-sizing: border-box;
+
+            @include windowMax1440p {
+
+            }
+            @include windowMax1280p {
+
+            }
+        }
+        
+        h3 {
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+            max-width: 600px;
+
+            @include windowMax1440p {
+                font-size: 22px;
+                line-height: 30px;
+            }
+            @include windowMax1280p {
+                max-width: 550px;
+            }
+        }
+
+        .description {
+            position: relative;
+
+            height: auto;
+            max-width: 700px;
+            
+            opacity: 0.6;
+            margin: 12px 0 0 0;
+
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.75em;
+            letter-spacing: 0.04em;
+            font-feature-settings: 'liga' off;
+            color: #FFFFFF;
+
+            @include windowMax1440p {
+                font-size: 14px;
+                line-height: 26px;
+                max-width: 650px;
+            }
+            @include windowMax1280p {
+                max-width: 600px;
+            }
+        }
+
+        &__info {    
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+    
+            @include body_16_580();
+            color: #FFFFFF;
+
+            @include windowMax1440p {
+                font-size: 16px;
+                line-height: 28px;
+            }
+    
+            .author {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+    
+                img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                }
+            }
+    
+            .dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: #FFFFFF;
+            }
+        }
+    }
+
+    .--mobile {
+        display: none;
+    }
+
+    @include mobileMax952p {
+        padding: 145px 0 140px 0;
+
+        .--mobile {
+            display: block;
+        }
+        .--desktop {
+            display: none;
+        }
+
+        h1 {
+            font-size: 104px;
+            line-height: 1.2em;
+
+            @include mobileMax768p {
+                font-size: 16vw;
+            }
+    
+            span {
+                font-size: 1.2em;
+                line-height: 1.12em;
+            }
+        }
+
+        .post {
+            margin-top: 56px;
+            gap: 32px;
+            
+            &__img {
+                height: auto;
+                min-height: 540px;
+                width: 100%;
+                object-fit: cover;
+            }
+    
+            &__content {
+                position: relative;
+                width: 100%;
+                height: min-content;
+                
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+    
+                box-sizing: border-box;
+            }
+            
+            h3 {
+                font-size: 20px;
+                line-height: 28px;
+                letter-spacing: 1px;
+            }
+    
+            .description {
+                position: relative;
+    
+                height: auto;
+                display: block;
+                -webkit-line-clamp: unset;
+                -webkit-box-orient: unset;
+                overflow: unset;
+                text-overflow: unset;
+                
+                opacity: 0.6;
+                margin: 12px 0 48px 0;
+    
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0.04em;
+            }
+    
+            &__info {    
+                position: relative;
+                top: unset;
+                right: unset;
+
+                gap: 8px;
+        
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0.04em;
+        
+                .author {
+                    gap: 12px;
+                }
+        
+                .dot {
+                    width: 2px;
+                    height: 2px;
+                    border-radius: 50%;
+                    background-color: #FFFFFF;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,225 @@
+.post-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0e0e13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: -2px;
+
+    --small-container: 808px;
+    @include windowMax1440p {
+        --small-container: 726px;
+    }
+
+    .container {
+        overflow: visible;
+    }
+    
+    h2 {        
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 1px;
+        color: #FFFFFF;
+
+        margin-top: 88px;
+        margin-bottom: 32px;
+
+        @include windowMax1440p {
+            font-size: 22px;
+            line-height: 30px;
+            margin-top: 64px;
+            margin-bottom: 24px;
+        }
+    }
+
+    p {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 2em;
+        letter-spacing: 0.04em;
+        font-feature-settings: 'liga' off;
+        color: rgba(255, 255, 255, 0.7);
+
+        margin-top: 24px;
+        margin-bottom: 24px;
+
+        strong {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 500;
+        }
+        
+        a {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        @include windowMax1440p {
+            font-size: 14px;
+
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+    }
+
+    h2, h3, h4, p {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--small-container);
+    }
+
+    .wp-block-image {
+        max-width: var(--small-container);
+        height: auto;
+        
+        margin: 112px auto 112px auto;
+        @include windowMax1440p {
+            margin: 90px auto 88px auto;
+        }
+        @include windowMax1280p {
+            margin: 82px auto 80px auto;            
+        }
+
+        &:first-of-type {
+            position: relative;
+            transform: translateX(-50%);
+            left: 50%;
+
+            width: 100%;
+            height: auto;
+            max-width: unset;
+
+            margin: 0px auto 136px auto;
+            @include windowMax1440p {
+                width: 100vw;
+                min-width: 100%;
+                max-width: calc(100vw - 2*72px);
+                margin-bottom: 96px;
+            }
+            @include windowMax1280p {
+                margin-bottom: 80px;
+            }
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        box-sizing: border-box;
+        max-width: var(--small-container);
+        padding-left: 32px;
+        margin: 24px auto;
+
+        @include windowMax1440p {
+            margin: 16px auto;
+        }
+    }
+    li {
+        position: relative;
+        padding-left: 28px;
+        font-weight: 400;
+
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;
+        font-feature-settings: 'liga' off;
+        color: #FFFFFF;
+        opacity: 0.9;
+
+        @include windowMax1440p {
+            font-size: 14px;
+            line-height: 26px;
+        }
+
+        span {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+
+    li::before {
+        content: ' ';
+        // display: block;
+        position: absolute;
+        left: 0;
+        top: 0.65em;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        font-size: 1.2em;
+
+        @include windowMax1440p {
+            top: 0.72em;
+        }
+    }
+
+    @include mobileMax952p {
+        
+        h2 {        
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: 0.06em;
+    
+            margin-top: 56px;
+            margin-bottom: 24px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 26px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+    
+        .wp-block-image {
+            margin: 64px auto 64px auto;
+            width: 100%;
+    
+            &:first-of-type {
+                margin: 0px auto 64px auto;
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    
+        ul {
+            gap: 6px;
+            padding-left: 0px;
+            margin: 16px auto;
+        }
+
+        li {
+            position: relative;
+            padding-left: 28px;
+            font-weight: 400;
+    
+            font-size: 14px;
+            line-height: 26px;
+            letter-spacing: 0.04em;
+        }
+    
+        li::before {
+
+        }
+    }
+}

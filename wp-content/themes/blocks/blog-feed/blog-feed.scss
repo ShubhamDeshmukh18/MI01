@@ -1,0 +1,293 @@
+.blog-feed {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0e0e13;
+
+    overflow: visible;
+    box-sizing: border-box;
+    // margin-bottom: -2px;
+    padding-top: 2px;
+    padding-bottom: 360px;
+
+    @include windowMax1440p {
+        padding-bottom: 260px;
+    }
+
+    .container {
+    }
+    
+    h2 {        
+        @include body_16_500();
+        color: #FFFFFF;
+        margin-bottom: 40px;
+    }
+
+    .post {
+        position: relative;
+        width: 100%;
+        height: 344px;
+        overflow: hidden;
+
+        box-sizing: border-box;
+        padding: 32px 0 32px 0;
+
+        display: flex;
+        align-items: center;
+        gap: 104px;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+        @include windowMax1440p {
+            height: 320px;
+
+        }
+
+        &:last-of-type {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        &::before {
+            content: " ";
+            position: absolute;
+            top: -200%;
+            width: 100%;
+            height: 200%;
+            border-radius: 0 0 50% 50%;
+            background-color: rgba(255, 255, 255, 0.04);
+        }
+
+        @media (hover: hover) {
+            transition-timing-function: ease-in-out;
+
+            &::before {
+                transition: top 0.8s;
+            }
+
+            // &__img {
+            //     position: relative;
+            //     left: 0;
+            //     transition: left 0.4s;
+            // }
+
+            svg {
+                right: 0;
+                transition: right 0.4s;
+            }
+
+            &:hover {
+                &::before {
+                    top: 0;
+                }
+                // &__img {
+                //     left: 32px;
+                // }
+
+                svg {
+                    right: 32px;
+                }
+            }
+        }
+        
+        &__img {
+            height: 100%;
+            width: 384px;
+            object-fit: cover;
+
+            @include windowMax1440p {
+                width: 351px;
+            }
+        }
+
+        &__content {
+            position: relative;
+            width: 100%;
+            height: min-content;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            box-sizing: border-box;
+            padding-right: 104px;
+
+            @include windowMax1440p {
+                padding-right: 80px;
+            }
+            @include windowMax1280p {
+                padding-right: 48px;
+            }
+        }
+        
+        h3 {
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            letter-spacing: 1px;
+            color: #FFFFFF;
+            max-width: 600px;
+
+            @include windowMax1440p {
+                font-size: 22px;
+                line-height: 30px;
+            }
+            @include windowMax1280p {
+                max-width: 550px;
+            }
+        }
+
+        .description {
+            position: relative;
+
+            height: 3.5em;
+            display: -webkit-box;
+            max-width: 100%;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis " [...]";
+            
+            opacity: 0.6;
+            margin: 12px 0 48px 0;
+
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.75em;
+            letter-spacing: 0.04em;
+            font-feature-settings: 'liga' off;
+            color: #FFFFFF;
+
+            @include windowMax1440p {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+
+        &__info {    
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+    
+            @include body_16_580();
+            color: #FFFFFF;
+
+            @include windowMax1440p {
+                font-size: 16px;
+                line-height: 28px;
+            }
+    
+            .author {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+    
+                img {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                }
+            }
+    
+            .dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: #FFFFFF;
+            }
+        }
+
+        &__arrow {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    @include mobileMax952p {
+        padding-bottom: 160px;
+
+        h2 {        
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+        }
+    
+        .post {
+            position: relative;
+            width: 100%;
+            height: auto;
+    
+            padding: 40px 0 40px 0;
+    
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 32px;
+            
+            &__img {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
+    
+            &__content {
+                padding-right: 0;
+            }
+            
+            h3 {
+                font-size: 20px;
+                line-height: 28px;
+                letter-spacing: 1px;
+            }
+    
+            .description {
+                position: relative;
+    
+                height: auto;
+                display: block;
+                -webkit-line-clamp: unset;
+                -webkit-box-orient: unset;
+                overflow: unset;
+                text-overflow: unset;
+                
+                opacity: 0.6;
+                margin: 12px 0 48px 0;
+    
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0.04em;
+            }
+    
+            &__info {    
+                gap: 8px;
+        
+                font-size: 14px;
+                line-height: 26px;
+                letter-spacing: 0.04em;
+        
+                .author {
+                    gap: 12px;
+                }
+        
+                .dot {
+                    width: 2px;
+                    height: 2px;
+                    border-radius: 50%;
+                    background-color: #FFFFFF;
+                }
+            }
+    
+            &__arrow {
+                display: none;
+            }
+        }
+    }
+}

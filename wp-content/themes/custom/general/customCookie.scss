@@ -1,0 +1,134 @@
+#cc--main{
+    z-index: 214748364 !important;
+}
+
+#cm {
+    // bottom: 32px !important;
+    // right: 32px !important;
+    background: #1A1C25 !important;
+    border-radius: 8px !important;
+    padding: 26px 32px !important;
+    box-shadow: unset !important;
+
+    @include mobileMax768p {
+        left: 16px !important;
+        right: 16px !important;
+        bottom: 16px !important;
+
+    }
+
+    #c-inr-i {
+        width: 100%;
+    }
+
+    #c-ttl {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-variation-settings: 'wght' 580;
+        font-weight: 580;
+        // font-weight: 580;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;    
+        color: #FFFFFF;
+
+        @include windowMax1440p {
+            font-size: 14px;
+            line-height: 26px;
+        }
+    }
+
+    #c-txt {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-variation-settings: 'wght' 500;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;     
+        color: #FFFFFF;
+    
+        @include windowMax1440p {
+            font-size: 14px;
+            line-height: 26px;
+        }
+
+        .cc-link {
+            font-weight: 580;
+            color: #FFFFFF;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+
+            @media (hover: hover) {
+                cursor: none;
+            }
+        }
+    }
+    #c-bns {
+        min-width: 150px;
+        @include mobileMax768p {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+        }
+    }
+    .c-bn{
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 100px;
+
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-variation-settings: 'wght' 580;
+        font-weight: 580;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.04em;     
+        color: #FFFFFF;
+
+        // padding: 14px 16px;
+
+        @include windowMax1440p {
+            font-size: 14px;
+            line-height: 26px;
+        }
+
+        @include mobileMax768p {
+            font-size: 16px !important;
+            line-height: 28px !important;
+        }
+
+        &#c-p-bn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 1);
+
+            @media (hover: hover) {
+                transition: background-color 0.25, color 0.25;
+                cursor: none;
+                &:hover {
+                    cursor: none;
+                    color: rgba(0, 0, 0, 1);
+                    background-color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+        &#c-s-bn {
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+
+            @media (hover: hover) {
+                transition: background-color 0.25;
+                cursor: none;
+                &:hover {
+                    cursor: none;
+                    background-color: rgba(255, 255, 255, 0.05);
+                }
+            }
+
+            @include mobileMax768p {
+                margin-top: 0px;
+            }
+        }
+    }
+}

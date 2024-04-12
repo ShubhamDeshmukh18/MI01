@@ -1,0 +1,92 @@
+.casetudies-hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // background: #0e0e13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-bottom: -2px;
+
+    padding: 250px 0 136px 0;
+
+    @include windowMax1440p {
+        padding: 234px 0 96px 0;
+    }
+    @include windowMax1280p {
+        padding: 196px 0 88px 0;
+    }
+
+    .container {
+    }
+    
+    h1 {
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 520;
+        font-size: 150px;
+        line-height: 180px;
+        text-align: center;
+        letter-spacing: 0.01em;
+        font-feature-settings: 'liga' off;
+        color: #0e0e13;
+
+        span {
+            font-family: 'Shallota-Extralight';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 184px;
+            line-height: 168px;
+            color: #0e0e13;
+            font-feature-settings: 'liga' off;
+        }
+
+        br {
+            display: none;
+        }
+
+        @include windowMax1440p {
+            font-weight: 500;
+            font-size: 136px;
+            line-height: 164px;
+            span {
+                font-size: 160px;
+                line-height: 164px;
+            }
+        }
+        @include windowMax1280p {
+            font-weight: 500;
+            font-size: 112px;
+            line-height: 140px;
+            span {
+                font-size: 136px;
+                line-height: 140px;
+            }
+        }
+    }
+
+
+    @include mobileMax952p {
+        padding: 145px 0 56px 0;
+
+        h1 {
+            font-size: 104px;
+            line-height: 1.2em;
+
+            @include mobileMax768p {
+                font-size: 16vw;
+            }
+    
+            span {
+                font-size: 1.2em;
+                line-height: 1.12em;
+            }
+
+            @include mobileMax768p {
+                br {
+                    display: inline;
+                }
+            }
+        }
+    }
+}

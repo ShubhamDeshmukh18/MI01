@@ -1,0 +1,35 @@
+.h-animation-wrapper {
+    position: relative;
+    overflow: hidden;
+    // clip-path: inset(0 0 0 0);
+
+    h1, h2, h3, h4 {
+        // position: relative;
+        // transform-origin: top left;
+        // transform: skew(0deg, 20deg);
+    }
+
+    // &::after {
+    //     content: " ";
+    //     position: absolute;
+    //     bottom: -1px;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 10%;
+    //     background: #FFFFFF;
+
+    // }
+}
+
+.h-line {
+    // opacity: 0;
+}
+
+.hero .h-animation-wrapper {
+    clip-path: inset(0 0 10% 0);
+}
+
+.img-paralax-container {
+    width: 100%;
+    overflow: hidden;
+}

@@ -1,0 +1,124 @@
+.clients {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // background: #19171E;
+    // background: #0E0E13;
+    background-color: #FFFFFF;
+    overflow: visible;
+    margin-top: -2px;
+    padding: 180px 0 200px 0;
+
+    @include windowMax1440p {
+        padding: 100px 0 0 0;
+    }
+
+    @include windowMax1280p {
+        padding: 100px 0 0 0;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+        overflow: visible;
+        column-gap: 16px;
+        row-gap: 120px;
+
+        margin-top: 136px;
+
+        @include windowMax1440p {
+            margin-top: 100px
+        }
+    }
+
+    h3 {
+        @include body_16_500();
+        color: #FFFFFF;
+        opacity: 0.6;
+        text-align: center;
+    }
+
+    .client {
+        width: calc((100% - 3*70px)/4);
+        &__logo-wrapper {
+            position: relative;
+            height: 44px
+        }
+        &__logo {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            opacity: 0;
+        }
+        &__logo-dark {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        p {
+            @include body_16_480();
+            color: #FFFFFF;
+            opacity: 0.6;
+            margin-top: 32px;
+        }
+    }
+
+    
+    @include mobileMax952p(){
+        padding: 180px 0 200px 0;
+
+        h3 {
+            font-size: 14px;
+            line-height: 22px;
+            
+            @include mobileMax768p {
+                text-align: left;
+                margin-left: 24px;
+            }
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-content: center;
+
+            row-gap: 64px;
+            margin-top: 88px;
+            max-width: 600px;
+            
+            @include mobileMax768p {
+                max-width: calc(100VW - 48px);
+            }
+        }
+
+        .client {
+            width: 100%;
+            // max-width: 400px;
+            &__logo-wrapper {
+                height: 44px;
+                display: flex;
+                justify-content: center;
+            }
+            p {
+                margin-top: 28px;
+                text-align: center;
+            }
+            
+            &:nth-of-type(n + 7) {
+                display: none;
+            }
+
+            @include mobileMax768p {
+                &__logo-wrapper {
+                    display: block;
+                }
+                p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,281 @@
+.job-images{
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+    // background: #19171E;
+    background: #0E0E13;
+    overflow: visible;
+    margin-top: -2px;
+    
+    z-index: 100;
+    
+    padding-top: 162px;
+    @include windowMax1440p {
+        // padding-top: 140px;
+    }
+    @include windowMax1280p {
+        // padding-top: 116px;
+    }
+    
+    .container {
+        position: relative;
+        overflow: visible;
+        height: 1964px;
+
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 364px;
+        @include windowMax1440p {
+            // height: 1726px;
+            height: 1647px;
+            padding-bottom: 332px;
+        }
+        @include windowMax1280p {
+            height: 1589px;
+            padding-bottom: 292px;
+        }
+    }
+
+    .headline-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+
+        margin-top: 884px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transform: translateY(-100%);
+
+        @include windowMax1440p {
+            margin-top: 772px;
+        }
+        @include windowMax1280p {
+            margin-top: 692px;
+        }
+    }
+
+
+    .headline-wrapper {
+        position: relative;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .h2-wrap {
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+
+    h2 {
+        @include headline_156();
+        position: relative;
+        display: inline;
+        color: #FFFFFF;
+
+        @include windowMax1440p {
+            font-size: 120px;
+            line-height: 148px;
+        }
+        @include windowMax1280p {
+            font-size: 92px;
+            line-height: 120px;
+        }
+    }
+
+    .photos-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .team-photo {
+        position: absolute;
+        z-index: 0;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &__first {
+            width: 673px;
+            height: 758px;
+            top: 411px;
+            right: 0;
+            opacity: 0.6;
+            @include windowMax1440p {
+                width: 541px;
+                height: 609px;
+                top: 386px;
+                right: 48px;
+            }
+            @include windowMax1280p {
+                width: 541px;
+                height: 609px;
+                top: 318px;
+                right: 48px;
+            }
+        }
+        &__second {
+            width: 416px;
+            height: 416px;
+            right: 257px;
+            top: 1412px;
+            opacity: 0.7;
+            @include windowMax1440p {
+                width: 334px;
+                height: 334px;
+                right: 255px;
+                top: 1181px;
+            }
+            @include windowMax1280p {
+                width: 334px;
+                height: 334px;
+                right: 255px;
+                top: 1123px;
+            }
+        }
+        &__third {
+            width: 489px;
+            height: 329px;
+            top: 180px;
+            left: 0;
+            opacity: 0.7;
+            @include windowMax1440p {
+                width: 394px;
+                height: 265px;
+                top: 200px;
+                left: 48px;
+            }
+            @include windowMax1280p {
+                width: 394px;
+                height: 265px;
+                top: 132px;
+                left: 48px;
+            }
+        }
+        &__fourth {
+            width: 440px;
+            height: 592px;
+            left: 72px;
+            top: 1068px;
+            opacity: 0.6;
+            @include windowMax1440p {
+                width: 353px;
+                height: 476px;
+                left: 105px;
+                top: 904px;
+            }
+            @include windowMax1280p {
+                width: 353px;
+                height: 476px;
+                left: 105px;
+                top: 836px;
+            }
+        }
+    }
+    
+
+    @include mobileMax952p {
+        padding-top: 162px;
+        // padding-bottom: 267px;
+        margin-top: -2px;
+        // overflow: hidden;
+        
+        .container {
+            height: 1044px;
+            box-sizing: content-box;
+            box-sizing: border-box;
+        }
+
+        .headline-container {
+            margin-top: 316px;
+        }
+    
+        .h2-wrap {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h2 {
+            display: block;
+            font-size: 13vw;
+            line-height: 0.95em;
+            text-align: center;
+            opacity: 1;
+            span, &.h2-shallota {
+                margin-top: 8px;
+                font-size: 16vw;
+                line-height: 16vw;
+            }
+
+            @include mobileMax768p {
+                font-size: 18vw;
+                span, &.h2-shallota {
+                    font-size: 22vw;
+                    line-height: 22vw;
+                }
+            }
+        }
+
+        .photos-container {
+            position: absolute;
+            width: 375px;
+            height: 776px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .team-photo {
+            position: absolute;
+            z-index: 0;
+
+            &__first {
+                width: 256px;
+                height: 288px;
+                left: 215px;
+                right: unset;
+                top: 144px;
+                opacity: 0.6;
+            }
+            &__second {
+                width: 158px;
+                height: 158px;
+                left: 207px;
+                right: unset;
+                top: 618px;
+                opacity: 0.7;
+            }
+            &__third {
+                width: 209px;
+                height: 144px;
+                left: -72px;
+                right: unset;
+                top: 0px;
+                opacity: 0.7;
+            }
+            &__fourth {
+                width: 167px;
+                height: 225px;
+                left: -43px;
+                right: unset;
+                top: 425px;
+                opacity: 0.6;
+            }
+        }
+    }
+
+}

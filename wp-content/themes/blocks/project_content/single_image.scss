@@ -1,0 +1,108 @@
+.single-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    margin: 40px 0 40px 0;
+
+    --video-aspect-ratio: 1;
+    --container-width: calc(1100px + (100vw - 1100px)/2);
+    --container-height: calc((1100px + (100vw - 1100px)/2)*0.5);
+    @include windowMax1280p {
+        --container-width: calc(1100px);
+        --container-height: calc(1100px*0.5);
+    }
+    @media (min-width: 1441px) {
+        --container-width: calc(1368px);
+        --container-height: calc(1368px*0.5);
+    }
+    @media (min-width: 1608px) {
+        --container-width: calc(100vw - 2*120px);
+        --container-height: calc((100vw - 2*120px)*0.5);
+    }
+
+    .container {
+        position: relative;
+        max-width: var(--container-width);
+        height: var(--container-height);
+        // box-sizing: border-box;
+
+        // overflow: hidden;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+    }
+
+    img, video {
+        position: relative;
+        height: auto;
+        object-fit: cover;
+
+        width: 100%;
+    }
+
+    .embeded-video {
+        width: var(--container-width);
+        height: calc(100vw/var(--video-aspect-ratio)); /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+        min-height: 100%;
+        min-width: calc(var(--video-aspect-ratio)*var(--container-height)); /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        pointer-events: none;
+    }
+
+
+    .--mobile-version {
+        display: none;
+    }
+    @media (max-width: 767px) {
+        .--mobile-version {
+            display: block;
+        }
+        .--desktop-version {
+            display: none;
+        }
+    }
+
+    @include mobileMax952p {
+        margin: 24px 0 24px 0;
+        --container-width: calc(100VW - 48px);
+        --container-height: min(70vh, calc((100vw - 2*24px)/327*255));
+
+        .container {
+            max-width: var(--container-width);
+            height: var(--container-height);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img, video {
+            width: 100%;
+            // height: calc((100vw - 2*24px)/327*567/0.80);
+            height: 100%;
+        }
+
+        .embeded-video {
+            height: var(--container-height);
+        }
+
+        &.--image-paralax { 
+            .container {
+                height: calc((100vw - 2*24px)/327*567);
+            }
+
+            img {
+                height: 115%;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,104 @@
+.showreel {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 580px;
+    // background-color: aqua;
+    background: #0E0E13;
+    margin-bottom: -1px;
+    overflow: hidden;
+    
+    .video-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        // clip-path: inset(0 0 0 50%);
+        overflow: hidden;
+    }
+
+    .embeded-video {
+        width: 100vw;
+        height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+        min-height: 100%;
+        min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        
+        // @media (hover: hover) {
+            pointer-events: none;
+        // }
+
+        &.--mobile-version {
+            display: none;
+        }
+    }
+
+    h2 {
+        display: none;
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-variation-settings: 'wght' 500;
+        font-size: 100px;
+        line-height: 120px;
+        /* or 120% */
+
+        text-align: center;
+
+        background: linear-gradient(128.64deg, #FFFFFF -67.43%, rgba(255, 255, 255, 0) 109.57%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+
+        opacity: 0.2;
+    }
+
+    .vp-a {
+        position: absolute;
+        z-index: 10000;
+    }
+
+    &.--comming-soon {
+        .embeded-video {
+            display: none;
+        }
+
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        h2 {
+            display: block;
+        }
+    }
+
+    @include mobileMax768p(){
+        h2 {
+            font-size: 70px;
+            line-height: 84px;
+        }
+        .embeded-video {
+            width: 100vw;
+            height: 56.25vw; 
+            min-height: 100%;
+            min-width: 177.77vh; 
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+        }
+    }
+}
+
+
+.wp-video-popup-video {
+    pointer-events: all;
+    cursor: auto;
+}

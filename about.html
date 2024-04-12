@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0E0E13">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="facebook-domain-verification" content="py11uqn04pr5rql7tqfhu7r49whs9v" />
+
+    <script data-cfasync="false" data-no-defer="1">
+        var ewww_webp_supported = !1;
+
+        function check_webp_feature(A, e) {
+            var w;
+            e = void 0 !== e ? e : function() {}, ewww_webp_supported ? e(ewww_webp_supported) : ((w = new Image).onload = function() {
+                ewww_webp_supported = 0 < w.width && 0 < w.height, e && e(ewww_webp_supported)
+            }, w.onerror = function() {
+                e && e(!1)
+            }, w.src = "data:image/webp;base64," + {
+                alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="
+            }[A])
+        }
+        check_webp_feature("alpha");
+    </script>
+    <script data-cfasync="false" data-no-defer="1">
+        var Arrive = function(c, w) {
+                "use strict";
+                if (c.MutationObserver && "undefined" != typeof HTMLElement) {
+                    var r, a = 0,
+                        u = (r = HTMLElement.prototype.matches || HTMLElement.prototype.webkitMatchesSelector || HTMLElement.prototype.mozMatchesSelector || HTMLElement.prototype.msMatchesSelector, {
+                            matchesSelector: function(e, t) {
+                                return e instanceof HTMLElement && r.call(e, t)
+                            },
+                            addMethod: function(e, t, r) {
+                                var a = e[t];
+                                e[t] = function() {
+                                    return r.length == arguments.length ? r.apply(this, arguments) : "function" == typeof a ? a.apply(this, arguments) : void 0
+                                }
+                            },
+                            callCallbacks: function(e, t) {
+                                t && t.options.onceOnly && 1 == t.firedElems.length && (e = [e[0]]);
+                                for (var r, a = 0; r = e[a]; a++) r && r.callback && r.callback.call(r.elem, r.elem);
+                                t && t.options.onceOnly && 1 == t.firedElems.length && t.me.unbindEventWithSelectorAndCallback.call(t.target, t.selector, t.callback)
+                            },
+                            checkChildNodesRecursively: function(e, t, r, a) {
+                                for (var i, n = 0; i = e[n]; n++) r(i, t, a) && a.push({
+                                    callback: t.callback,
+                                    elem: i
+                                }), 0 < i.childNodes.length && u.checkChildNodesRecursively(i.childNodes, t, r, a)
+                            },
+                            mergeArrays: function(e, t) {
+                                var r, a = {};
+                                for (r in e) e.hasOwnProperty(r) && (a[r] = e[r]);
+                                for (r in t) t.hasOwnProperty(r) && (a[r] = t[r]);
+                                return a
+                            },
+                            toElementsArray: function(e) {
+                                return e = void 0 !== e && ("number" != typeof e.length || e === c) ? [e] : e
+                            }
+                        }),
+                        e = (l.prototype.addEvent = function(e, t, r, a) {
+                            a = {
+                                target: e,
+                                selector: t,
+                                options: r,
+                                callback: a,
+                                firedElems: []
+                            };
+                            return this._beforeAdding && this._beforeAdding(a), this._eventsBucket.push(a), a
+                        }, l.prototype.removeEvent = function(e) {
+                            for (var t, r = this._eventsBucket.length - 1; t = this._eventsBucket[r]; r--) e(t) && (this._beforeRemoving && this._beforeRemoving(t), (t = this._eventsBucket.splice(r, 1)) && t.length && (t[0].callback = null))
+                        }, l.prototype.beforeAdding = function(e) {
+                            this._beforeAdding = e
+                        }, l.prototype.beforeRemoving = function(e) {
+                            this._beforeRemoving = e
+                        }, l),
+                        t = function(i, n) {
+                            var o = new e,
+                                l = this,
+                                s = {
+                                    fireOnAttributesModification: !1
+                                };
+                            return o.beforeAdding(function(t) {
+                                var e = t.target;
+                                e !== c.document && e !== c || (e = document.getElementsByTagName("html")[0]);
+                                var r = new MutationObserver(function(e) {
+                                        n.call(this, e, t)
+                                    }),
+                                    a = i(t.options);
+                                r.observe(e, a), t.observer = r, t.me = l
+                            }), o.beforeRemoving(function(e) {
+                                e.observer.disconnect()
+                            }), this.bindEvent = function(e, t, r) {
+                                t = u.mergeArrays(s, t);
+                                for (var a = u.toElementsArray(this), i = 0; i < a.length; i++) o.addEvent(a[i], e, t, r)
+                            }, this.unbindEvent = function() {
+                                var r = u.toElementsArray(this);
+                                o.removeEvent(function(e) {
+                                    for (var t = 0; t < r.length; t++)
+                                        if (this === w || e.target === r[t]) return !0;
+                                    return !1
+                                })
+                            }, this.unbindEventWithSelectorOrCallback = function(r) {
+                                var a = u.toElementsArray(this),
+                                    i = r,
+                                    e = "function" == typeof r ? function(e) {
+                                        for (var t = 0; t < a.length; t++)
+                                            if ((this === w || e.target === a[t]) && e.callback === i) return !0;
+                                        return !1
+                                    } : function(e) {
+                                        for (var t = 0; t < a.length; t++)
+                                            if ((this === w || e.target === a[t]) && e.selector === r) return !0;
+                                        return !1
+                                    };
+                                o.removeEvent(e)
+                            }, this.unbindEventWithSelectorAndCallback = function(r, a) {
+                                var i = u.toElementsArray(this);
+                                o.removeEvent(function(e) {
+                                    for (var t = 0; t < i.length; t++)
+                                        if ((this === w || e.target === i[t]) && e.selector === r && e.callback === a) return !0;
+                                    return !1
+                                })
+                            }, this
+                        },
+                        i = new function() {
+                            var s = {
+                                fireOnAttributesModification: !1,
+                                onceOnly: !1,
+                                existing: !1
+                            };
+
+                            function n(e, t, r) {
+                                return !(!u.matchesSelector(e, t.selector) || (e._id === w && (e._id = a++), -1 != t.firedElems.indexOf(e._id))) && (t.firedElems.push(e._id), !0)
+                            }
+                            var c = (i = new t(function(e) {
+                                var t = {
+                                    attributes: !1,
+                                    childList: !0,
+                                    subtree: !0
+                                };
+                                return e.fireOnAttributesModification && (t.attributes = !0), t
+                            }, function(e, i) {
+                                e.forEach(function(e) {
+                                    var t = e.addedNodes,
+                                        r = e.target,
+                                        a = [];
+                                    null !== t && 0 < t.length ? u.checkChildNodesRecursively(t, i, n, a) : "attributes" === e.type && n(r, i) && a.push({
+                                        callback: i.callback,
+                                        elem: r
+                                    }), u.callCallbacks(a, i)
+                                })
+                            })).bindEvent;
+                            return i.bindEvent = function(e, t, r) {
+                                t = void 0 === r ? (r = t, s) : u.mergeArrays(s, t);
+                                var a = u.toElementsArray(this);
+                                if (t.existing) {
+                                    for (var i = [], n = 0; n < a.length; n++)
+                                        for (var o = a[n].querySelectorAll(e), l = 0; l < o.length; l++) i.push({
+                                            callback: r,
+                                            elem: o[l]
+                                        });
+                                    if (t.onceOnly && i.length) return r.call(i[0].elem, i[0].elem);
+                                    setTimeout(u.callCallbacks, 1, i)
+                                }
+                                c.call(this, e, t, r)
+                            }, i
+                        },
+                        o = new function() {
+                            var a = {};
+
+                            function i(e, t) {
+                                return u.matchesSelector(e, t.selector)
+                            }
+                            var n = (o = new t(function() {
+                                return {
+                                    childList: !0,
+                                    subtree: !0
+                                }
+                            }, function(e, r) {
+                                e.forEach(function(e) {
+                                    var t = e.removedNodes,
+                                        e = [];
+                                    null !== t && 0 < t.length && u.checkChildNodesRecursively(t, r, i, e), u.callCallbacks(e, r)
+                                })
+                            })).bindEvent;
+                            return o.bindEvent = function(e, t, r) {
+                                t = void 0 === r ? (r = t, a) : u.mergeArrays(a, t), n.call(this, e, t, r)
+                            }, o
+                        };
+                    d(HTMLElement.prototype), d(NodeList.prototype), d(HTMLCollection.prototype), d(HTMLDocument.prototype), d(Window.prototype);
+                    var n = {};
+                    return s(i, n, "unbindAllArrive"), s(o, n, "unbindAllLeave"), n
+                }
+
+                function l() {
+                    this._eventsBucket = [], this._beforeAdding = null, this._beforeRemoving = null
+                }
+
+                function s(e, t, r) {
+                    u.addMethod(t, r, e.unbindEvent), u.addMethod(t, r, e.unbindEventWithSelectorOrCallback), u.addMethod(t, r, e.unbindEventWithSelectorAndCallback)
+                }
+
+                function d(e) {
+                    e.arrive = i.bindEvent, s(i, e, "unbindArrive"), e.leave = o.bindEvent, s(o, e, "unbindLeave")
+                }
+            }(window, void 0),
+            ewww_webp_supported = !1;
+
+        function check_webp_feature(e, t) {
+            var r;
+            ewww_webp_supported ? t(ewww_webp_supported) : ((r = new Image).onload = function() {
+                ewww_webp_supported = 0 < r.width && 0 < r.height, t(ewww_webp_supported)
+            }, r.onerror = function() {
+                t(!1)
+            }, r.src = "data:image/webp;base64," + {
+                alpha: "UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",
+                animation: "UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"
+            }[e])
+        }
+
+        function ewwwLoadImages(e) {
+            if (e) {
+                for (var t = document.querySelectorAll(".batch-image img, .image-wrapper a, .ngg-pro-masonry-item a, .ngg-galleria-offscreen-seo-wrapper a"), r = 0, a = t.length; r < a; r++) ewwwAttr(t[r], "data-src", t[r].getAttribute("data-webp")), ewwwAttr(t[r], "data-thumbnail", t[r].getAttribute("data-webp-thumbnail"));
+                for (var i = document.querySelectorAll(".rev_slider ul li"), r = 0, a = i.length; r < a; r++) {
+                    ewwwAttr(i[r], "data-thumb", i[r].getAttribute("data-webp-thumb"));
+                    for (var n = 1; n < 11;) ewwwAttr(i[r], "data-param" + n, i[r].getAttribute("data-webp-param" + n)), n++
+                }
+                for (r = 0, a = (i = document.querySelectorAll(".rev_slider img")).length; r < a; r++) ewwwAttr(i[r], "data-lazyload", i[r].getAttribute("data-webp-lazyload"));
+                for (var o = document.querySelectorAll("div.woocommerce-product-gallery__image"), r = 0, a = o.length; r < a; r++) ewwwAttr(o[r], "data-thumb", o[r].getAttribute("data-webp-thumb"))
+            }
+            for (var l = document.querySelectorAll("video"), r = 0, a = l.length; r < a; r++) ewwwAttr(l[r], "poster", e ? l[r].getAttribute("data-poster-webp") : l[r].getAttribute("data-poster-image"));
+            for (var s, c = document.querySelectorAll("img.ewww_webp_lazy_load"), r = 0, a = c.length; r < a; r++) e && (ewwwAttr(c[r], "data-lazy-srcset", c[r].getAttribute("data-lazy-srcset-webp")), ewwwAttr(c[r], "data-srcset", c[r].getAttribute("data-srcset-webp")), ewwwAttr(c[r], "data-lazy-src", c[r].getAttribute("data-lazy-src-webp")), ewwwAttr(c[r], "data-src", c[r].getAttribute("data-src-webp")), ewwwAttr(c[r], "data-orig-file", c[r].getAttribute("data-webp-orig-file")), ewwwAttr(c[r], "data-medium-file", c[r].getAttribute("data-webp-medium-file")), ewwwAttr(c[r], "data-large-file", c[r].getAttribute("data-webp-large-file")), null != (s = c[r].getAttribute("srcset")) && !1 !== s && s.includes("R0lGOD") && ewwwAttr(c[r], "src", c[r].getAttribute("data-lazy-src-webp"))), c[r].className = c[r].className.replace(/\bewww_webp_lazy_load\b/, "");
+            for (var w = document.querySelectorAll(".ewww_webp"), r = 0, a = w.length; r < a; r++) e ? (ewwwAttr(w[r], "srcset", w[r].getAttribute("data-srcset-webp")), ewwwAttr(w[r], "src", w[r].getAttribute("data-src-webp")), ewwwAttr(w[r], "data-orig-file", w[r].getAttribute("data-webp-orig-file")), ewwwAttr(w[r], "data-medium-file", w[r].getAttribute("data-webp-medium-file")), ewwwAttr(w[r], "data-large-file", w[r].getAttribute("data-webp-large-file")), ewwwAttr(w[r], "data-large_image", w[r].getAttribute("data-webp-large_image")), ewwwAttr(w[r], "data-src", w[r].getAttribute("data-webp-src"))) : (ewwwAttr(w[r], "srcset", w[r].getAttribute("data-srcset-img")), ewwwAttr(w[r], "src", w[r].getAttribute("data-src-img"))), w[r].className = w[r].className.replace(/\bewww_webp\b/, "ewww_webp_loaded");
+            window.jQuery && jQuery.fn.isotope && jQuery.fn.imagesLoaded && (jQuery(".fusion-posts-container-infinite").imagesLoaded(function() {
+                jQuery(".fusion-posts-container-infinite").hasClass("isotope") && jQuery(".fusion-posts-container-infinite").isotope()
+            }), jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").imagesLoaded(function() {
+                jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").isotope()
+            }))
+        }
+
+        function ewwwWebPInit(e) {
+            ewwwLoadImages(e), ewwwNggLoadGalleries(e), document.arrive(".ewww_webp", function() {
+                ewwwLoadImages(e)
+            }), document.arrive(".ewww_webp_lazy_load", function() {
+                ewwwLoadImages(e)
+            }), document.arrive("videos", function() {
+                ewwwLoadImages(e)
+            }), "loading" == document.readyState ? document.addEventListener("DOMContentLoaded", ewwwJSONParserInit) : ("undefined" != typeof galleries && ewwwNggParseGalleries(e), ewwwWooParseVariations(e))
+        }
+
+        function ewwwAttr(e, t, r) {
+            null != r && !1 !== r && e.setAttribute(t, r)
+        }
+
+        function ewwwJSONParserInit() {
+            "undefined" != typeof galleries && check_webp_feature("alpha", ewwwNggParseGalleries), check_webp_feature("alpha", ewwwWooParseVariations)
+        }
+
+        function ewwwWooParseVariations(e) {
+            if (e)
+                for (var t = document.querySelectorAll("form.variations_form"), r = 0, a = t.length; r < a; r++) {
+                    var i = t[r].getAttribute("data-product_variations"),
+                        n = !1;
+                    try {
+                        for (var o in i = JSON.parse(i)) void 0 !== i[o] && void 0 !== i[o].image && (void 0 !== i[o].image.src_webp && (i[o].image.src = i[o].image.src_webp, n = !0), void 0 !== i[o].image.srcset_webp && (i[o].image.srcset = i[o].image.srcset_webp, n = !0), void 0 !== i[o].image.full_src_webp && (i[o].image.full_src = i[o].image.full_src_webp, n = !0), void 0 !== i[o].image.gallery_thumbnail_src_webp && (i[o].image.gallery_thumbnail_src = i[o].image.gallery_thumbnail_src_webp, n = !0), void 0 !== i[o].image.thumb_src_webp && (i[o].image.thumb_src = i[o].image.thumb_src_webp, n = !0));
+                        n && ewwwAttr(t[r], "data-product_variations", JSON.stringify(i))
+                    } catch (e) {}
+                }
+        }
+
+        function ewwwNggParseGalleries(e) {
+            if (e)
+                for (var t in galleries) {
+                    var r = galleries[t];
+                    galleries[t].images_list = ewwwNggParseImageList(r.images_list)
+                }
+        }
+
+        function ewwwNggLoadGalleries(e) {
+            e && document.addEventListener("ngg.galleria.themeadded", function(e, t) {
+                window.ngg_galleria._create_backup = window.ngg_galleria.create, window.ngg_galleria.create = function(e, t) {
+                    var r = $(e).data("id");
+                    return galleries["gallery_" + r].images_list = ewwwNggParseImageList(galleries["gallery_" + r].images_list), window.ngg_galleria._create_backup(e, t)
+                }
+            })
+        }
+
+        function ewwwNggParseImageList(e) {
+            for (var t in e) {
+                var r = e[t];
+                if (void 0 !== r["image-webp"] && (e[t].image = r["image-webp"], delete e[t]["image-webp"]), void 0 !== r["thumb-webp"] && (e[t].thumb = r["thumb-webp"], delete e[t]["thumb-webp"]), void 0 !== r.full_image_webp && (e[t].full_image = r.full_image_webp, delete e[t].full_image_webp), void 0 !== r.srcsets)
+                    for (var a in r.srcsets) nggSrcset = r.srcsets[a], void 0 !== r.srcsets[a + "-webp"] && (e[t].srcsets[a] = r.srcsets[a + "-webp"], delete e[t].srcsets[a + "-webp"]);
+                if (void 0 !== r.full_srcsets)
+                    for (var i in r.full_srcsets) nggFSrcset = r.full_srcsets[i], void 0 !== r.full_srcsets[i + "-webp"] && (e[t].full_srcsets[i] = r.full_srcsets[i + "-webp"], delete e[t].full_srcsets[i + "-webp"])
+            }
+            return e
+        }
+        check_webp_feature("alpha", ewwwWebPInit);
+    </script>
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+    <!-- Google Tag Manager for WordPress by gtm4wp.com -->
+    <script data-cfasync="false" data-pagespeed-no-defer>
+        var gtm4wp_datalayer_name = "dataLayer";
+        var dataLayer = dataLayer || [];
+
+        const gtm4wp_scrollerscript_debugmode = false;
+        const gtm4wp_scrollerscript_callbacktime = 100;
+        const gtm4wp_scrollerscript_readerlocation = 150;
+        const gtm4wp_scrollerscript_contentelementid = "content";
+        const gtm4wp_scrollerscript_scannertime = 60;
+    </script>
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <!-- This site is optimized with the Yoast SEO plugin v19.8 - https://yoast.com/wordpress/plugins/seo/ -->
+    <title>myeNovation</title>
+    <meta name="description" content="Blackfish is a 360° software development and design studio. We tackle complex projects with the power of design and development—giving you the best of both worlds." />
+    <link rel="canonical" href="https://blackfish.co/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blackfish - Dive headfirst into the decade of digital" />
+    <meta property="og:description" content="Blackfish is a 360° software development and design studio. We tackle complex projects with the power of design and development—giving you the best of both worlds." />
+    <meta property="og:url" content="https://blackfish.co/" />
+    <meta property="og:site_name" content="Blackfish" />
+    <meta property="article:publisher" content="https://www.facebook.com/blackfishdotco" />
+    <meta property="article:modified_time" content="2023-05-10T08:02:59+00:00" />
+    <meta property="og:image" content="https://blackfish.co/wp-content/uploads/2022/10/teamPhoto4.png" />
+    <meta property="og:image:width" content="423" />
+    <meta property="og:image:height" content="660" />
+    <meta property="og:image:type" content="image/png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@blackfishdotco" />
+    <script type="application/ld+json" class="yoast-schema-graph">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "WebPage",
+                "@id": "https://blackfish.co/",
+                "url": "https://blackfish.co/",
+                "name": "Blackfish - Dive headfirst into the decade of digital",
+                "isPartOf": {
+                    "@id": "https://blackfish.co/#website"
+                },
+                "about": {
+                    "@id": "https://blackfish.co/#organization"
+                },
+                "primaryImageOfPage": {
+                    "@id": "https://blackfish.co/#primaryimage"
+                },
+                "image": {
+                    "@id": "https://blackfish.co/#primaryimage"
+                },
+                "thumbnailUrl": "https://blackfish.co/wp-content/uploads/2022/10/teamPhoto4.png",
+                "datePublished": "2022-09-28T09:46:14+00:00",
+                "dateModified": "2023-05-10T08:02:59+00:00",
+                "description": "Blackfish is a 360° software development and design studio. We tackle complex projects with the power of design and development—giving you the best of both worlds.",
+                "breadcrumb": {
+                    "@id": "https://blackfish.co/#breadcrumb"
+                },
+                "inLanguage": "en-US",
+                "potentialAction": [{
+                    "@type": "ReadAction",
+                    "target": ["https://blackfish.co/"]
+                }]
+            }, {
+                "@type": "ImageObject",
+                "inLanguage": "en-US",
+                "@id": "https://blackfish.co/#primaryimage",
+                "url": "https://blackfish.co/wp-content/uploads/2022/10/teamPhoto4.png",
+                "contentUrl": "https://blackfish.co/wp-content/uploads/2022/10/teamPhoto4.png",
+                "width": 423,
+                "height": 660,
+                "caption": "A photo of a founder and a CEO of Blackfish"
+            }, {
+                "@type": "BreadcrumbList",
+                "@id": "https://blackfish.co/#breadcrumb",
+                "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home"
+                }]
+            }, {
+                "@type": "WebSite",
+                "@id": "https://blackfish.co/#website",
+                "url": "https://blackfish.co/",
+                "name": "Blackfish",
+                "description": "Dive headfirst into the decade of digital",
+                "publisher": {
+                    "@id": "https://blackfish.co/#organization"
+                },
+                "potentialAction": [{
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://blackfish.co/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }],
+                "inLanguage": "en-US"
+            }, {
+                "@type": "Organization",
+                "@id": "https://blackfish.co/#organization",
+                "name": "Blackfish",
+                "url": "https://blackfish.co/",
+                "sameAs": ["https://www.instagram.com/blackfish.co", "https://www.facebook.com/blackfishdotco", "https://twitter.com/blackfishdotco"],
+                "logo": {
+                    "@type": "ImageObject",
+                    "inLanguage": "en-US",
+                    "@id": "https://blackfish.co/#/schema/logo/image/",
+                    "url": "https://blackfish.co/wp-content/uploads/2022/10/Mask-group.png",
+                    "contentUrl": "https://blackfish.co/wp-content/uploads/2022/10/Mask-group.png",
+                    "width": 512,
+                    "height": 512,
+                    "caption": "Blackfish"
+                },
+                "image": {
+                    "@id": "https://blackfish.co/#/schema/logo/image/"
+                }
+            }]
+        }
+    </script>
+    <!-- / Yoast SEO plugin. -->
+
+
+    <style id='classic-theme-styles-inline-css' type='text/css'>
+        /*! This file is auto-generated */
+
+        .wp-block-button__link {
+            color: #fff;
+            background-color: #32373c;
+            border-radius: 9999px;
+            box-shadow: none;
+            text-decoration: none;
+            padding: calc(.667em + 2px) calc(1.333em + 2px);
+            font-size: 1.125em
+        }
+
+        .wp-block-file__button {
+            background: #32373c;
+            color: #fff;
+            text-decoration: none
+        }
+    </style>
+    <style id='global-styles-inline-css' type='text/css'>
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        :where(.is-layout-grid) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flow>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-flow>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-flow>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-constrained>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-constrained>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: var(--wp--style--global--content-size);
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignwide {
+            max-width: var(--wp--style--global--wide-size);
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        body .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        body .is-layout-flex>* {
+            margin: 0;
+        }
+
+        body .is-layout-grid {
+            display: grid;
+        }
+
+        body .is-layout-grid>* {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        .wp-block-navigation a:where(:not(.wp-element-button)) {
+            color: inherit;
+        }
+
+        :where(.wp-block-post-template.is-layout-flex) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-post-template.is-layout-grid) {
+            gap: 1.25em;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        :where(.wp-block-columns.is-layout-grid) {
+            gap: 2em;
+        }
+
+        .wp-block-pullquote {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <link rel='stylesheet' id='contact-form-7-css' href='https://blackfish.co/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-video-popup-css' href='https://blackfish.co/wp-content/plugins/wp-video-popup-pro/inc/css/wp-video-popup.css?ver=2.9' type='text/css' media='all' />
+    <style id='wp-video-popup-inline-css' type='text/css'>
+        .wp-video-popup-video.is-landscape {
+            max-width: 85% !important;
+        }
+    </style>
+    <link rel='stylesheet' id='style-css' href='https://blackfish.co/wp-content/themes/custom/style.css?ver=1680811016' type='text/css' media='all' />
+
+    <!-- Google Tag Manager for WordPress by gtm4wp.com -->
+    <!-- GTM Container placement set to automatic -->
+    <script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+        var dataLayer_content = {
+            "pagePostType": "frontpage",
+            "pagePostType2": "single-page",
+            "pagePostAuthor": "admin"
+        };
+        dataLayer.push(dataLayer_content);
+    </script>
+    <script data-cfasync="false">
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                '//www.googletagmanager.com/gtm.' + 'js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5Q2BHTR');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+    <link rel="icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://blackfish.co/wp-content/uploads/2022/10/cropped-Mask-group-1-270x270.png" />
+
+    <link rel="stylesheet" href="https://blackfish.co/wp-content/themes/custom/cookieconsent.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://blackfish.co/wp-content/themes/custom/fonts/Shallota/Shallota-ExtraLight.otf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" as="image" href="https://blackfish.co/wp-content/themes/custom/images/bg/loaderLogoWhite.gif">
+</head>
+
+<body>
+    <script data-cfasync="false" data-no-defer="1">
+        if (typeof ewww_webp_supported === "undefined") {
+            var ewww_webp_supported = !1
+        }
+        if (ewww_webp_supported) {
+            document.body.classList.add("webp-support")
+        }
+    </script>
+ <section class="loader --homepage">
+    <div class="logo-wrapper">
+        <img class="loader-gif loader-gif__white" src="https://blackfish.co/wp-content/themes/custom/images/bg/loaderLogoWhite.gif" alt="blackfish logo">
+    </div>
+
+
+    <div class="loader-wave">
+        <svg width="1920" height="225" viewBox="0 0 1920 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0C601.096 300 1322.41 300 1920 0H0Z" fill="#0E0E13" />
+    </svg>
+    </div>
+
+    
+</section>
+    <div id="smooth-wrapper">
+        <div id="smooth-content" class="--cursor-dark">
+            <nav class="nav --cursor-light">
+                <div class="nav-container">
+                    <div style="width: 200px; height: 100px;"> <!-- Adjust width and height as needed -->
+                        <img src="https://myenovation.com/Updated_website/Assest/cmpyLogo.svg" alt="Company Logo" style="width: 100%; height: 100%;">
+                    </div>
+                    <div class="nav__buttons-wrapper">
+                        <a class="nav__button --cursor-focus-light" href="about.html" data-scroll="">About</a>
+                        <a class="nav__button --cursor-focus-light" href="working.html" data-scroll="">Working</a>
+                        <a class="nav__button --cursor-focus-light" href="Projects.html" data-scroll="">Features</a>
+                        <a class="nav__button --cursor-focus-light" href="casestudy.html" data-scroll="">Case Study</a>                     
+                        <a class="nav__button --cursor-focus-light" href="Careers.html" data-scroll="">Careers</a>
+                        <a class="nav__button --cursor-focus-light" href="tryit.html" data-scroll="">Try It</a>
+                   
+                        <a class="contact-btn footer-scroll --cursor-focus-light --btn-svg-hover" href="" role="button">
+                <svg class="btn-background-svg" width="129" height="66" viewBox="0 0 129 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="btn-start-1" d="M2 33C2 16.4315 15.4315 3 32 3H97C113.569 3 127 16.4315 127 33C127 49.5685 113.569 63 97 63H32C15.4315 63 2 49.5685 2 33Z" fill="white" fill-opacity="0.1" />
+                    <path id="btn-mid-1" d="M0 31C0 14.4315 13.4315 1 30 1H37.1655C39.7052 1 42.2283 1.40945 44.6378 2.21259L45.2218 2.40728C50.2384 4.07948 55.6898 3.887 60.5759 1.86514V1.86514C65.0651 0.00754328 70.0433 -0.310302 74.7322 0.961286L76.5725 1.46033C80.3154 2.47535 84.2303 2.68937 88.0615 2.08839L91.5881 1.5352C93.8593 1.17894 96.1638 0.934628 98.4478 1.19597C113.392 2.90601 125 15.5975 125 31C125 47.5685 111.569 61 95 61H93.5203C90.5141 61 87.5153 60.7031 84.5674 60.1135L81.1336 59.4267C76.4423 58.4885 71.5971 58.6553 66.9815 59.9141V59.9141C64.339 60.6348 61.6121 61 58.8731 61H30C13.4315 61 0 47.5685 0 31Z" fill="white" fill-opacity="0.1" />
+                    <path id="btn-end-1" d="M2 33C2 16.4315 15.4315 3 32 3H97C113.569 3 127 16.4315 127 33C127 49.5685 113.569 63 97 63H32C15.4315 63 2 49.5685 2 33Z" fill="white" fill-opacity="0.1" />
+                </svg>
+                <p>Contact</p>
+            </a>
+                        <div class="nav__socials-wrapper">
+                            <a class="nav__socials-link" href="https://www.instagram.com/blackfish.co/" alt="instagram link">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.356 11c0-2.01 1.63-3.64 3.643-3.64A3.642 3.642 0 0114.642 11a3.642 3.642 0 01-7.286 0zm-1.969 0a5.61 5.61 0 005.612 5.608A5.61 5.61 0 0016.608 11 5.61 5.61 0 0011 5.392 5.61 5.61 0 005.386 11zm10.134-5.83a1.31 1.31 0 101.312-1.31 1.313 1.313 0 00-1.312 1.31zM6.583 19.89c-1.065-.048-1.644-.226-2.029-.376a3.396 3.396 0 01-1.257-.816 3.37 3.37 0 01-.817-1.256c-.15-.384-.328-.963-.376-2.028C2.05 14.263 2.04 13.917 2.04 11c0-2.916.012-3.261.064-4.413.048-1.065.227-1.643.376-2.029.198-.51.435-.873.817-1.256.382-.382.746-.62 1.257-.817.385-.15.964-.327 2.03-.375 1.151-.053 1.497-.064 4.415-.064 2.916 0 3.263.012 4.416.064 1.065.048 1.643.227 2.03.375.51.198.873.435 1.256.817.383.382.619.747.818 1.256.15.385.327.964.376 2.029.053 1.152.063 1.497.063 4.413 0 2.917-.01 3.262-.063 4.414-.049 1.065-.227 1.644-.376 2.028-.2.51-.436.874-.818 1.256a3.397 3.397 0 01-1.257.816c-.384.15-.964.328-2.03.376-1.151.053-1.497.064-4.415.064-2.919 0-3.264-.01-4.416-.064zM6.493.145C5.33.198 4.535.382 3.84.652a5.36 5.36 0 00-1.935 1.26 5.336 5.336 0 00-1.26 1.934C.373 4.541.188 5.335.135 6.497.083 7.662.07 8.034.07 11s.013 3.338.066 4.503c.053 1.163.238 1.957.508 2.65a5.338 5.338 0 001.26 1.936c.609.606 1.217.98 1.936 1.26.696.27 1.49.454 2.653.507 1.166.053 1.538.066 4.505.066 2.968 0 3.34-.012 4.506-.066 1.163-.053 1.958-.238 2.653-.508a5.375 5.375 0 001.935-1.26 5.35 5.35 0 001.26-1.934c.271-.694.456-1.488.508-2.651.053-1.165.066-1.537.066-4.503s-.013-3.338-.066-4.503c-.053-1.162-.237-1.957-.507-2.65a5.37 5.37 0 00-1.26-1.935 5.347 5.347 0 00-1.936-1.26c-.695-.27-1.49-.455-2.652-.507C14.34.092 13.967.079 10.999.079c-2.967 0-3.34.012-4.506.066z" fill="#fff"/><path d="M7.356 11c0-2.01 1.63-3.64 3.643-3.64A3.642 3.642 0 0114.642 11a3.642 3.642 0 01-7.286 0zm-1.969 0a5.61 5.61 0 005.612 5.608A5.61 5.61 0 0016.608 11 5.61 5.61 0 0011 5.392 5.61 5.61 0 005.386 11zm10.134-5.83a1.31 1.31 0 101.312-1.31 1.313 1.313 0 00-1.312 1.31zM6.583 19.89c-1.065-.048-1.644-.226-2.029-.376a3.396 3.396 0 01-1.257-.816 3.37 3.37 0 01-.817-1.256c-.15-.384-.328-.963-.376-2.028C2.05 14.263 2.04 13.917 2.04 11c0-2.916.012-3.261.064-4.413.048-1.065.227-1.643.376-2.029.198-.51.435-.873.817-1.256.382-.382.746-.62 1.257-.817.385-.15.964-.327 2.03-.375 1.151-.053 1.497-.064 4.415-.064 2.916 0 3.263.012 4.416.064 1.065.048 1.643.227 2.03.375.51.198.873.435 1.256.817.383.382.619.747.818 1.256.15.385.327.964.376 2.029.053 1.152.063 1.497.063 4.413 0 2.917-.01 3.262-.063 4.414-.049 1.065-.227 1.644-.376 2.028-.2.51-.436.874-.818 1.256a3.397 3.397 0 01-1.257.816c-.384.15-.964.328-2.03.376-1.151.053-1.497.064-4.415.064-2.919 0-3.264-.01-4.416-.064zM6.493.145C5.33.198 4.535.382 3.84.652a5.36 5.36 0 00-1.935 1.26 5.336 5.336 0 00-1.26 1.934C.373 4.541.188 5.335.135 6.497.083 7.662.07 8.034.07 11s.013 3.338.066 4.503c.053 1.163.238 1.957.508 2.65a5.338 5.338 0 001.26 1.936c.609.606 1.217.98 1.936 1.26.696.27 1.49.454 2.653.507 1.166.053 1.538.066 4.505.066 2.968 0 3.34-.012 4.506-.066 1.163-.053 1.958-.238 2.653-.508a5.375 5.375 0 001.935-1.26 5.35 5.35 0 001.26-1.934c.271-.694.456-1.488.508-2.651.053-1.165.066-1.537.066-4.503s-.013-3.338-.066-4.503c-.053-1.162-.237-1.957-.507-2.65a5.37 5.37 0 00-1.26-1.935 5.347 5.347 0 00-1.936-1.26c-.695-.27-1.49-.455-2.652-.507C14.34.092 13.967.079 10.999.079c-2.967 0-3.34.012-4.506.066z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://www.linkedin.com/company/blackfishdotco/" alt="linkedin link">
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.791.174C.9.174.176.875.176 1.739v18.726c0 .864.723 1.565 1.615 1.565h18.626c.892 0 1.615-.7 1.615-1.565V1.739c0-.864-.723-1.565-1.615-1.565H1.79zm5.026 8.45v9.84h-3.27v-9.84h3.27zm.215-3.042c0 .944-.71 1.7-1.85 1.7H5.16c-1.098 0-1.808-.756-1.808-1.7 0-.966.731-1.7 1.85-1.7 1.12 0 1.808.734 1.83 1.7zm4.865 12.883h-3.27s.043-8.917 0-9.84h3.27v1.393c.435-.67 1.213-1.624 2.948-1.624 2.152 0 3.765 1.407 3.765 4.429v5.642h-3.27V13.2c0-1.323-.474-2.225-1.657-2.225-.903 0-1.442.609-1.678 1.196-.086.21-.108.505-.108.798v5.495z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://www.facebook.com/blackfishdotco" alt="facebook link">
+                    <svg width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.68 11.25l.57-3.619H7.737V5.28c0-.99.49-1.956 2.058-1.956h1.618V.244A19.634 19.634 0 008.564 0C5.676 0 3.79 1.735 3.79 4.873V7.63H.586v3.618h3.203V20h3.95v-8.75h2.94z" fill="#fff"/>
+                    </svg>
+                </a>
+                            <a class="nav__socials-link" href="https://dribbble.com/blackfishdotco" alt="dribble link"> 
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.847 21.87C5.095 21.87.418 16.997.418 11.003.418 5.002 5.095.13 10.847.13c5.752 0 10.429 4.872 10.429 10.866 0 5.993-4.677 10.873-10.43 10.873zm8.791-9.387c-.301-.101-2.754-.858-5.548-.4 1.165 3.334 1.637 6.054 1.727 6.615 2.004-1.402 3.43-3.63 3.821-6.215zm-5.312 7.074c-.13-.816-.652-3.656-1.899-7.04a.147.147 0 01-.056.018c-5.028 1.827-6.828 5.458-6.991 5.798a8.64 8.64 0 005.467 1.955 8.391 8.391 0 003.479-.731zM4.23 17.219c.204-.357 2.648-4.574 7.243-6.13.114-.042.236-.076.35-.11a24.632 24.632 0 00-.725-1.573c-4.448 1.386-8.766 1.326-9.157 1.318 0 .093-.009.187-.009.28.009 2.39.872 4.566 2.298 6.215zm-2.102-8.11c.4.008 4.066.025 8.237-1.131-1.475-2.738-3.071-5.034-3.3-5.365-2.5 1.224-4.359 3.622-4.937 6.495zm6.632-7.125c.245.34 1.866 2.635 3.324 5.432 3.17-1.24 4.506-3.111 4.669-3.35-1.573-1.453-3.642-2.337-5.907-2.337-.717 0-1.418.093-2.086.255zm8.979 3.154c-.188.263-1.679 2.261-4.97 3.664.203.442.407.893.595 1.344.065.161.13.323.195.476 2.966-.392 5.907.238 6.2.297a9.49 9.49 0 00-2.02-5.781z" fill="#fff"/>
+                    </svg>
+                </a>
+                        </div>
+                    </div>
+                    <div class="nav__burger"></div>
+                </div>
+            </nav>
+            <section class="hero --cursor-light ripples-section">
+                <div class="ripples__gradient">
+                    <img class="ripples__gradient-img" src="https://blackfish.co/wp-content/uploads/2022/10/heroGradient.svg" alt="">
+
+                    <div id="content">
+                        <div id="water-ripples">
+                            <img src="https://blackfish.co/wp-content/uploads/2022/10/heroGradient.svg" alt="" crossorigin data-sampler="planeTexture" />
+                        </div>
+                    </div>
+                    <div id="canvas"></div>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="headline-wrapper">
+
+                        <h1 class="h1-desktop --loader-headline">Complete IT Solutions </h1>
+                        <h1 class="h1-shallota h1-desktop --loader-headline"> For suggestions & Kaizen</h1>
+                        <h2 class="h1-mobile --loader-headline">Dive headfirst<br>into <span>the decade</span><br> <span>of digital</span></h2>
+
+                        <a class="findOutMoreBtn info-scroll --cursor-focus-light --btn-svg-hover --loader-appear-up" href="" role="button">
+					Dive deeper
+					<svg class="btn-background-svg" width="184" height="80" viewBox="0 0 184 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path id="btn-start-1" opacity="0.2" d="M39 7L145 6" stroke="white"/>
+						<path id="btn-mid-1" opacity="0.2" d="M145 6H137.5L128.481 6.32212C125.177 6.44012 121.872 6.0931 118.665 5.29124L114.797 4.32426C111.327 3.4567 107.689 3.51731 104.25 4.5V4.5C100.811 5.48269 97.1732 5.5433 93.7029 4.67574L85.574 2.64351C78.7652 0.941295 71.5676 1.81152 65.3607 5.08742V5.08742C59.9323 7.95238 53.7241 8.98813 47.6597 8.04057L42.482 7.23157C41.4955 7.07742 40.4985 7 39.5 7V7" stroke="white"/>
+						<path id="btn-end-1" opacity="0.2" d="M39 7L145 6" stroke="white"/>
+						
+						<path id="btn-start-2" opacity="0.2" d="M39 74H145" stroke="white"/>
+						<path id="btn-mid-2" opacity="0.2" d="M39 74H74.5H85.3127C87.4296 74 89.5385 74.2596 91.5922 74.773L91.8463 74.8366C97.4446 76.2362 103.354 75.6682 108.583 73.2279V73.2279C113.093 71.1233 118.125 70.4039 123.044 71.1606L141.006 73.924C141.335 73.9746 141.667 74 142 74V74H145" stroke="white"/>
+						<path id="btn-end-2" opacity="0.2" d="M39 74H145" stroke="white"/>
+
+						<path opacity="0.2" d="M39 74C20.2223 74 5 58.7777 5 40C5 21.2223 20.7223 7 39.5 7M145 74C163.778 74 179 58.7777 179 40C179 21.2223 163.778 6 145 6" stroke="white"/>
+
+						<path id="btn-background" d="M5 40.2074C5 58.9851 20.2223 74.2074 39 74.2074H85.3127C87.4296 74.2074 89.5385 74.467 91.5922 74.9805L91.8463 75.044C97.4446 76.4436 103.354 75.8756 108.583 73.4353C113.093 71.3308 118.125 70.6113 123.044 71.3681L141.006 74.1314C141.335 74.182 141.667 74.2074 142 74.2074H145C163.778 74.2074 179 58.9851 179 40.2074C179 21.4297 163.778 6.20741 145 6.20741H137.5L128.481 6.52953C125.177 6.64753 121.872 6.30051 118.665 5.49865L114.797 4.53168C111.327 3.66412 107.689 3.72472 104.25 4.70741C100.811 5.6901 97.1732 5.75071 93.7029 4.88315L85.574 2.85092C78.7652 1.14871 71.5676 2.01893 65.3607 5.29483C59.9323 8.15979 53.7241 9.19555 47.6597 8.24798L42.482 7.43898C41.4955 7.28483 40.4985 7.20741 39.5 7.20741C20.7223 7.20741 5 21.4297 5 40.2074Z" fill="url(#paint0_linear_3220_3185)" fill-opacity="0.05"/>
+						<defs>
+							<linearGradient id="paint0_linear_3220_3185" x1="178.126" y1="-36.2321" x2="64.7644" y2="62.0267" gradientUnits="userSpaceOnUse">
+								<stop stop-color="white"/>
+								<stop offset="0.245591" stop-color="#CFD9F1"/>
+								<stop offset="0.427913" stop-color="#B5B9E7"/>
+								<stop offset="1" stop-color="#0E0E13"/>
+							</linearGradient>
+						</defs>
+					</svg>
+				</a>
+
+                    </div>
+
+                    <div class="hero__awards-wrapper --loader-bottom-panel">
+                        <div class="line"></div>
+                        <div class="awards-group-1">
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <a href="https://clutch.co/profile/blackfish-co#summary" class="--cursor-focus-light" title="White logo of Clutch">
+												<img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2022/10/clutchLogo.svg" alt="White logo of Clutch" />
+											</a>
+                                    <img class="hero__award__flag ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Czech and Danish flag" data-src-img="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png.webp"
+                                        data-eio="j" /><noscript><img class="hero__award__flag ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Czech and Danish flag" data-src-img="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png.webp" data-eio="j" /><noscript><img class="hero__award__flag" src="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" alt="Czech and Danish flag" /></noscript></noscript>
+                                </div>
+                                <p class="hero__award__text">Industry Leader 2022</p>
+                            </div>
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2023/01/Deloitte_logo.svg" alt="Deloitte logo" />
+                                    <img class="hero__award__flag" src="" alt="" />
+                                </div>
+                                <p class="hero__award__text">Technology Fast 50 Nominee</p>
+                            </div>
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <a href="https://cc.cz/tag/blackfish/" class="--cursor-focus-light" title="Czechcrunch logo">
+												<img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2023/01/Czechcrunch_logo.svg" alt="Czechcrunch logo" />
+											</a>
+                                    <img class="hero__award__flag" src="" alt="" />
+                                </div>
+                                <p class="hero__award__text">Featured in journal 2023</p>
+                            </div>
+                        </div>
+                        <div class="awards-group-2">
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <a href="https://clutch.co/profile/blackfish-co#summary" class="--cursor-focus-light">
+																							<img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2022/10/clutchLogo.svg" alt="White logo of Clutch" />
+																					</a>
+                                    <img class="hero__award__flag ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Czech and Danish flag" data-src-img="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png.webp"
+                                        data-eio="j" /><noscript><img class="hero__award__flag ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Czech and Danish flag" data-src-img="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" data-src-webp="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png.webp" data-eio="j" /><noscript><img class="hero__award__flag" src="https://blackfish.co/wp-content/uploads/2023/01/Flags_01.png" alt="Czech and Danish flag" /></noscript></noscript>
+                                </div>
+                                <p class="hero__award__text">Industry Leader 2022</p>
+                            </div>
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2023/01/Deloitte_logo.svg" alt="Deloitte logo" />
+                                    <img class="hero__award__flag" src="" alt="" />
+                                </div>
+                                <p class="hero__award__text">Technology Fast 50 Nominee</p>
+                            </div>
+                            <div class="hero__award">
+                                <div class="logo-wrap">
+                                    <a href="https://cc.cz/tag/blackfish/" class="--cursor-focus-light">
+																							<img class="hero__award__logo" src="https://blackfish.co/wp-content/uploads/2023/01/Czechcrunch_logo.svg" alt="Czechcrunch logo" />
+																					</a>
+                                    <img class="hero__award__flag" src="" alt="" />
+                                </div>
+                                <p class="hero__award__text">Featured in journal 2023</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="showreel --cursor-reel">
+
+                <div class="video-wrapper showreel-video-link">
+
+
+                    <div class="wp-video-popup-wrapper" data-wp-video-popup-id="showreel-video-link">
+                        <div class="wp-video-popup-close"></div>
+
+                        <iframe class="wp-video-popup-video is-hosted is-landscape is-resizable" src="" data-wp-video-popup-url="https://player.vimeo.com/video/789771547?byline=0&#038;portrait=0&#038;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                            allow="autoplay">
+			</iframe>
+
+                    </div>
+                    <iframe class="embeded-video" src="https://player.vimeo.com/video/789771502?h=866f411e05&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&quality=1080p&background=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Blackfish Showreel"></iframe>
+                    <script src="https://player.vimeo.com/api/player.js"></script>
+
+                </div>
+            </section>
+
+
+            <section class="info --cursor-light">
+                <div class="container">
+                    <p class="pre-text">WHAT WE'RE ALL ABOUT</p>
+                    <h2>Solving complex problems with<br> the power of brand, UX design<br> and software development</h2>
+                    <p class="detailed-text">Blackfish is a 360° software development and design studio. We tackle complex projects with the power of design and development—giving you the best of both worlds.</p>
+                    <div class="line"></div>
+
+                    <div class="work-fields-wrapper">
+                        <div class="group">
+                            <p class="field --desktop">Analysis & Strategy</p>
+                            <p class="field --desktop">3D Visuals</p>
+                            <p class="field --desktop">Front-end development</p>
+                            <p class="field --mobile">Strategy</p>
+                            <p class="field --mobile">UX & UI Design</p>
+                            <p class="field --mobile">3D Visuals</p>
+                        </div>
+                        <div class="group">
+                            <p class="field --desktop">Brand Identity</p>
+                            <p class="field --desktop">Motion Design</p>
+                            <p class="field --desktop">Back-end development</p>
+                            <p class="field --mobile">Brand Identity</p>
+                            <p class="field --mobile">Web & App</p>
+                            <p class="field --mobile">Motion Design</p>
+                        </div>
+                        <div class="group">
+                            <p class="field --desktop">UX & UI Design</p>
+                            <p class="field --desktop">Photo & Video</p>
+                            <p class="field --desktop">DevOps</p>
+                            <p class="field --mobile">Photo & Video</p>
+                            <p class="field --mobile">FE development</p>
+                            <p class="field --mobile">DevOps</p>
+                        </div>
+                        <div class="group">
+                            <p class="field --desktop">Web & App Design</p>
+                            <p class="field --desktop">Marketing Strategy</p>
+                            <p class="field --desktop">CMS Integration</p>
+                            <p class="field --mobile">Marketing</p>
+                            <p class="field --mobile">BE development</p>
+                            <p class="field --mobile">CMS Integration</p>
+                        </div>
+                    </div>
+
+                    <div class="more-info-circle">"
+                        <img class="circle" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleText.svg" alt="more info bellow">
+                        <img class="arrow" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleTextArrow.svg" alt="">
+                    </div>
+                </div>
+                <div class="scroll-wave">
+                    <svg width="1920" height="225" viewBox="0 0 1920 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 0C601.096 300 1322.41 300 1920 0H0Z" fill="#0E0E13" />
+				</svg>
+                </div>
+            </section>
+
+
+
+            <section class="projects --cursor-dark">
+                <div class="container headline-container">
+                    <h2>Featured <span class="shallota">projects</span></h2>
+                    <p class="date">CHECK OUT OUR LATEST AND GREATEST</p>
+                </div>
+                <div class="projecs-container">
+                    <a class="project --link-out" href="https://blackfish.co/projects/mallpay/">
+                        <div class="img-paralax-container --cursor-more">
+
+                            <img class="lazy project__img" data-src="https://blackfish.co/wp-content/uploads/2022/10/Mallpay.png" alt="Mallpay card" data-speed="0.8">
+                        </div>
+                        <p class="project__name --cursor-focus-dark">Mallpay</p>
+                        <p class="project__description --cursor-focus-dark">
+                            Brand Identity<span> · </span> Fintech <span> · </span> 2022
+                            <span> · </span>
+                        </p>
+                    </a>
+                    <a class="project --link-out" href="https://blackfish.co/projects/lifeboardvr/">
+                        <div class="img-paralax-container --cursor-more">
+
+                            <img class="lazy project__img" data-src="https://blackfish.co/wp-content/uploads/2022/10/Lifeboard_photo_4-1.jpg" alt="A girl with a VR headset" data-speed="0.8">
+                        </div>
+                        <p class="project__name --cursor-focus-dark">Lifeboard VR</p>
+                        <p class="project__description --cursor-focus-dark">
+                            Branding & UX/UI Design<span> · </span> Virtual Reality<span> · </span> 2022
+                            <span> · </span>
+                        </p>
+                    </a>
+                    <a class="project --link-out" href="https://blackfish.co/projects/val-na-vitky/">
+                        <div class="img-paralax-container --cursor-more">
+
+                            <img class="lazy project__img" data-src="https://blackfish.co/wp-content/uploads/2022/10/Vitkovice.png" alt="Photoshoot of a hockey player and a little girl for a campaign called Val na Vítky" data-speed="0.8">
+                        </div>
+                        <p class="project__name --cursor-focus-dark">HC Vítkovice</p>
+                        <p class="project__description --cursor-focus-dark">
+                            Marketing<span> · </span> Sport
+                            <span> · </span> 2022
+                            <span> · </span>
+                        </p>
+                    </a>
+                    <a class="project --link-out" href="https://blackfish.co/projects/talkbase/">
+                        <div class="img-paralax-container --cursor-more">
+
+                            <img class="lazy project__img" data-src="https://blackfish.co/wp-content/uploads/2022/11/Talkbase_reference.jpg" alt="Business cards of our client Talkbase" data-speed="0.8">
+                        </div>
+                        <p class="project__name --cursor-focus-dark">Talkbase</p>
+                        <p class="project__description --cursor-focus-dark">
+                            Brand identity<span> · </span> SaaS
+                            <span> · </span> 2022
+                            <span> · </span>
+                        </p>
+                    </a>
+
+                </div>
+            </section>
+
+
+
+
+
+
+            <section class="testimonials --cursor-dark ">
+
+                <div class="wp-video-popup-wrapper" data-wp-video-popup-id="testimonial-video-link">
+                    <div class="wp-video-popup-close"></div>
+
+                    <iframe class="wp-video-popup-video is-hosted is-landscape is-resizable" src="" data-wp-video-popup-url="https://player.vimeo.com/video/789852297?byline=0&#038;portrait=0&#038;autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        allow="autoplay">
+			</iframe>
+
+                </div>
+                <div class="container">
+                    <h2 class="h2-normal">Testimonials</h2>
+                    <div class="h2-white-wrapper">
+                        <div class="testimonials-video-wrapper">
+                            <video class="lazy testimonials-video" autoplay muted="" playsinline="" loop="">
+								<source data-src="https://blackfish.co/wp-content/uploads/2022/10/David_Gerhardt_small.mp4" alt="" type="video/mp4">
+							</video>
+                        </div>
+                        <h2 class="h2-white testimonial-video-link">Testimonials</h2>
+                        <a class="play-btn testimonial-video-link --white --cursor-focus-dark" href="" role="button">
+						<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M32 25.268C33.3333 26.0378 33.3333 27.9623 32 28.7321L26 32.1962C24.6667 32.966 23 32.0037 23 30.4641L23 23.5359C23 21.9963 24.6667 21.034 26 21.8038L32 25.268Z" fill="#FFFFFF" />
+							<rect x="0.5" y="0.5" width="53" height="53" rx="26.5" stroke="#FFFFFF" />
+						</svg>
+						WHAT OUR <br>CLIENTS ARE SAYING
+					</a>
+                    </div>
+
+                    <a class="play-btn testimonial-video-link --cursor-focus-dark" href="" role="button">
+					<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32 25.268C33.3333 26.0378 33.3333 27.9623 32 28.7321L26 32.1962C24.6667 32.966 23 32.0037 23 30.4641L23 23.5359C23 21.9963 24.6667 21.034 26 21.8038L32 25.268Z" fill="#19171E" />
+						<rect x="0.5" y="0.5" width="53" height="53" rx="26.5" stroke="#DADDE1" />
+					</svg>
+					WHAT OUR <br>CLIENTS ARE SAYING
+				</a>
+
+                    <div class="quotes-wrapper">
+                        <div class="quotes-container">
+                            <div class="quote">
+                                <p class="quote__text">
+                                    <span>vladimir said</span> Demonstrating great professionalism, the Blackfish team proved to be amazingly adaptive to the client's needs. They're distinguished by their speed and flexibility. </p>
+                                <div class="quote__person">
+                                    <img class="quote__person__profile-pic" src="https://blackfish.co/wp-content/uploads/2022/10/soukup.webp" alt="">
+                                    <div class="quote__person__text-wrapper">
+                                        <p class="quote__person__name">VLADIMIR SOUKUP</p>
+                                        <p class="quote__person__job">Marketing Director at Linet</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <p class="quote__text">
+                                    <span>rico said</span> This agency walks the extra mile. Talented designers, extremely dedicated and doing a hell of a job. They are always there when you need it. </p>
+                                <div class="quote__person">
+                                    <img class="quote__person__profile-pic" src="https://blackfish.co/wp-content/uploads/2022/10/rico-anderson-foto.webp" alt="">
+                                    <div class="quote__person__text-wrapper">
+                                        <p class="quote__person__name">RICO ANDERSEN</p>
+                                        <p class="quote__person__job">Founder & CEO at Ageras Group</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <p class="quote__text">
+                                    <span>christine said</span> Working remotely with these guys is an absolute pleasure. They demonstrated great creativity and efficiency in executing innovative designs. </p>
+                                <div class="quote__person">
+                                    <img class="quote__person__profile-pic" src="https://blackfish.co/wp-content/uploads/2022/10/jakobsen.webp" alt="">
+                                    <div class="quote__person__text-wrapper">
+                                        <p class="quote__person__name">CHRISTINE FRIIS JAKOBSEN</p>
+                                        <p class="quote__person__job">Head of UX at Billy</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <p class="quote__text">
+                                    <span>yassin said</span> The transition from the design to frontend development was seamless. They're a passionate group of talented people. </p>
+                                <div class="quote__person">
+                                    <img class="quote__person__profile-pic ewww_webp" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-src-img="https://blackfish.co/wp-content/uploads/2022/10/yassin.jpg" data-src-webp="https://blackfish.co/wp-content/uploads/2022/10/yassin.jpg.webp"
+                                        data-eio="j"><noscript><img class="quote__person__profile-pic" src="https://blackfish.co/wp-content/uploads/2022/10/yassin.jpg" alt=""></noscript>
+                                    <div class="quote__person__text-wrapper">
+                                        <p class="quote__person__name">YASSIN KHEDRI</p>
+                                        <p class="quote__person__job">Head of Marketing at Meneto</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons-wrapper">
+                            <a class="left-btn --cursor-focus-dark --btn-svg-hover" role="button" title="button left">
+							<svg class="symbol" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0.522124 4.52212C0.258201 4.78605 0.258201 5.21395 0.522124 5.47788L4.82301 9.77876C5.08693 10.0427 5.51484 10.0427 5.77876 9.77876C6.04268 9.51484 6.04268 9.08693 5.77876 8.82301L1.95575 5L5.77876 1.17699C6.04268 0.913069 6.04268 0.485164 5.77876 0.221241C5.51484 -0.0426831 5.08693 -0.0426831 4.82301 0.221241L0.522124 4.52212ZM11 4.32418L1 4.32418V5.67582L11 5.67582V4.32418Z" fill="#19171E" />
+							</svg>
+							<svg class="btn-background-svg" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path id="btn-start-1" d="M57.5 30C57.5 45.1878 45.1878 57.5 30 57.5C14.8122 57.5 2.5 45.1878 2.5 30C2.5 14.8122 14.8122 2.5 30 2.5C45.1878 2.5 57.5 14.8122 57.5 30Z" stroke="#DADDE1" />
+								<path id="btn-mid-1" d="M59.5 31C59.5 32.2958 58.9574 33.3627 58.256 34.4829C58.1326 34.68 58.0031 34.8801 57.8712 35.084C57.2734 36.0078 56.6262 37.008 56.2729 38.1483C55.6028 40.3114 54.6728 42.3604 53.5194 44.2589C52.6374 45.7105 51.6248 47.074 50.4978 48.3332C49.1374 49.8531 47.6105 51.2209 45.9458 52.4077C41.4483 55.614 35.9452 57.5 30 57.5C23.6707 57.5 17.8421 55.3624 13.1947 51.7694C12.8608 51.5112 12.6965 51.1499 12.6402 50.6552C12.5818 50.1427 12.6458 49.5427 12.7339 48.8633C12.7425 48.7972 12.7513 48.7304 12.7602 48.6629C12.8394 48.0617 12.9253 47.4092 12.9131 46.7958C12.8995 46.1067 12.7627 45.3976 12.3047 44.8053C11.9001 44.282 11.2241 43.9599 10.5391 43.7254C9.92002 43.5134 9.20862 43.3468 8.52508 43.1867C8.43684 43.1661 8.34907 43.1455 8.26202 43.125C7.48284 42.9412 6.7588 42.759 6.1784 42.5168C5.58552 42.2695 5.24792 42.0015 5.11176 41.7127C4.34931 40.0955 3.73989 38.3919 3.30215 36.6208C3.19857 36.2017 3.24615 35.7558 3.40819 35.2583C3.57199 34.7554 3.84064 34.2346 4.1474 33.6713C4.19162 33.5901 4.2367 33.5079 4.28224 33.4249C4.54488 32.946 4.82319 32.4385 5.0431 31.9278C5.30277 31.3246 5.50003 30.6765 5.50003 30C5.50003 28.4089 5.22008 26.8272 4.95639 25.3374C4.8585 24.7843 4.76286 24.244 4.68461 23.7205C4.38946 21.7459 4.32496 19.9562 5.11176 18.2873C6.16978 16.0431 7.52254 13.9649 9.12025 12.1027C10.5747 10.4076 12.2319 8.89153 14.0543 7.59231C18.5518 4.38597 24.0549 2.5 30 2.5C31.5914 2.5 32.7304 3.5173 33.9483 4.86548C34.1109 5.04546 34.2759 5.2323 34.4432 5.42194C34.882 5.91907 35.3379 6.43547 35.8135 6.89818C36.4783 7.54484 37.2234 8.13054 38.111 8.48466C38.812 8.76429 39.684 8.83666 40.5761 8.83523C41.2895 8.83409 42.0602 8.78445 42.8172 8.7357C43.0126 8.72312 43.2071 8.71059 43.3995 8.69897C44.3513 8.64149 45.2572 8.6056 46.0451 8.67641C46.841 8.74793 47.4449 8.9233 47.8424 9.2306C50.1911 11.0465 51.2065 12.2011 52.8695 14.6855C53.1382 15.087 53.6383 15.4463 54.1198 15.7564C54.3715 15.9186 54.6413 16.0811 54.9052 16.2402L54.9082 16.2419C55.1736 16.4019 55.4336 16.5585 55.6781 16.7154C55.8507 16.8261 55.947 16.9466 56.0035 17.071C56.0623 17.2002 56.0915 17.3637 56.0824 17.5752C56.0633 18.0165 55.8848 18.5626 55.6291 19.216C55.5681 19.3717 55.5028 19.5334 55.4359 19.6992C55.2351 20.1964 55.0197 20.7298 54.8643 21.2444C54.6566 21.9323 54.5247 22.6783 54.6979 23.3792C54.7931 23.7642 55.0536 24.0981 55.3108 24.3694C55.5524 24.6244 55.8447 24.8777 56.1152 25.1122C56.1404 25.134 56.1655 25.1557 56.1902 25.1772C56.4924 25.4396 56.7616 25.6787 56.9645 25.9106C57.1737 26.1497 57.2562 26.3199 57.2711 26.4346C57.3225 26.8317 57.5227 27.2633 57.7427 27.663C57.9387 28.0193 58.1795 28.4002 58.4128 28.7693C58.4482 28.8252 58.4833 28.8809 58.5182 28.9361C58.7887 29.3652 59.0402 29.7738 59.2246 30.1465C59.415 30.5314 59.5 30.8134 59.5 31Z" stroke="#DADDE1" />
+								<path id="btn-end-1" d="M57.5 30C57.5 45.1878 45.1878 57.5 30 57.5C14.8122 57.5 2.5 45.1878 2.5 30C2.5 14.8122 14.8122 2.5 30 2.5C45.1878 2.5 57.5 14.8122 57.5 30Z" stroke="#DADDE1" />
+							</svg>
+						</a>
+                            <a class="right-btn --cursor-focus-dark --btn-svg-hover" role="button" title="button right">
+							<svg class="symbol" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0.522124 4.52212C0.258201 4.78605 0.258201 5.21395 0.522124 5.47788L4.82301 9.77876C5.08693 10.0427 5.51484 10.0427 5.77876 9.77876C6.04268 9.51484 6.04268 9.08693 5.77876 8.82301L1.95575 5L5.77876 1.17699C6.04268 0.913069 6.04268 0.485164 5.77876 0.221241C5.51484 -0.0426831 5.08693 -0.0426831 4.82301 0.221241L0.522124 4.52212ZM11 4.32418L1 4.32418V5.67582L11 5.67582V4.32418Z" fill="#19171E" />
+							</svg>
+							<svg class="btn-background-svg" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path id="btn-start-1" d="M57.5 30C57.5 45.1878 45.1878 57.5 30 57.5C14.8122 57.5 2.5 45.1878 2.5 30C2.5 14.8122 14.8122 2.5 30 2.5C45.1878 2.5 57.5 14.8122 57.5 30Z" stroke="#DADDE1" />
+								<path id="btn-mid-1" d="M59.5 31C59.5 32.2958 58.9574 33.3627 58.256 34.4829C58.1326 34.68 58.0031 34.8801 57.8712 35.084C57.2734 36.0078 56.6262 37.008 56.2729 38.1483C55.6028 40.3114 54.6728 42.3604 53.5194 44.2589C52.6374 45.7105 51.6248 47.074 50.4978 48.3332C49.1374 49.8531 47.6105 51.2209 45.9458 52.4077C41.4483 55.614 35.9452 57.5 30 57.5C23.6707 57.5 17.8421 55.3624 13.1947 51.7694C12.8608 51.5112 12.6965 51.1499 12.6402 50.6552C12.5818 50.1427 12.6458 49.5427 12.7339 48.8633C12.7425 48.7972 12.7513 48.7304 12.7602 48.6629C12.8394 48.0617 12.9253 47.4092 12.9131 46.7958C12.8995 46.1067 12.7627 45.3976 12.3047 44.8053C11.9001 44.282 11.2241 43.9599 10.5391 43.7254C9.92002 43.5134 9.20862 43.3468 8.52508 43.1867C8.43684 43.1661 8.34907 43.1455 8.26202 43.125C7.48284 42.9412 6.7588 42.759 6.1784 42.5168C5.58552 42.2695 5.24792 42.0015 5.11176 41.7127C4.34931 40.0955 3.73989 38.3919 3.30215 36.6208C3.19857 36.2017 3.24615 35.7558 3.40819 35.2583C3.57199 34.7554 3.84064 34.2346 4.1474 33.6713C4.19162 33.5901 4.2367 33.5079 4.28224 33.4249C4.54488 32.946 4.82319 32.4385 5.0431 31.9278C5.30277 31.3246 5.50003 30.6765 5.50003 30C5.50003 28.4089 5.22008 26.8272 4.95639 25.3374C4.8585 24.7843 4.76286 24.244 4.68461 23.7205C4.38946 21.7459 4.32496 19.9562 5.11176 18.2873C6.16978 16.0431 7.52254 13.9649 9.12025 12.1027C10.5747 10.4076 12.2319 8.89153 14.0543 7.59231C18.5518 4.38597 24.0549 2.5 30 2.5C31.5914 2.5 32.7304 3.5173 33.9483 4.86548C34.1109 5.04546 34.2759 5.2323 34.4432 5.42194C34.882 5.91907 35.3379 6.43547 35.8135 6.89818C36.4783 7.54484 37.2234 8.13054 38.111 8.48466C38.812 8.76429 39.684 8.83666 40.5761 8.83523C41.2895 8.83409 42.0602 8.78445 42.8172 8.7357C43.0126 8.72312 43.2071 8.71059 43.3995 8.69897C44.3513 8.64149 45.2572 8.6056 46.0451 8.67641C46.841 8.74793 47.4449 8.9233 47.8424 9.2306C50.1911 11.0465 51.2065 12.2011 52.8695 14.6855C53.1382 15.087 53.6383 15.4463 54.1198 15.7564C54.3715 15.9186 54.6413 16.0811 54.9052 16.2402L54.9082 16.2419C55.1736 16.4019 55.4336 16.5585 55.6781 16.7154C55.8507 16.8261 55.947 16.9466 56.0035 17.071C56.0623 17.2002 56.0915 17.3637 56.0824 17.5752C56.0633 18.0165 55.8848 18.5626 55.6291 19.216C55.5681 19.3717 55.5028 19.5334 55.4359 19.6992C55.2351 20.1964 55.0197 20.7298 54.8643 21.2444C54.6566 21.9323 54.5247 22.6783 54.6979 23.3792C54.7931 23.7642 55.0536 24.0981 55.3108 24.3694C55.5524 24.6244 55.8447 24.8777 56.1152 25.1122C56.1404 25.134 56.1655 25.1557 56.1902 25.1772C56.4924 25.4396 56.7616 25.6787 56.9645 25.9106C57.1737 26.1497 57.2562 26.3199 57.2711 26.4346C57.3225 26.8317 57.5227 27.2633 57.7427 27.663C57.9387 28.0193 58.1795 28.4002 58.4128 28.7693C58.4482 28.8252 58.4833 28.8809 58.5182 28.9361C58.7887 29.3652 59.0402 29.7738 59.2246 30.1465C59.415 30.5314 59.5 30.8134 59.5 31Z" stroke="#DADDE1" />
+								<path id="btn-end-1" d="M57.5 30C57.5 45.1878 45.1878 57.5 30 57.5C14.8122 57.5 2.5 45.1878 2.5 30C2.5 14.8122 14.8122 2.5 30 2.5C45.1878 2.5 57.5 14.8122 57.5 30Z" stroke="#DADDE1" />
+							</svg>
+						</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="clients --cursor-light">
+                <h3>EMPOWERING BUSINESS GROWTH</h3>
+                <div class="container">
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client1-1.svg" alt="White logo of Ageras" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client1Dark-1.svg" alt="Black logo of Ageras" />
+                        </div>
+                        <p>Corporate identity and branding materials that helped this digital accounting platform raise $135M.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client2.svg" alt="White logo of Avast" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client2Dark.svg" alt="Black logo of Avast" />
+                        </div>
+                        <p>People-centric visuals for one of the world’s biggest cyber security companies, leading to a long-term collab.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client3.svg" alt="White logo of CEZ Group" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client3Dark.svg" alt="Black logo of CEZ Group" />
+                        </div>
+                        <p>UX/UI to dynamically preview photovoltaic panels, so users can discover the best fit for their homes in-app.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client4.svg" alt="White logo of Škoda" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client4Dark.svg" alt="Black logo of Škoda" />
+                        </div>
+                        <p>Created the annual report and started a corporate identity collab with this global automobile giant.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client5.svg" alt="White logo of Trustpilot" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client5Dark.svg" alt="Black logo of Trustpilot" />
+                        </div>
+                        <p>Marketing assets to scale the growing operations of this powerful review platform across all media. </p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client6.svg" alt="White logo of Divadlo bez Zabradli" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client6Dark.svg" alt="Black logo of Divadlo bez Zabradli" />
+                        </div>
+                        <p>Re-branded promotional materials to breathe new life into one of the most prestigious Czech theaters.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/showmax.svg" alt="White logo of Showmax" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/showmaxDark.svg" alt="Black logo of Showmax" />
+                        </div>
+                        <p>Design and development of new employer branding and hiring website.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client8.svg" alt="White logo of Billy" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client8Dark.svg" alt="Black logo of Billy" />
+                        </div>
+                        <p>Redesigned the identity and app of this modern Danish accounting system, creating an intuitive user experience.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/clientVitkovice.svg" alt="White logo of Ridera" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/clientVitkoviceDark.svg" alt="Black logo of Ridera" />
+                        </div>
+                        <p>Increased sales by 20% after implementing a new marketing strategy for this sports client.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client10.svg" alt="White logo of Preciosa" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client10Dark.svg" alt="Black logo of Preciosa" />
+                        </div>
+                        <p>Complete redesign for all luxury brands of this international crystal glass manufacturer.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client11.svg" alt="White logo of Packeta" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client11Dark.svg" alt="Black logo of Packeta" />
+                        </div>
+                        <p>New app design and custom user experiences for this global digital logistics platform.</p>
+                    </div>
+                    <div class="client">
+                        <div class="client__logo-wrapper">
+                            <img class="client__logo" src="https://blackfish.co/wp-content/uploads/2022/10/client12.svg" alt="White logo of KB" />
+                            <img class="client__logo-dark" src="https://blackfish.co/wp-content/uploads/2022/10/client12Dark.svg" alt="Black logo of KB" />
+                        </div>
+                        <p>Improved the UX/UI for the most-used app by bank and insurance employees.</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="team --cursor-light ripples-section">
+                <div class="container">
+                    <div class="photos-container">
+                        <div class="team-photo team-photo__first">
+                            <img class="lazy" data-src="https://blackfish.co/wp-content/uploads/2022/10/teamPhoto1.png" alt="Team members working on a project behind a computer" />
+                        </div>
+                        <div class="team-photo team-photo__second">
+                            <img class="lazy" data-src="https://blackfish.co/wp-content/uploads/2022/10/teamPhoto2.png" alt="Our guys chilling on a balcony" />
+                        </div>
+                        <div class="team-photo team-photo__third">
+                            <img class="lazy" data-src="https://blackfish.co/wp-content/uploads/2022/10/teamPhoto3.png" alt="Our team working in a conference room" />
+                        </div>
+                        <div class="team-photo team-photo__fourth">
+                            <img class="lazy" data-src="https://blackfish.co/wp-content/uploads/2022/10/teamPhoto4.png" alt="A photo of a founder and a CEO of Blackfish" />
+                        </div>
+                    </div>
+                    <div class="headline-container">
+                        <div class="headline-wrapper">
+                            <div class="ripples-wrapper">
+                                <div id="content">
+                                    <div id="water-ripples">
+                                        <img src="https://blackfish.co/wp-content/themes/custom/images/bg/teamRipplesBackground.png" alt="Photo by David Pisnoy on Unsplash" crossorigin data-sampler="planeTexture" />
+                                    </div>
+                                </div>
+                                <div id="canvas"></div>
+                            </div>
+                            <div class="h2-wrap">
+                                <h2>Our </h2>
+                                <h2 class="h2-shallota">experts</h2>
+                            </div>
+                            <a class="instagram-btn --cursor-focus-light --btn-svg-hover" href="/careers">
+							Join our sailing crew
+							<svg class="btn-background-svg" width="242" height="84" viewBox="0 0 242 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path id="btn-start-1" opacity="0.2" d="M202 7H40" stroke="white"/>
+								<path id="btn-mid-1" opacity="0.2" d="M202 7H148.5H125H110.111C107.05 7 104.003 7.40451 101.049 8.20302L98.5117 8.88874C91.1474 10.8791 83.2923 9.82966 76.7088 5.9759V5.9759C70.1739 2.1506 62.3841 1.08723 55.063 3.02109L40 7" stroke="white"/>
+								<path id="btn-end-1" opacity="0.2" d="M202 7H40" stroke="white"/>
+								
+								<path id="btn-start-2" opacity="0.2" d="M40 79H202" stroke="white"/>
+								<path id="btn-mid-2" opacity="0.2" d="M40 79H61.5H75.5H93.4116C96.4661 79 99.5161 79.2332 102.535 79.6977L106.003 80.2313C113.576 81.3963 121.312 80.891 128.669 78.7508L135.701 76.7051C141.746 74.9466 148.191 75.1398 154.12 77.2571V77.2571C157.349 78.4105 160.753 79 164.182 79H202" stroke="white"/>
+								<path id="btn-end-2" opacity="0.2" d="M40 79H202" stroke="white"/>
+
+								<path opacity="0.2" d="M40 79C20.1178 79 4 62.8822 4 43C4 23.1178 20.1178 7 40 7M202 79C221.882 79 238 62.8822 238 43C238 23.1178 221.882 7 202 7" stroke="white"/>
+								
+								<path id="btn-background" d="M4 42.9228C4 62.805 20.1178 78.9228 40 78.9228H93.4116C96.4661 78.9228 99.5161 79.156 102.535 79.6205L106.003 80.1541C113.576 81.3191 121.312 80.8138 128.669 78.6736L135.701 76.6278C141.746 74.8694 148.191 75.0626 154.12 77.1799C157.349 78.3332 160.753 78.9228 164.182 78.9228H202C221.882 78.9228 238 62.805 238 42.9228C238 23.0405 221.882 6.92278 202 6.92278H110.111C107.05 6.92278 104.003 7.32729 101.049 8.1258L98.5117 8.81152C91.1474 10.8019 83.2923 9.75244 76.7088 5.89868C70.1739 2.07339 62.3841 1.01001 55.063 2.94387L40 6.92278C20.1178 6.92278 4 23.0405 4 42.9228Z" fill="url(#paint0_linear_2731_2785)" fill-opacity="0.04"/>
+								
+								<defs>
+									<linearGradient id="paint0_linear_2731_2785" x1="215.562" y1="-38.4327" x2="93.7108" y2="82.8688" gradientUnits="userSpaceOnUse">
+										<stop stop-color="white"/>
+										<stop offset="0.245591" stop-color="#CFD9F1"/>
+										<stop offset="0.427913" stop-color="#B5B9E7"/>
+										<stop offset="1" stop-color="#0E0E13"/>
+									</linearGradient>
+								</defs>
+							</svg>
+						</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container numbers-container">
+
+                    <div class="stat">
+                        <p class="stat__number">20+</p>
+                        <p class="stat__text">Technical and creative professionals who combine the best of both worlds</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat__number">16</p>
+                        <p class="stat__text">Reviews on Clutch with an average rating of 4.9/5</p>
+                    </div>
+                    <div class="stat">
+                        <p class="stat__number">2021</p>
+                        <p class="stat__text">Industry leader on Clutch in Denmark and the Czech Republic</p>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+                <div class="scroll-wave">
+                    <svg width="1920" height="225" viewBox="0 0 1920 225" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M0 0C601.096 300 1322.41 300 1920 0H0Z" fill="#0E0E13" />
+				</svg>
+                </div>
+            </section>
+
+
+
+            <section class="footer --cursor-dark">
+                <div class="container">
+                    <h2>Ready to <span>dive in?</span></h2>
+                    <h5>corporate@greentinsolutions.com</h5>
+                    <div class="line"></div>
+                    <div class="info-wrapper">
+                        <div class="info-column">
+                            <h3>Latest projects</h3>
+
+
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Kaizen</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">24/7 Support</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">Data Analysis</a>
+                            <a class="info-column__link --cursor-focus-dark"  style="text-decoration: none;" href="#">ChatBot</a>
+
+                        </div>
+                        <div class="info-column">
+                            <h3>Address</h3>
+                            <p>
+                                Pune - WeWork Futura, Hadapsar, Pune 411 013
+                                <br/>
+                                Pandharpur - Kandre's Residency, Pandharpur 413304
+                            </p>
+                            <a class="info-column__btn directions-btn --cursor-focus-dark --btn-svg-hover" href="https://g.page/blackfishdotco?share">
+								Get directions
+								<svg class="btn-background-svg" width="176" height="74" viewBox="0 0 176 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path id="btn-start-1" d="M142 5H34" stroke="#19171E" />
+									<path id="btn-mid-1" d="M142 5H130.5H113.5H103L86.1129 6.53519C82.7493 6.84097 79.3605 6.36944 76.2083 5.15702V5.15702C70.9382 3.13008 65.0911 3.20366 59.8738 5.36257L59.4713 5.52913C55.5652 7.14542 51.2909 7.66014 47.1129 7.01736L34 5" stroke="#19171E" />
+									<path id="btn-end-1" d="M142 5H34" stroke="#19171E" />
+
+									<path id="btn-start-2" d="M34 69H142" stroke="#19171E" />
+									<path id="btn-mid-2" d="M34 69h37H62H76H87.2229C89.4023 69 91.5764 69.2153 93.7135 69.6427L99.1993 70.7399C103.27 71.5539 107.497 70.9109 111.141 68.9231V68.9231C114.613 67.0292 118.62 66.3533 122.521 67.0036L131.018 68.4196C133.335 68.8059 135.681 69 138.03 69H142" stroke="#19171E" />
+									<path id="btn-end-2" d="M34 69H142" stroke="#19171E" />
+
+									<path d="M34 69C16.3269 69 2 54.6731 2 37C2 19.3269 16.3269 5 34 5M142 69C159.673 69 174 54.6731 174 37C174 19.3269 159.673 5 142 5" stroke="#19171E" />
+								</svg>
+							</a>
+                        </div>
+                        <div class="info-column">
+                            <h3>Contact Us</h3>
+                            <p>
+                                +91 77 2003 5299 <br>corporate@greentinsolutions.com 
+                                <br>  hr@greentinsolutions.com 
+                            </p>
+                            <a class="info-column__btn details-btn --cursor-focus-dark --btn-svg-hover" >
+								
+								
+							</a>
+                        </div>
+                        <div class="info-column">
+                            <h3>Stay in the loop</h3>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Instagram</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Linkedin</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Youtube</a>
+                            <a class="info-column__link --cursor-focus-dark" style="text-decoration: none;" href="#">Facebook</a>
+                           
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2024, Greentin Solutions</p>
+                        <p>All rights reserved</p>
+                        <a class="back-to-top --cursor-focus-dark" role="button">
+							Back to top
+							<svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M5.47788 0.522123C5.21395 0.2582 4.78605 0.2582 4.52212 0.522123L0.22124 4.82301C-0.0426836 5.08693 -0.0426836 5.51484 0.22124 5.77876C0.485164 6.04268 0.913068 6.04268 1.17699 5.77876L5 1.95575L8.82301 5.77876C9.08693 6.04268 9.51484 6.04268 9.77876 5.77876C10.0427 5.51484 10.0427 5.08693 9.77876 4.82301L5.47788 0.522123ZM5.67582 17L5.67582 1L4.32418 1L4.32418 17L5.67582 17Z" fill="#0E0E13"/>
+							</svg>
+						</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- smooth-content -->
+    </div>
+    <!-- smooth-wrapper -->
+
+    <div class="cursor cursor-main">
+        <div class="dot">
+            <p class="reel">PLAY REEL</p>
+            <p class="soon">COMING<br>SOON</p>
+            <p class="more">SEE MORE</p>
+        </div>
+
+        <div class="arrow-cursor">
+            <img class="circle" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleTextFooter.svg" alt="">
+            <img class="arrow" src="https://blackfish.co/wp-content/themes/custom/images/bg/circleTextArrowFooter.svg" alt="">
+        </div>
+
+    </div>
+
+    <div class="cursor cursor-follower"></div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://www.curtainsjs.com/build/curtains.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script> -->
+    <script src="https://mrdoob.github.io/stats.js/build/stats.min.js"></script>
+
+    <script id="__bs_script__">
+        //<![CDATA[
+        // document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.10'><\/script>".replace("HOST", location.hostname));
+        //]]>
+    </script>
+
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.7.2" id="swv-js"></script>
+    <script type="text/javascript" id="contact-form-7-js-extra">
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "api": {
+                "root": "https:\/\/blackfish.co\/wp-json\/",
+                "namespace": "contact-form-7\/v1"
+            }
+        };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.7.2" id="contact-form-7-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+    <script type="text/javascript" id="wp-video-popup-js-extra">
+        /* <![CDATA[ */
+        var wpVideoPopupOpts = {
+            "pluginUrl": "https:\/\/blackfish.co\/wp-content\/plugins\/wp-video-popup-pro\/"
+        };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/wp-video-popup-pro/inc/js/wp-video-popup.js?ver=2.9" id="wp-video-popup-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/plugins/duracelltomi-google-tag-manager/js/analytics-talk-content-tracking.js?ver=1.16.1" id="gtm4wp-scroll-tracking-js"></script>
+    <script type="text/javascript" src="https://blackfish.co/wp-content/themes/custom/js/scripts.js?ver=1680811016" id="functions-js"></script>
+</body>
+
+</html>
+
+<!-- plugin=object-cache-pro client=phpredis metric#hits=4438 metric#misses=19 metric#hit-ratio=99.6 metric#bytes=1409729 metric#prefetches=237 metric#store-reads=27 metric#store-writes=40 metric#store-hits=248 metric#store-misses=15 metric#sql-queries=3 metric#ms-total=749.49 metric#ms-cache=24.56 metric#ms-cache-avg=0.3721 metric#ms-cache-ratio=3.3 sample#redis-hits=24133480 sample#redis-misses=8448824 sample#redis-hit-ratio=74.1 sample#redis-ops-per-sec=21 sample#redis-evicted-keys=0 sample#redis-used-memory=10331112 sample#redis-used-memory-rss=15171584 sample#redis-memory-fragmentation-ratio=1.5 sample#redis-connected-clients=1 sample#redis-tracking-clients=0 sample#redis-rejected-connections=0 sample#redis-keys=5103 -->

@@ -1,0 +1,86 @@
+.job-others{
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+    // background: #19171E;
+    background: #0E0E13;
+    overflow: visible;
+    // padding-top: 289px;
+    
+    margin-top: -2px;
+
+    .container {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 360px;
+        @include windowMax1440p {
+            // padding-top: 288px;
+            padding-bottom: 320px;
+        }
+    
+        @include windowMax1280p {
+            // padding-top: 252px;
+            padding-bottom: 300px;
+        }
+    }
+
+    h2 {
+        @include headline_64();
+        color: #FFFFFF;
+        text-align: center;
+
+        @include windowMax1440p {
+            font-size: 40px;
+            line-height: 56px;
+        }
+        @include windowMax1280p {
+            font-size: 32px;
+            line-height: 48px;
+        }
+        br {display: none;}
+    }
+
+    .open-positions {
+        margin-top: 96px;
+        @include windowMax1440p {
+            margin-top: 72px;
+        }
+        @include windowMax1280p {
+            margin-top: 64px;
+        }
+    }
+    
+
+    @include mobileMax952p {
+        // padding-top: 160px;
+        
+        margin-top: -2px;
+        // overflow: hidden;
+
+        .container {
+            padding-bottom: 200px;
+        }
+
+
+        h2 {
+            font-size: 48px;
+            line-height: 56px;
+
+            @include mobileMax768p {
+                br {
+                    display: inline;
+                }
+            }
+        }
+
+        .open-positions {
+            margin-top: 64px;
+        }
+
+    }
+
+}

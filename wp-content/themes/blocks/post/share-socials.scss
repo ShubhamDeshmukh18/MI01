@@ -1,0 +1,111 @@
+.share-socials {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0e0e13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    padding-top: 128px;
+    padding-bottom: 260px;
+    margin-bottom: -2px;
+
+    @include windowMax1440p {
+        padding-top: 96px;
+        padding-bottom: 190px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 808px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: visible;
+
+        padding: 32px 0 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+
+        @include windowMax1440p {
+            max-width: 726px;            
+        }
+    }
+
+    h3 {
+        @include body_16_500();
+        color: #FFFFFF;
+    }
+
+    .share-buttons {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        overflow: visible;
+
+        h3 {
+            margin: 0;
+        }
+
+        a {
+            position: relative;
+            opacity: 0.8;
+            color: #FFFFFF;
+            text-decoration: none;
+            overflow: visible;
+
+            @media (hover: hover) {
+                transition: opacity 0.25s;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .alert-message {
+                @include body_16_480();
+                font-size: 14px;
+                color: #FFFFFF;
+                width: max-content;
+                height: auto;
+    
+                display: block;
+                position: absolute;
+                bottom: -4px;
+                transform: translate(-50%, 100%);
+                left: 50%;
+
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+
+            &.--alert {
+                .alert-message {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    @include mobileMax952p {
+        padding-top: 112px;
+        padding-bottom: 200px;
+
+        .container { 
+            width: calc(100vw - 2*24px);
+            max-width: 600px;
+            padding: 32px 0 0 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+        }
+
+        h3 {
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0.1em;
+        }
+    }
+}

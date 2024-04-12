@@ -1,0 +1,41 @@
+.explore-more {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+
+    overflow: hidden;
+    box-sizing: border-box;
+    border: none;
+
+    margin: 200px 0 200px 0;
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .more-info-circle {
+        // position: relative;
+        @include windowMax1440p {
+            width: 140px;
+            height: 140px;
+            .arrow {
+                transform: scale(0.9);
+            }
+        }
+    }
+
+    @include mobileMax952p {
+        margin: 120px 0 120px 0;
+
+        .more-info-circle {
+            width: 140px;
+            height: 140px;
+            .arrow {
+                transform: scale(0.9);
+            }
+        }
+    }
+}

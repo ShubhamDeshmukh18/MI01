@@ -1,0 +1,111 @@
+.numbers {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #0E0E13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    padding: 340px 0 0 0;
+    margin-bottom: -1px;
+
+    @include windowMax1440p {
+        padding: 280px 0 0 0;
+    }
+
+    .numbers-container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1222px;
+        // margin-top: 580px;
+
+        @include windowMax1440p {
+            // margin-top: 300px;
+            max-width: 1020px;
+        }
+
+        .line {
+            position: absolute;
+            top: 168px;
+            left: 0;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        
+            @include windowMax1440p {
+                top: 120px;
+                width: 90%;
+                transform: translateX(-50%);
+                left: 50%;
+            }
+
+        }
+    }
+
+    .stat {
+        height: 292px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        @include windowMax1440p {
+            height: 220px;
+        }
+
+        &__number {
+            @include headline_96();
+            color: #FFFFFF;
+        }
+
+        &__text {
+            @include body_16_480();
+            color: #FFFFFF;
+            text-align: center;
+            opacity: 0.6;
+            max-width: 283px;
+
+            @include windowMax1440p {
+                font-size: 14px;
+                line-height: 26px;
+            }
+        }
+    }
+
+
+    @include mobileMax952p {
+        padding: 190px 0 0 0;
+
+        .numbers-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            row-gap: 88px;
+    
+            // margin-top: 500px;
+    
+            .line {
+                display: none;
+            }
+        }
+    
+        .stat {
+            height: auto;
+            row-gap: 32px;
+    
+            &__number {
+                font-size: 64px;
+                line-height: 72px;
+            }
+            &__text {
+                max-width: 283px;
+            }
+        }
+    }
+
+
+}

@@ -1,0 +1,57 @@
+.divider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #FFFFFF;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    margin: calc((100vw - 1100px)/4) 0;
+
+    @media (min-width: 952px) and (max-width: 1100px) {
+        margin: 48px 0;
+    }
+
+    @include windowMax1280p {
+        margin: calc((100vw - 1100px)/2) 0;
+    }
+    @media (min-width: 1441px) {
+        margin: calc((100vw - 1368px)/2) 0;
+    }
+    @media (min-width: 1608px) {
+        margin: 120px 0;
+    }
+
+    .container {
+        max-width: calc(1100px + (100vw - 1100px)/2);
+        // box-sizing: border-box;
+
+        @include windowMax1280p {
+            max-width: calc(1100px);
+        }
+
+        @media (min-width: 1441px) {
+            max-width: calc(1368px);
+        }
+
+        @media (min-width: 1608px) {
+            max-width: calc(100vw - 2*120px);
+        }
+    }
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: #dadde1;
+    }
+
+    @include mobileMax952p {
+        margin: 24px 0 24px 0;
+
+        .container {
+            max-width: calc(100vw - 2*24px);
+        }
+    }
+
+}

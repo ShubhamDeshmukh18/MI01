@@ -1,0 +1,280 @@
+.casetudies-feed {
+    position: relative;
+    width: 100%;
+    height: auto;
+    // background: #0E0E13;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    // padding: 360px 0 480px 0;
+
+    .container {
+        position: relative;
+        overflow: visible;
+    }
+
+    .filters {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 64px;
+
+        margin-bottom: 80px;
+        // background-color: rebeccapurple;
+        @include windowMax1440p {
+            margin-bottom: 64px;
+        }
+
+        .filter {
+            @include body_16_500();
+            color: #798594;
+            text-decoration: none;
+            position: relative;
+
+            &:before {
+                content: " ";
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: #0E0E13;
+
+                transform: scale(0) translate(-100%, -50%);
+                top: 50%;
+                left: 20px;
+            }
+
+            @media (hover: hover) {
+                cursor: none;
+                transition: opacity 0.25s, color 0.25s;
+
+                &:before {
+                    transition: all 0.25s;
+                }
+
+                &:hover{
+                    // font-variation-settings: 'wght' 600;
+                    color: #0E0E13;
+                    &:before {
+                        transform: scale(1) translate(-50%, -50%);
+                        left: -16px;
+                    }
+                }
+            }
+
+            &.--active {
+                font-variation-settings: 'wght' 600;
+                color: #0E0E13;
+                padding-left: 16px;
+
+                &:before {
+                    transform: scale(1) translate(-50%, -50%);
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    .feeds-wrap {
+        position: relative;
+        min-height: 500px;
+
+    }
+
+    .feed {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 40px;
+        column-gap: 16px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .main-feed {
+        display: flex;
+
+        &.--absolute {
+            position: absolute;
+            top: 0;
+            @include windowMax1440p {
+                width: calc(100% - 2*48px);
+            }
+        }
+        @include windowMax1440p {
+            max-width: 1100px;
+        }
+    }
+
+    .sub-feed {
+        display: none;
+        width: 100%;
+        // background-color: rebeccapurple;
+        &.--absolute {
+            position: absolute;
+            top: 0;
+            @include windowMax1440p {
+                width: calc(100% - 2*48px);
+            }
+        }
+    }
+
+    .project {
+        display: inline;
+        position: relative;
+        height: auto;
+        // width: 445px;
+        width: calc((100% - 2*18px)/3);
+
+        text-decoration: none;
+        cursor: none;
+        
+        @include imgScaleHover();
+
+        &__img-wrap {
+            overflow: hidden;
+        }
+
+        &__img {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        &__name {
+            @include body_20_580();
+            color: #0E0E13;
+
+            margin-top: 24px;
+        }
+
+        &__description {
+            @include body_20_500();
+            color: #0E0E13;
+            opacity: 0.5;
+
+            margin-top: 4px;
+            span {
+                font-weight: 1000;
+            }
+        }
+    }
+
+
+
+
+
+    @include mobileMax952p {
+
+        // padding: 200px 0 220px 0;
+
+        .container {
+            overflow: visible;
+
+            &:nth-of-type(2) {
+                @media (min-width: 648px) {
+                    max-width: calc(100VW - 2*24px);
+                }
+            }
+        }
+
+        .scroll-wrap {
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+            left: -16px;
+            overflow: scroll;
+            box-sizing: border-box;
+
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            display: flex;
+            justify-content: center;
+
+            @include mobileMax768p {
+                // display: block;
+            }
+        }
+
+        .filters {
+            position: relative;
+            left: 16px;
+            gap: 32px;
+            width: max-content;
+            overflow: scroll;
+            width: max-content;
+            padding: 0 24px;
+
+            margin-bottom: 64px;
+            
+            .filter {
+                display: block;
+                font-size: 14px;
+                line-height: 22px;
+            }
+        }
+
+        .feed {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            row-gap: 40px;
+            column-gap: 16px;
+            width: 100%;
+        }
+
+        .main-feed {
+            position: relative;
+            // max-width: 600px;
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+
+            @media (max-width: 648px) {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                row-gap: 40px;
+            }
+        }
+
+        .project {
+            position: relative;
+            height: auto;
+
+            
+            width: calc(50% - 8px);
+            margin: 0;
+            transform: none;
+
+            @media (max-width: 648px) {
+                width: 100%;
+            }
+    
+            &__img {
+                width: 100%;
+            }
+    
+            &__name {
+                margin-top: 16px;
+            }
+    
+            &__description {
+                margin-top: 4px;
+            }
+        }
+    }
+}
